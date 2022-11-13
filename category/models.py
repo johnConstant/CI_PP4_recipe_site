@@ -16,6 +16,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField(blank=True)
     featured_image = CloudinaryField('image', default='placeholder')
+    status = models.IntegerField(choices=STATUS, default=0)
     created_date = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
 
