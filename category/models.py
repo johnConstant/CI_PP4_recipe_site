@@ -83,7 +83,7 @@ class Instruction(models.Model):
         )
 
     def __str__(self):
-        return self.title
+        return self.body
 
 
 class Ingredient(models.Model):
@@ -95,4 +95,4 @@ class Ingredient(models.Model):
         )
 
     def __str__(self):
-        return self.title
+        return self.name
