@@ -9,3 +9,21 @@ from django_summernote.admin import SummernoteModelAdmin
 class CategoryAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('description')
+
+
+@admin.register(Recipe)
+class RecipeAdmin(SummernoteModelAdmin):
+
+    summernote_fields = ('description')
+
+
+@admin.register(Ingredient)
+class IngredientAdmin(SummernoteModelAdmin):
+
+    summernote_fields = ('notes')
+
+
+@admin.register(Instruction)
+class InstructionAdmin(SummernoteModelAdmin):
+
+    summernote_fields = ('body')
