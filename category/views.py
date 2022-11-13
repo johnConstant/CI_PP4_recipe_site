@@ -7,5 +7,5 @@ from .models import Category
 class CategoryList(generic.ListView):
     model = Category
     queryset = Category.objects.filter(status=1).order_by('-created_date')
-    template_name = 'index.html'
+    template_name = 'categories.html'
     paginate_by = 6
