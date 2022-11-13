@@ -89,7 +89,7 @@ class Instruction(models.Model):
 class Ingredient(models.Model):
     amount = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=200, unique=True)
-    notes = models.TextField()
+    notes = models.TextField(blank=True)
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_ingredient'
         )
