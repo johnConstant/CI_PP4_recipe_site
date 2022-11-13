@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Recipe, Ingredient, Instruction
+from .models import Category, Recipe, Ingredient, Instruction, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -41,7 +41,7 @@ class InstructionAdmin(SummernoteModelAdmin):
 class CommentsAdmin(admin.ModelAdmin):
 
     list_filter = ('approved', 'created_date')
-    list_display = ('name', 'body', 'post', 'created_date')
+    list_display = ('name', 'body', 'recipe', 'created_date')
     search_fields = ['name', 'email', 'body']
     actions = ['approve_comments']
 
