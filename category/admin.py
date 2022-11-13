@@ -35,3 +35,15 @@ class IngredientAdmin(SummernoteModelAdmin):
 class InstructionAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('body')
+
+
+@admin.register(Comment)
+class CommentsAdmin(admin.ModelAdmin):
+
+    list_filter = ('approved', 'created_date')
+    list_display = ('name', 'body', 'post', 'created_date')
+    search_fields = ['name', 'email', 'body']
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
