@@ -14,6 +14,10 @@ class CategoryAdmin(SummernoteModelAdmin):
 @admin.register(Recipe)
 class RecipeAdmin(SummernoteModelAdmin):
 
+    prepopulated_fields = ({'slug': ('title',)})
+    list_filter = ('status', 'created_date')
+    list_display = ('title', 'status', 'created_date')
+    search_fields = ['title', 'description', 'categories']
     summernote_fields = ('description')
 
 
