@@ -38,7 +38,7 @@ class Recipe(models.Model):
     cook_time = models.IntegerField()
     prep_time = models.IntegerField()
     servings = models.IntegerField()
-    difficulty = model.IntegerField(choices=DIFFICULTY_LEVEL, default=1)
+    difficulty = models.IntegerField(choices=DIFFICULTY_LEVEL, default=1)
     author = models.ForeignKey(
         User, on_delete=models.PROTECT, related_name='recipe_author'
         )
