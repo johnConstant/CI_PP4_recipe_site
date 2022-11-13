@@ -16,17 +16,21 @@ class Recipe(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField(blank=True)
     featured_image = CloudinaryField('image', default='placeholder')
-    categories = models.ManyToManyField(User, related_name='recipe_categories', blank=True)
+    categories = models.ManyToManyField(
+        Category, related_name='recipe_categories', blank=True
+        )
     featured_recipe = models.BooleanField(default=False)
     cook_time = models.IntegerField()
     prep_time = models.IntegerField()
     servings = models.IntegerField()
     difficulty = model.IntegerField(choices=DIFFICULTY_LEVEL, default=1)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='recipe_author'
-        )  
+        User, on_delete=models.PROTECT, related_name='recipe_author'
+        )
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='recipe_likes', blank=True)
+    likes = models.ManyToManyField(
+        User, related_name='recipe_likes', blank=True
+        )
     created_date = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
 
@@ -71,3 +75,24 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+
+class Instruction(models.Model):
+    body = models.TextField(blank=False)
+    recipe = models.ForeignKey(
+        Recipe, on_delete=models.CASCADE, related_name='recipe_instruction'
+        )
+
+    def __str__(self):
+        return self.title
+
+
+class Ingredient(models.Model):
+    amount = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=200, unique=True)
+    notes = models.TextField()
+    recipe = models.ForeignKey(
+        Recipe, on_delete=models.CASCADE, related_name='recipe_ingredient'
+        )
+
+    def __str__(self):
+        return self.title
