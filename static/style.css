@@ -184,3 +184,46 @@ footer a:hover {
 .footer-links a {
     font-size: 1.4rem;
 }
+
+/* Category Tile */
+
+#categories {
+    width: 100%;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-gap: 1rem;
+}
+
+.category {
+    max-height: 15rem;
+    overflow: hidden;
+    margin: 1rem 0;
+    padding: 0;
+    position: relative;
+    padding: 1.5rem 1.5rem;
+}
+/* 
+.category:hover .category-image {
+    transform: scale(1.05);
+} */
+
+.category-image {
+    width: 100%;
+    overflow: hidden;
+    object-fit: contain;
+    object-position: center;
+    transform: scale(1);
+    transition: all 0.3s;
+}
+
+.category h4 {
+    color: white;
+    font-family: 'Vast Shadow', cursive;
+    font-size: 3.6rem;
+    text-align: center;
+    text-shadow: var(--text-shadow-dark);
+    width: 100%;
+    position: absolute;
+    top: 33%;
+}
