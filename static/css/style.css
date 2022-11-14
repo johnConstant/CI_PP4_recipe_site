@@ -247,3 +247,57 @@ footer a:hover {
     opacity: 0.8;
   }
   
+/* Card Gallery */
+
+#gallery {
+    text-align: center;
+}
+
+.gallery-container {
+    width: 70%;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 2rem;
+}
+
+/* .gallery-container div {
+    padding: 0.5rem;
+    /* box-shadow: var(--text-shadow-light); 
+} */
+
+.gallery-container img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+.card {
+    overflow: hidden;
+}
+
+.card-info {
+    padding: 2rem;
+}
+
+.card-image {
+    height: 10rem;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0% 75%);
+    transform: scale(1);
+    transition: all 0.3s;
+}
+
+.heading {
+    margin-top: 5rem;
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 2.4rem;
+    padding: 1.6rem;
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0% 100%);
+}
