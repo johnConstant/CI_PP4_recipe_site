@@ -21,3 +21,10 @@ class CategoryDetail(View):
             'category': category,
         }
         return render(request, 'category_detail.html', context)
+
+
+class CategoryAdd(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'add_category.html')
+
