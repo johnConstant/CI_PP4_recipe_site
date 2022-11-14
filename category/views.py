@@ -16,12 +16,8 @@ class CategoryDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Category.objects.filter(status=1)
         category = get_object_or_404(queryset, slug=slug)
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
 
         context = {
-            'post': post,
-            'liked': liked,
+            'category': category,
         }
         return render(request, 'category_detail.html', context)
