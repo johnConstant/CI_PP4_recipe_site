@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!-- {% if user.is_superuser %}
+<div class="btn-container container">
+    <a href="#" class="btn btn-outline-success p-5">Add Category <i class="fa fa-plus"></i></a>
+</div> 
+{% endif %} -->
 <section id="categories" class="container">
     {% for category in category_list %}
         <div class="category">
