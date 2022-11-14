@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Header Image-->
+ <header
+ id="header-image"
+ style="
+     background: url('{{ category.featured_image }}');
+     background-size: cover;
+     background-repeat: no-repeat;
+ "
+>
+ <h1>{{ category.title }}</h1>
+</header>
+<section class="cta container">
+ <div class="row">
+     <div class="col-12">
+         <h5 class="heading sub-heading">
+             We've got something for everyone from 15 minute meals to
+             Sunday roasts, we've got recipes for everyone who wants
+             to cook.
+         </h5>
+         <p>{{ category.description }}</p>
+     </div>
+ </div>
+</section>
+<section id="gallery">
+ <div class="gallery-container">
+     <div class="card">
+         <div class="row">
+             <div class="col-12">
+                 <img
+                     src="eggs.jpg"
+                     alt=""
+                     class="card-image"
+                 />
+             </div>
+         </div>
+         <div class="card-info mt-3">
+             <div class="row">
+                 <div class="recipe-title">
+                     <h4>Recipe Title</h4>
+                     <p>Author name</p>
+                     <i class="fa-regular fa-heart heart mt-4"></i>
+                     123 likes
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-sm-6 p-3 info">
+                     <i class="fa-regular fa-clock icons"></i> 120
+                     minutes
+                 </div>
+                 <div class="col-sm-6 p-3 info">
+                     <i class="fa fa-utensils icons"></i> serves 4
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</section>
+<section class="cta container">
+ <div class="row">
+     <div class="col-12">
+         <h5 class="sub-heading">
+             Can't find what you're looking for. Why not search by
+             <a href="#">category</a>
+         </h5>
+     </div>
+ </div>
+</section>
+{%endblock%}

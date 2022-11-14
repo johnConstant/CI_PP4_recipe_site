@@ -9,9 +9,11 @@
 <section id="categories" class="container">
     {% for category in category_list %}
         <div class="category">
+            <a href="{% url 'category_detail' category.slug %}">
             <div class="content-overlay"></div>
             <img src="{{ category.featured_image.url }}" alt="{{ category.title }}" class="category-image" />
             <h4>{{ category.title }}</h4>
+            </a>
         </div>
     {% endfor %}
 </section>
