@@ -192,21 +192,21 @@ footer a:hover {
     margin: 5rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-gap: 1rem;
+    grid-gap: 2.5rem;
 }
 
 .category {
     max-height: 15rem;
+    width: 100%;
+    height: 20vh;
     overflow: hidden;
-    margin: 1rem 0;
     padding: 0;
     position: relative;
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-/* 
-.category:hover .category-image {
-    transform: scale(1.05);
-} */
 
 .category-image {
     width: 100%;
@@ -226,4 +226,24 @@ footer a:hover {
     width: 100%;
     position: absolute;
     top: 33%;
+    z-index: 2;
 }
+
+.content-overlay {
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out 0s;
+    z-index: 1;
+  }
+  
+.category:hover .content-overlay{
+    opacity: 0.8;
+  }
+  

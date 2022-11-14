@@ -4,9 +4,10 @@
 <section id="categories" class="container">
     {% for category in category_list %}
         <div class="category">
+            <div class="content-overlay"></div>
             <img src="{{ category.featured_image.url }}" alt="{{ category.title }}" class="category-image" />
             <h4>{{ category.title }}</h4>
         </div>
-    </section>
     {% endfor %}
+</section>
 {%endblock%}
