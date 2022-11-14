@@ -326,3 +326,13 @@ footer a:hover {
     transform: scale(1.05);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0% 100%);
 }
+
+/* Button Container */
+
+.btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}

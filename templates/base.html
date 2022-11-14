@@ -45,7 +45,7 @@
                             <a class="nav-link" href="#">About</a>
                         </li>
                         <li class="nav-item">
-                            <a id="active" class="nav-link" href="#"
+                            <a id="active" class="nav-link" href="/categories"
                                 >Categories</a
                             >
                         </li>
@@ -54,20 +54,23 @@
                         </li>
                     </ul>
                     <div class="profile">
-                        <a class="nav-link btn btn-outline-warning" href="#"
-                            >Register</a
-                        >
-                        <a class="nav-link btn btn-outline-success" href="#"
-                            >Sign up</a
-                        >
-                        <i class="fa-solid fa-user"></i>
-                        <p>Hi, John</p>
+                    {% if user.is_authenticated %}
+                    <i class="fa-solid fa-user"></i>
+                        <p>Hi, {{ user.username }}</p>
                         <a
                             class="nav-link btn btn-outline-success signout ml-5"
                             type="submit"
                         >
                             Sign out
                         </a>
+                    {% else %}
+                        <a class="nav-link btn btn-outline-warning" href="#"
+                            >Register</a
+                        >
+                        <a class="nav-link btn btn-outline-success" href="#"
+                            >Sign up</a
+                        >
+                    {% endif %}
                     </div>
                 </div>
             </div>

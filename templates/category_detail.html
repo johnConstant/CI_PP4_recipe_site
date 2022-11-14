@@ -19,6 +19,16 @@
              to cook.
          </h5>
          <p>{{ category.description }}</p>
+         {% if user.is_superuser %}
+            <div class="btn-container">
+                <a class="nav-link btn btn-outline-warning p-4" href="#"
+                >Edit <i class="fa fa-pencil"></i></a
+            >
+                <a class="nav-link btn btn-outline-success p-4" href="#"
+                    >Delete <div class="fa fa-trash"></div></a
+                >
+            </div>
+        {% endif %}
      </div>
  </div>
 </section>
