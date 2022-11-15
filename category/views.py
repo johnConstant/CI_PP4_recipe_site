@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from .forms import CategoryForm
 from .models import Category
 
 
@@ -26,5 +27,8 @@ class CategoryDetail(View):
 class CategoryAdd(View):
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'add_category.html')
-
+        form = CategoryForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'add_category.html', context)

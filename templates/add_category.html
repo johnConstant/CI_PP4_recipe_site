@@ -6,7 +6,16 @@
         <div
             class="col-sm-8 col-md-6 col-lg-4 offset-sm-2 offset-md-3 offset-lg-4"
         >
-            <form class="p-5">
+        <form action="add" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <p>
+                    <button type="submit">Add Category</button>
+                </p>
+            </div>
+        </form>    
+        <!-- <form class="p-5">
                 <h2 class="mt-5">Add Category</h2>
                 <div class="mb-3">
                     <label
@@ -35,7 +44,7 @@
                 <button type="submit" class="btn btn-warning mt-4 p-4">
                     Submit
                 </button>
-            </form>
+            </form> -->
         </div>
     </div>
 </section>
