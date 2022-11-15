@@ -38,3 +38,5 @@ class CategoryAdd(View):
         if form.is_valid():
             form.save()
             return redirect('categories')
+        else:
+            return redirect('categories')
