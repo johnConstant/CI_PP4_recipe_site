@@ -32,3 +32,9 @@ class CategoryAdd(View):
             'form': form
         }
         return render(request, 'add_category.html', context)
+
+    def post(self, request, *args, **kwargs):
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('categories')
