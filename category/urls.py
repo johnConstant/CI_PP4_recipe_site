@@ -8,6 +8,9 @@ urlpatterns = [
         'add/', views.CategoryAdd.as_view(), name='add_category'
         ),
     path(
+        'edit/<slug>', views.CategoryUpdate.as_view(), name='add_category'
+        ),
+    path(
         '<slug:slug>/', views.CategoryDetail.as_view(), name='category_detail'
         ),
 
