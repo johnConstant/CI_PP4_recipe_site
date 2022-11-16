@@ -55,8 +55,10 @@
                     </ul>
                     <div class="profile">
                     {% if user.is_authenticated %}
-                    <i class="fa-solid fa-user"></i>
-                        <p>Hi, {{ user.username }}</p>
+                        <div class="user-info">
+                            <i class="fa-solid fa-user"></i>
+                            <p>Hi, {{ user.username }}</p>
+                        </div>
                         <a
                             href="{% url 'account_logout' %}"
                             class="nav-link btn btn-outline-success signout ml-5"

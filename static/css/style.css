@@ -119,6 +119,14 @@ button:active {
     font-weight: 400;
 }
 
+.user-info {
+    display: flex;
+}
+
+.user-info i {
+    padding-right: 1.6rem;
+}
+
 /* Header Image */
 
 #header-image {
@@ -388,6 +396,7 @@ input::file-selector-button {
 
 .signup {
     background-color: rgb(248,249,250);
+    min-height: 75vh;
 }
 
 /* Admin block */

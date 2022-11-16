@@ -37,7 +37,6 @@ class CategoryAdd(View):
 
     def post(self, request, *args, **kwargs):
         form = CategoryForm(request.POST, request.FILES)
-        # cloudinary.uploader.upload(request.FILES['featured_image'])
         form.instance.slug = slugify(request.POST['title'])
         if form.is_valid():
             form.save()
@@ -56,7 +55,7 @@ class CategoryUpdate(View):
 
     def post(self, request, slug, *args, **kwargs):
         category = get_object_or_404(Category, slug=slug)
-        form = CategoryForm(request.POST, instance=category)
+        form = CategoryForm(request.POST, request.FILES, instance=category)
         if form.is_valid():
             form.save()
             return redirect('categories')
