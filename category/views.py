@@ -40,3 +40,21 @@ class CategoryAdd(View):
         if form.is_valid():
             form.save()
             return redirect('categories')
+
+
+class CategoryUpdate(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        category = get_object_or_404(Category, slug=slug)
+        form = CategoryForm(instance=category)
+        context = {
+            'form': form
+        }
+        return render(request, 'edit_category.html', context)
+
+    def post(self, request, slug, *args, **kwargs):
+        category = get_object_or_404(Category, slug=slug)
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            return redirect('categories')
