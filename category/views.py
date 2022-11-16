@@ -36,7 +36,8 @@ class CategoryAdd(View):
         return render(request, 'add_category.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = CategoryForm(request.POST)
+        form = CategoryForm(request.POST, request.FILES)
+        # cloudinary.uploader.upload(request.FILES['featured_image'])
         form.instance.slug = slugify(request.POST['title'])
         if form.is_valid():
             form.save()
