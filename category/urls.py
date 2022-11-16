@@ -11,7 +11,9 @@ urlpatterns = [
         'edit/<slug>', views.CategoryUpdate.as_view(), name='update_category'
         ),
     path(
-        'delete/<slug>', views.CategoryDelete.as_view(), name='delete_category'
+        'delete/<id>',
+        views.CategoryDelete.as_view(),
+        name='delete_category'
         ),
     path(
         '<slug:slug>/', views.CategoryDetail.as_view(), name='category_detail'

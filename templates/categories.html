@@ -2,9 +2,10 @@
 
 {% block content %}
 {% if user.is_superuser %}
-<div class="btn-container container">
+<section class="admin-block container my-5">
+    <p>As an admin, you have the ability to add new categories. Each category can have a title, description and featured image.</p>
     <a href="/categories/add" class="btn btn-outline-success p-5">Add Category <i class="fa fa-plus"></i></a>
-</div> 
+</section> 
 {% endif %}
 <section id="categories" class="container">
     {% for category in category_list %}

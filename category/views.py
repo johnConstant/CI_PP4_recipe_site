@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from django.template.defaultfilters import slugify
 from .forms import CategoryForm
 from .models import Category
@@ -61,8 +62,19 @@ class CategoryUpdate(View):
 
 
 class CategoryDelete(View):
-
-    def post(self, request, slug, *args, **kwargs):
-        category = get_object_or_404(Category, slug=slug)
-        category.delete()
-        return redirect('categories')
+    """
+    A class view for deleting existing category
+    """
+    def post(self, request, id, **kwargs):
+        """
+        Delete a selected category
+        """
+        try:
+            category = Category.objects.get(id=id)
+            category.delete()
+            messages.success(request, "Your category has been deleted.")
+            return redirect('categories')
+        except Category.DoesNotExist:
+            messages.error(request,
+                           'An error occurred when deleting your category.')
+            return redirect('categories')
