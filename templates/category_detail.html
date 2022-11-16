@@ -21,7 +21,7 @@
          <p>{{ category.description }}</p>
          {% if user.is_superuser %}
             <div class="btn-container">
-                <a class="nav-link btn btn-outline-warning p-4" href="#"
+                <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ category.slug }}"
                 >Edit <i class="fa fa-pencil"></i></a
             >
                 <a class="nav-link btn btn-outline-success p-4" href="#"
