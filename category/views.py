@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.template.defaultfilters import slugify
 from .forms import CategoryForm
 from .models import Category
 
@@ -35,8 +36,7 @@ class CategoryAdd(View):
 
     def post(self, request, *args, **kwargs):
         form = CategoryForm(request.POST)
+        form.instance.slug = slugify(request.POST['title'])
         if form.is_valid():
             form.save()
-            return redirect('categories')
-        else:
             return redirect('categories')
