@@ -1,7 +1,11 @@
 from django.db import models
+
+# Create your models here.
+from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from category.models import Category
+
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 DIFFICULTY_LEVEL = [
@@ -32,13 +36,13 @@ class Recipe(models.Model):
         )
     created_date = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
-
+   
     class Meta:
         ordering = ['-created_date']
-
+   
     def __str__(self):
         return self.title
-
+    
     def number_of_likes(self):
         return self.likes.count()
 
@@ -52,10 +56,10 @@ class Comment(models.Model):
     body = models.TextField()
     created_date = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=0)
-
+    
     class Meta:
         ordering = ['created_date']
-
+    
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
@@ -65,7 +69,7 @@ class Instruction(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_instruction'
         )
-
+    
     def __str__(self):
         return self.body
 
@@ -77,6 +81,6 @@ class Ingredient(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_ingredient'
         )
-
+    
     def __str__(self):
         return self.name
