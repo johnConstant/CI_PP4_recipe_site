@@ -58,16 +58,17 @@
                     <i class="fa-solid fa-user"></i>
                         <p>Hi, {{ user.username }}</p>
                         <a
+                            href="{% url 'account_logout' %}"
                             class="nav-link btn btn-outline-success signout ml-5"
                             type="submit"
                         >
                             Sign out
                         </a>
                     {% else %}
-                        <a class="nav-link btn btn-outline-warning" href="#"
+                        <a class="nav-link btn btn-outline-warning" href="{% url 'account_login' %}"
                             >Register</a
                         >
-                        <a class="nav-link btn btn-outline-success" href="#"
+                        <a class="nav-link btn btn-outline-success" href="{% url 'account_signup' %}"
                             >Sign up</a
                         >
                     {% endif %}
