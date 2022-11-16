@@ -58,3 +58,11 @@ class CategoryUpdate(View):
         if form.is_valid():
             form.save()
             return redirect('categories')
+
+
+class CategoryDelete(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        category = get_object_or_404(Category, slug=slug)
+        category.delete()
+        return redirect('categories')
