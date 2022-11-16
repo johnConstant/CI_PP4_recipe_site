@@ -389,3 +389,19 @@ input::file-selector-button {
 .signup {
     background-color: rgb(248,249,250);
 }
+
+/* Admin block */
+
+.admin-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin-block p {
+    padding: 1.6rem;
+}
+
+.admin-block a {
+    font-size: 1.6rem;
+}
