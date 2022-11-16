@@ -65,11 +65,11 @@
                             Sign out
                         </a>
                     {% else %}
-                        <a class="nav-link btn btn-outline-warning" href="{% url 'account_login' %}"
+                        <a class="nav-link btn btn-outline-warning" href="{% url 'account_signup' %}"
                             >Register</a
                         >
-                        <a class="nav-link btn btn-outline-success" href="{% url 'account_signup' %}"
-                            >Sign up</a
+                        <a class="nav-link btn btn-outline-success" href="{% url 'account_login' %}"
+                            >Log in</a
                         >
                     {% endif %}
                     </div>
