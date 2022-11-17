@@ -15,8 +15,8 @@ urlpatterns = [
     #     views.CategoryDelete.as_view(),
     #     name='delete_category'
     #     ),
-    # path(
-    #     '<slug:slug>/', views.CategoryDetail.as_view(), name='recipe_detail'
-    #     ),
+    path(
+        '<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'
+        ),
 
 ]
