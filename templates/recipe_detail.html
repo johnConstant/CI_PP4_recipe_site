@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Header Image-->
+<header id="header-image" >
+    {% if "placeholder" in recipe.featured_image.url %}
+    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+    {% else %}
+    <img src="{{ recipe.featured_image.url }}" width="100%">
+    {% endif %}
+    <h1>{{ recipe.title }}</h1>
+</header>
+<section class="intro">
+    <div class="row">
+        <div class="col-sm-8 offset-2 text-center mt-5 py-5">
+            <div class="row">
+                <div class="col-sm-4 info">
+                    <i class="fa-regular fa-clock icons"></i> {{ recipe.cook_time }}
+                    minutes
+                </div>
+                <div class="col-sm-4 info">
+                    <i class="fa fa-utensils icons"></i> serves {{ recipe.servings }}
+                </div>
+                <div class="col-sm-4 info">
+                    <i class="fa-solid fa-gauge icons"></i> {{ recipe.difficulty }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 offset-1 mt-5 py-5 recipe-title">
+                    <h4 class="heading">{{ recipe.title }}</h4>
+                    <p class="sub-heading">{{ recipe.author }}</p>
+                    <i class="fa-regular fa-heart heart mt-4"></i> {{ recipe.number_of_likes }}
+                    likes
+                    <hr class="divider" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div
+                    class="col-sm-10 offset-1 mt-1 mb-5 py-5 recipe-description"
+                >
+                    {{ recipe.description }}
+                    <div class="social-sharing mt-5 pt-5">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        <i class="fa-brands fa-facebook facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <hr class="divider" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="instructions container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="ingredients m-auto">
+                <ul>
+                    <li>salt</li>
+                    <li>pepper</li>
+                    <li>454g of beef</li>
+                    <li>1 tin chopped tomates</li>
+                    <li>1 red onion, diced</li>
+                    <li>basil, freshly picked</li>
+                    <li>extra virgin olive oil</li>
+                    <li>4 cloves garlic</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="step-number"><p>1.</p></div>
+            <div class="step-info">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Corrupti rem incidunt ipsam vel cupiditate ab
+                    distinctio maxime dolorem perspiciatis quod, quos ad
+                    non, voluptatum necessitatibus aliquid error facilis
+                    earum, at neque impedit. Aliquam, praesentium
+                    blanditiis! Laboriosam quidem eaque architecto error
+                    beatae incidunt ipsam iure, totam necessitatibus
+                    inventore officia dolorem repellendus, a minus eum
+                    quam sequi. Dicta delectus amet, eius qui, voluptas
+                    soluta minima veniam rerum alias sequi, provident
+                    ullam officia.
+                </p>
+            </div>
+            <hr class="divider" />
+
+            <div class="step-number"><p>2.</p></div>
+            <div class="step-info">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Corrupti rem incidunt ipsam vel cupiditate ab
+                    distinctio maxime dolorem perspiciatis quod, quos ad
+                    non, voluptatum necessitatibus aliquid error facilis
+                    earum, at neque impedit. Aliquam, praesentium
+                    blanditiis! Laboriosam quidem eaque architecto error
+                    beatae incidunt ipsam iure, totam necessitatibus
+                    inventore officia dolorem repellendus, a minus eum
+                    quam sequi. Dicta delectus amet, eius qui, voluptas
+                    soluta minima veniam rerum alias sequi, provident
+                    ullam officia.
+                </p>
+            </div>
+            <hr class="divider" />
+
+            <div class="step-number"><p>3.</p></div>
+            <div class="step-info">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing
+                    elit. Corrupti rem incidunt ipsam vel cupiditate ab
+                    distinctio maxime dolorem perspiciatis quod, quos ad
+                    non, voluptatum necessitatibus aliquid error facilis
+                    earum, at neque impedit. Aliquam, praesentium
+                    blanditiis! Laboriosam quidem eaque architecto error
+                    beatae incidunt ipsam iure, totam necessitatibus
+                    inventore officia dolorem repellendus, a minus eum
+                    quam sequi. Dicta delectus amet, eius qui, voluptas
+                    soluta minima veniam rerum alias sequi, provident
+                    ullam officia.
+                </p>
+            </div>
+            <hr class="divider" />
+        </div>
+    </div>
+</section>
+{%endblock%}

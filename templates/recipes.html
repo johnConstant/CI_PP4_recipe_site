@@ -9,6 +9,7 @@
 {% endif %}
 <section id="recipes" class="container">
     {% for recipe in recipe_list %}
+    <a href="{% url 'recipe_detail' recipe.slug %}">
         <div class="card">
             <div class="row">
                 <div class="col-12">
@@ -39,6 +40,7 @@
                 </div>
             </div>
         </div>
+    </a>
     {% endfor %}
 </section>
 {% if is_paginated %}
