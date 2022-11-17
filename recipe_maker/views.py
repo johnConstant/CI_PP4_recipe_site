@@ -12,3 +12,15 @@ class RecipeList(generic.ListView):
     queryset = Recipe.objects.filter(status=1).order_by('-created_date')
     template_name = 'recipes.html'
     paginate_by = 12
+
+
+class RecipeDetail(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset, slug=slug)
+
+        context = {
+            'recipe': recipe,
+        }
+        return render(request, 'recipe_detail.html', context)
