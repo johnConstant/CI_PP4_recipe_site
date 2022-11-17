@@ -352,8 +352,7 @@ footer a:hover {
     color: red;
 }
 
-.servings,
-.time {
+.icons {
     color: goldenrod;
 }
 
@@ -379,6 +378,11 @@ footer a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.social-sharing i {
+    font-size: 2rem;
+
 }
 
 .facebook {
