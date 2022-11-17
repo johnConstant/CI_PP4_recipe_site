@@ -14,6 +14,7 @@ DIFFICULTY_LEVEL = [
     (2, "Advanced")
 ]
 
+
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -36,13 +37,13 @@ class Recipe(models.Model):
         )
     created_date = models.DateField(auto_now_add=True)
     last_modified = models.DateField(auto_now=True)
-   
+
     class Meta:
         ordering = ['-created_date']
-   
+
     def __str__(self):
         return self.title
-    
+
     def number_of_likes(self):
         return self.likes.count()
 
@@ -56,10 +57,10 @@ class Comment(models.Model):
     body = models.TextField()
     created_date = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=0)
-    
+
     class Meta:
         ordering = ['created_date']
-    
+
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
@@ -69,7 +70,7 @@ class Instruction(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_instruction'
         )
-    
+
     def __str__(self):
         return self.body
 
@@ -81,6 +82,6 @@ class Ingredient(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_ingredient'
         )
-    
+
     def __str__(self):
         return self.name
