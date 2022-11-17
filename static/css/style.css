@@ -362,6 +362,43 @@ footer a:hover {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0% 100%);
 }
 
+.divider {
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0)
+    );
+}
+
+.social-sharing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.facebook {
+    color: #4267b2;
+}
+
+.instagram {
+    background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+    );
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
 /* Button Container */
 
 .btn-container {
