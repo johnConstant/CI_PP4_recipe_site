@@ -9,9 +9,9 @@ from category.models import Category
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 DIFFICULTY_LEVEL = [
-    (0, 'Beginner'),
-    (1, 'Medium'),
-    (2, "Advanced")
+    ('Beginner', 'Beginner'),
+    ('Medium', 'Medium'),
+    ('Advanced', "Advanced")
 ]
 
 
@@ -27,7 +27,11 @@ class Recipe(models.Model):
     cook_time = models.IntegerField()
     prep_time = models.IntegerField()
     servings = models.IntegerField()
-    difficulty = models.IntegerField(choices=DIFFICULTY_LEVEL, default=1)
+    difficulty = models.CharField(
+        choices=DIFFICULTY_LEVEL,
+        max_length=100,
+        default='Beginner'
+        )
     author = models.ForeignKey(
         User, on_delete=models.PROTECT, related_name='recipe_author'
         )
