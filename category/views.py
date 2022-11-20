@@ -20,10 +20,11 @@ class CategoryDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Category.objects.filter(status=1)
         category = get_object_or_404(queryset, slug=slug)
-        # recipes = get_object_or_404(Recipe.objects.all(), pk=category.id)
+        recipes = Recipe.objects.filter(categories=category.id)
 
         context = {
             'category': category,
+            'recipes': recipes
         }
         return render(request, 'category_detail.html', context)
 
