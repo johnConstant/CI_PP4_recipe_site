@@ -60,6 +60,7 @@
  <div class="gallery-container">
     {% for recipe in recipes %}
      <div class="card">
+        <a href="/recipes/{{ recipe.slug }}">
          <div class="row">
              <div class="col-12">
                  <img
@@ -73,7 +74,7 @@
              <div class="row">
                  <div class="recipe-title">
                      <h4>{{ recipe.title }}</h4>
-                     <p>{{ recipe.author }}</p>
+                     <p>{{ recipe.description }}</p>
                      <i class="fa-regular fa-heart heart mt-4"></i>
                      {{ recipe.number_of_likes }} likes
                  </div>
@@ -88,6 +89,7 @@
                  </div>
              </div>
          </div>
+        </a>
      </div>
      {% endfor %}
  </div>
