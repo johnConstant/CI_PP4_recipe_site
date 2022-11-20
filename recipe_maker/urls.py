@@ -7,9 +7,9 @@ urlpatterns = [
     path(
         'add/', views.AddRecipe.as_view(), name='add_recipe'
         ),
-    # path(
-    #     'edit/<slug>', views.CategoryUpdate.as_view(), name='update_category'
-    #     ),
+    path(
+        'edit/<slug>', views.EditRecipe.as_view(), name='edit_recipe'
+        ),
     # path(
     #     'delete/<id>',
     #     views.CategoryDelete.as_view(),
