@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="signup">
+    <div class="row">
+        <div
+            class="col-sm-8 col-md-6 offset-sm-2 offset-md-3 offset-lg-4"
+        >
+        <h2 class="mt-5">Add Recipe</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ recipe_form.as_p }} 
+            <hr class="divider">
+            <h4>Add Recipe Ingredients</h4>
+            {{ ingredient_form.as_p }} 
+            <hr class="divider">
+            <h4>Add Recipe Instructions</h4>
+            {{ instruction_form.as_p }} 
+            <div>
+                <p>
+                    <button class="submit-btn mt-4" type="submit">Add Recipe <i class="fa fa-plus"></i></button>
+                </p>
+            </div>
+        </form>    
+        </div>
+    </div>
+</section>
+{%endblock%}
