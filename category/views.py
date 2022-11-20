@@ -5,13 +5,14 @@ from django.contrib import messages
 from django.template.defaultfilters import slugify
 from .forms import CategoryForm
 from .models import Category
+from recipe_maker.models import Recipe
 
 
 class CategoryList(generic.ListView):
     model = Category
     queryset = Category.objects.filter(status=1).order_by('-created_date')
     template_name = 'categories.html'
-    paginate_by = 6
+    paginate_by = 10
 
 
 class CategoryDetail(View):
@@ -19,6 +20,7 @@ class CategoryDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Category.objects.filter(status=1)
         category = get_object_or_404(queryset, slug=slug)
+        recipes = get_object_or_404(Recipe.objects.all(), pk=category.id)
 
         context = {
             'category': category,
@@ -56,6 +58,7 @@ class CategoryUpdate(View):
     def post(self, request, slug, *args, **kwargs):
         category = get_object_or_404(Category, slug=slug)
         form = CategoryForm(request.POST, request.FILES, instance=category)
+        form.instance.slug = slugify(request.POST['title'])
         if form.is_valid():
             form.save()
             return redirect('categories')
