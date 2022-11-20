@@ -10,11 +10,11 @@ urlpatterns = [
     path(
         'edit/<slug>', views.EditRecipe.as_view(), name='edit_recipe'
         ),
-    # path(
-    #     'delete/<id>',
-    #     views.CategoryDelete.as_view(),
-    #     name='delete_category'
-    #     ),
+    path(
+        'delete/<id>',
+        views.RecipeDelete.as_view(),
+        name='delete_recipe'
+        ),
     path(
         '<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'
         ),

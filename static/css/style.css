@@ -149,7 +149,7 @@ button:active {
     text-align: center;
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
     position: absolute;
-    top: 50%;
+    /* top: 50%; */
 }
 
 /* Footer */
@@ -382,7 +382,6 @@ footer a:hover {
 
 .social-sharing i {
     font-size: 2rem;
-
 }
 
 .facebook {
@@ -411,6 +410,10 @@ footer a:hover {
     justify-content: center;
     align-items: center;
     padding: 1.5rem;
+}
+
+.delete-btn:hover {
+    color:white;
 }
 
 /* Form Controls */

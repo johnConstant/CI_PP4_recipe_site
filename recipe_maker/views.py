@@ -66,10 +66,10 @@ class EditRecipe(View):
         form = RecipeForm(instance=recipe)
         context = {
             'recipe_form': form,
-            # 'instruction_form': InstructionForm(instance=recipe),
-            # 'ingredient_form': IngredientForm(instance=recipe)
+            'instruction_form': InstructionForm(instance=recipe),
+            'ingredient_form': IngredientForm(instance=recipe)
         }
-        return render(request, 'add_recipe.html', context)
+        return render(request, 'edit_recipe.html', context)
 
     # def post(self, request, slug, *args, **kwargs):
     #     recipe = get_object_or_404(Recipe, slug=slug)
@@ -93,3 +93,22 @@ class EditRecipe(View):
     #         # ingredients.save()
     #         print(recipe)
     #         return HttpResponseRedirect('/recipes/')
+
+
+class RecipeDelete(View):
+    """
+    A class view for deleting existing recipe
+    """
+    def post(self, request, id, **kwargs):
+        """
+        Delete a selected recipe
+        """
+        try:
+            recipe = Recipe.objects.get(id=id)
+            recipe.delete()
+            messages.success(request, "Your recipe has been deleted.")
+            return redirect('recipes')
+        except recipe.DoesNotExist:
+            messages.error(request,
+                           'An error occurred when deleting your recipe.')
+            return redirect('recipes')

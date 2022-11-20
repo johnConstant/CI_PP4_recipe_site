@@ -48,20 +48,20 @@
                     <hr class="divider" />
                 </div>
             </div>
-                {% if user.is_superuser %}
-        <div class="row">
+        {% if user.is_superuser %}
+            <div class="row">
             <div class="btn-container">
                 <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ recipe.slug }}"
                 >Edit <i class="fa fa-pencil"></i></a>
                         <!-- Delete confirmation modal -->
-                        <a href="#deleteModal" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-outline-danger p-4">
+                        <a href="#deleteModal" data-bs-toggle="modal" data-bs-target="#deleteModal" class="nav-link delete-btn btn btn-outline-danger p-4">
                             Delete <i class="fa-regular fa-trash-can" aria-hidden="true"></i>
                             <span class="sr-only">Delete plan</span>
                         </a>
                     </div>
                 </div>
                 <!-- Modal for deleting existing plan -->
-                <!-- <div class="modal fade py-5" id="deleteModal" tabindex="-1" aria-hidden="true">
+                <div class="modal fade py-5" id="deleteModal" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form method="post" action="{% url 'delete_recipe' recipe.id %}">
@@ -80,7 +80,7 @@
                             </form>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
         {% endif %}
