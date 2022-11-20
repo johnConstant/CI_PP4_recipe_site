@@ -29,7 +29,6 @@ class RecipeDetail(View):
 
 class AddRecipe(View):
 
-
     def get(self, request, *args, **kwargs):
         context = {
             'recipe_form': RecipeForm(),
@@ -38,9 +37,24 @@ class AddRecipe(View):
         }
         return render(request, 'add_recipe.html', context)
 
-    # def post(self, request, *args, **kwargs):
-    #     form = CategoryForm(request.POST, request.FILES)
-    #     form.instance.slug = slugify(request.POST['title'])
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('categories')
+    def post(self, request, *args, **kwargs):
+        recipe_form = RecipeForm(request.POST, request.FILES)
+        ingredient_form = RecipeForm(request.POST)
+        instruction_form = RecipeForm(request.POST)
+
+        recipe_form.instance.slug = slugify(request.POST['title'])
+        if (
+            recipe_form.is_valid() and
+            ingredient_form.is_valid() and
+            instruction_form.is_valid()
+        ):
+            recipe_form.instance.author = request.user
+            recipe = recipe_form.save()
+            instructions = instruction_form.save(False)
+            instructions.recipe = recipe
+            # instructions.save()
+            ingredients = ingredient_form.save(False)
+            ingredients.recipe = recipe
+            # ingredients.save()
+            print(recipe)
+            return HttpResponseRedirect('/recipes/')

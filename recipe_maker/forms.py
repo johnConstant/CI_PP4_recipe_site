@@ -5,7 +5,7 @@ from .models import Recipe, Ingredient, Instruction
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        exclude = ['created_date', 'last_modified', 'likes', 'author', 'slug']
+        exclude = ['created_date', 'last_modified', 'likes', 'slug']
 
 
 class InstructionForm(forms.ModelForm):
