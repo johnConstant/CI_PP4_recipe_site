@@ -20,7 +20,7 @@ class CategoryDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Category.objects.filter(status=1)
         category = get_object_or_404(queryset, slug=slug)
-        recipes = get_object_or_404(Recipe.objects.all(), pk=category.id)
+        # recipes = get_object_or_404(Recipe.objects.all(), pk=category.id)
 
         context = {
             'category': category,

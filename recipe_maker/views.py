@@ -19,7 +19,6 @@ class RecipeDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
-        recipe_form = Rec
 
         context = {
             'recipe': recipe,
@@ -58,3 +57,39 @@ class AddRecipe(View):
             # ingredients.save()
             print(recipe)
             return HttpResponseRedirect('/recipes/')
+
+
+class EditRecipe(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug)
+        form = RecipeForm(instance=recipe)
+        context = {
+            'recipe_form': form,
+            # 'instruction_form': InstructionForm(instance=recipe),
+            # 'ingredient_form': IngredientForm(instance=recipe)
+        }
+        return render(request, 'add_recipe.html', context)
+
+    # def post(self, request, slug, *args, **kwargs):
+    #     recipe = get_object_or_404(Recipe, slug=slug)
+    #     recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
+    #     ingredient_form = RecipeForm(request.POST, instance=recipe)
+    #     instruction_form = RecipeForm(request.POST, instance=recipe)
+
+    #     recipe_form.instance.slug = slugify(request.POST['title'])
+    #     if (
+    #         recipe_form.is_valid() and
+    #         ingredient_form.is_valid() and
+    #         instruction_form.is_valid()
+    #     ):
+    #         recipe_form.instance.author = request.user
+    #         recipe = recipe_form.save()
+    #         instructions = instruction_form.save(False)
+    #         instructions.recipe = recipe
+    #         # instructions.save()
+    #         ingredients = ingredient_form.save(False)
+    #         ingredients.recipe = recipe
+    #         # ingredients.save()
+    #         print(recipe)
+    #         return HttpResponseRedirect('/recipes/')
