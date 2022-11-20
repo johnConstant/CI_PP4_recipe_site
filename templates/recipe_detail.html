@@ -48,6 +48,42 @@
                     <hr class="divider" />
                 </div>
             </div>
+                {% if user.is_superuser %}
+        <div class="row">
+            <div class="btn-container">
+                <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ recipe.slug }}"
+                >Edit <i class="fa fa-pencil"></i></a>
+                        <!-- Delete confirmation modal -->
+                        <a href="#deleteModal" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-outline-danger p-4">
+                            Delete <i class="fa-regular fa-trash-can" aria-hidden="true"></i>
+                            <span class="sr-only">Delete plan</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Modal for deleting existing plan -->
+                <!-- <div class="modal fade py-5" id="deleteModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form method="post" action="{% url 'delete_recipe' recipe.id %}">
+                                {% csrf_token %}
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete {{ recipe.title }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                <div class="modal-body py-4 d-flex justify-content-center">
+                                    Are you sure you want to delete this recipe?
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <button type="button" class="btn btn-secondary p-3" data-bs-dismiss="modal">Cancel <i class="fa-solid fa-xmark"></i></button>
+                                    <button type="submit" class="btn btn-danger p-3">Delete <i class="fa fa-trash"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        {% endif %}
         </div>
     </div>
 </section>
