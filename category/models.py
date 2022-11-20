@@ -16,6 +16,7 @@ class Category(models.Model):
     last_modified = models.DateField(auto_now=True)
 
     class Meta:
+        verbose_name_plural = "categories"
         ordering = ['-created_date']
 
     def __str__(self):
