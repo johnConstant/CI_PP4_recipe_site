@@ -22,6 +22,9 @@ class RecipeDetail(View):
         ingredients_list = Ingredient.objects.filter(recipe=recipe)
         instructions_list = Instruction.objects.filter(recipe=recipe)
         comments = recipe.comments.filter(approved=True).order_by('created_date')
+        liked = False
+        if recipe.likes.filter(id=self.request.user.id).exists():
+            liked = True
 
         context = {
             'recipe': recipe,
@@ -30,6 +33,7 @@ class RecipeDetail(View):
             'comment_form': CommentForm(),
             'comments': comments,
             'commented': False,
+            'liked': liked
         }
         return render(request, 'recipe_detail.html', context)
 
@@ -39,6 +43,9 @@ class RecipeDetail(View):
         ingredients_list = Ingredient.objects.filter(recipe=recipe)
         instructions_list = Instruction.objects.filter(recipe=recipe)
         comments = recipe.comments.filter(approved=True).order_by('created_date')
+        liked = False
+        if recipe.likes.filter(id=self.request.user.id).exists():
+            liked = True
 
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -57,6 +64,7 @@ class RecipeDetail(View):
             'comment_form': CommentForm(),
             'comments': comments,
             'commented': False,
+            'liked': liked
         }
         return render(request, 'recipe_detail.html', context)
 
@@ -118,28 +126,28 @@ class EditRecipe(View):
         }
         return render(request, 'edit_recipe.html', context)
 
-    # def post(self, request, slug, *args, **kwargs):
-    #     recipe = get_object_or_404(Recipe, slug=slug)
-    #     recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
-    #     ingredient_form = RecipeForm(request.POST, instance=recipe)
-    #     instruction_form = RecipeForm(request.POST, instance=recipe)
+    def post(self, request, slug, *args, **kwargs):
+        recipe = get_object_or_404(Recipe, slug=slug)
+        recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        ingredient_form = RecipeForm(request.POST, instance=recipe)
+        instruction_form = RecipeForm(request.POST, instance=recipe)
 
-    #     recipe_form.instance.slug = slugify(request.POST['title'])
-    #     if (
-    #         recipe_form.is_valid() and
-    #         ingredient_form.is_valid() and
-    #         instruction_form.is_valid()
-    #     ):
-    #         recipe_form.instance.author = request.user
-    #         recipe = recipe_form.save()
-    #         instructions = instruction_form.save(False)
-    #         instructions.recipe = recipe
-    #         # instructions.save()
-    #         ingredients = ingredient_form.save(False)
-    #         ingredients.recipe = recipe
-    #         # ingredients.save()
-    #         print(recipe)
-    #         return HttpResponseRedirect('/recipes/')
+        recipe_form.instance.slug = slugify(request.POST['title'])
+        if (
+            recipe_form.is_valid() and
+            ingredient_form.is_valid() and
+            instruction_form.is_valid()
+        ):
+            recipe_form.instance.author = request.user
+            recipe = recipe_form.save()
+            instructions = instruction_form.save(False)
+            instructions.recipe = recipe
+            # instructions.save()
+            ingredients = ingredient_form.save(False)
+            ingredients.recipe = recipe
+            # ingredients.save()
+            print(recipe)
+            return HttpResponseRedirect('/recipes/')
 
 
 class RecipeDelete(View):
