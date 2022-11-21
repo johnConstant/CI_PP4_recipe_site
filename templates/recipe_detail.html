@@ -12,21 +12,9 @@
 </header>
 <section class="intro">
     <div class="row">
-        <div class="col-sm-8 offset-2 text-center mt-5 py-5">
+        <div class="col-sm-8 offset-2 text-center py-5">
             <div class="row">
-                <div class="col-sm-4 info">
-                    <i class="fa-regular fa-clock icons"></i> {{ recipe.cook_time }}
-                    minutes
-                </div>
-                <div class="col-sm-4 info">
-                    <i class="fa fa-utensils icons"></i> serves {{ recipe.servings }}
-                </div>
-                <div class="col-sm-4 info">
-                    <i class="fa-solid fa-gauge icons"></i> {{ recipe.difficulty }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-10 offset-1 mt-5 py-5 recipe-title">
+                <div class="col-sm-10 offset-1 py-5 recipe-title">
                     <h4 class="heading">{{ recipe.title }}</h4>
                     <p class="sub-heading">{{ recipe.author }}</p>
                     <strong>
@@ -34,7 +22,7 @@
                         <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
                             {% csrf_token %}
                             {% if liked %}
-                            <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                            <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="fa-solid fa-heart liked"></i></button>
                             {% else %}
                             <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
                             {% endif %}
@@ -52,6 +40,18 @@
                     <!-- The number of likes goes before the closing strong tag -->
                     <span class="text-secondary">{{ post.number_of_likes }} </span>
                     </strong>
+                    <div class="row mt-5">
+                        <div class="col-sm-4 info">
+                            <i class="fa-regular fa-clock icons"></i> {{ recipe.cook_time }}
+                            minutes
+                        </div>
+                        <div class="col-sm-4 info">
+                            <i class="fa fa-utensils icons"></i> serves {{ recipe.servings }}
+                        </div>
+                        <div class="col-sm-4 info">
+                            <i class="fa-solid fa-gauge icons"></i> {{ recipe.difficulty }}
+                        </div>
+                    </div>
                     <hr class="divider" />
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     <hr class="divider" />
                 </div>
             </div>
-        {% if user.is_superuser %}
+        {% if recipe.author.id == user.id %}
             <div class="row">
             <div class="btn-container">
                 <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ recipe.slug }}"
@@ -130,14 +130,14 @@
         </div>
     </div>
 </section>
-<section class="comments">
+<section class="comments container">
     <div class="row">
         <div class="col">
             <hr>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col-md-8 mb-4  mt-3 ">
             <h3>Comments:</h3>
             <div class="card-body">
                 <!-- We want a for loop inside the tags to iterate through each comment in comments -->

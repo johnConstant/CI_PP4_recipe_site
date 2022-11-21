@@ -10,7 +10,7 @@
 <section id="recipes" class="container">
     {% for recipe in recipe_list %}
     <a href="{% url 'recipe_detail' recipe.slug %}">
-        <div class="card">
+        <div class="card col-10 offset-1 offset-sm-0 col-sm-12">
             <div class="row">
                 <div class="col-12">
                     <img

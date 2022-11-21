@@ -12,14 +12,14 @@
 </header>
 <section class="cta container">
  <div class="row">
-     <div class="col-12">
-         <h5 class="heading sub-heading">
+     <div class="col-sm-8 offset-sm-2">
+         <h5 class="heading sub-heading text-center">
              We've got something for everyone from 15 minute meals to
              Sunday roasts, we've got recipes for everyone who wants
              to cook.
          </h5>
          <p class="text-center">{{ category.description }}</p>
-         {% if user.is_superuser %}
+         {% if recipe.author.id == user.id %}
             <div class="btn-container">
                 <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ category.slug }}"
                 >Edit <i class="fa fa-pencil"></i></a>
@@ -96,10 +96,10 @@
 </section>
 <section class="cta container">
  <div class="row">
-     <div class="col-12">
-         <h5 class="sub-heading">
-             Can't find what you're looking for. Why not search by
-             <a href="#">category</a>
+     <div class="col-sm-8 offset-sm-2">
+         <h5 class="sub-heading text-center">
+             Not sure what you are looking for? Check out all of our
+             <a href="/recipes">recipes</a> for some inspiration
          </h5>
      </div>
  </div>

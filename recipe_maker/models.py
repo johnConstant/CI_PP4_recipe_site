@@ -9,9 +9,9 @@ from category.models import Category
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 DIFFICULTY_LEVEL = [
-    ('Beginner', 'Beginner'),
-    ('Medium', 'Medium'),
-    ('Advanced', "Advanced")
+    ('Beginner', 'beginner'),
+    ('Medium', 'medium'),
+    ('Advanced', 'advanced')
 ]
 
 
@@ -51,12 +51,15 @@ class Recipe(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+    def total_time(self):
+        return self.prep_time + self.cook_time
+
 
 class Comment(models.Model):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='comments'
         )
-    name = models.CharField(max_length=80, unique=True)
+    name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
     created_date = models.DateField(auto_now_add=True)
