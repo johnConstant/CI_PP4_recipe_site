@@ -3,8 +3,8 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.template.defaultfilters import slugify
-from .forms import RecipeForm, IngredientForm, InstructionForm
-from .models import Recipe
+from .forms import RecipeForm, IngredientForm, InstructionForm, CommentForm
+from .models import Recipe, Ingredient, Instruction
 
 
 class RecipeList(generic.ListView):
@@ -19,9 +19,44 @@ class RecipeDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
+        ingredients_list = Ingredient.objects.filter(recipe=recipe)
+        instructions_list = Instruction.objects.filter(recipe=recipe)
+        comments = recipe.comments.filter(approved=True).order_by('created_date')
 
         context = {
             'recipe': recipe,
+            'ingredients_list': ingredients_list,
+            'instructions_list': instructions_list,
+            'comment_form': CommentForm(),
+            'comments': comments,
+            'commented': False,
+        }
+        return render(request, 'recipe_detail.html', context)
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Recipe.objects.filter(status=1)
+        recipe = get_object_or_404(queryset, slug=slug)
+        ingredients_list = Ingredient.objects.filter(recipe=recipe)
+        instructions_list = Instruction.objects.filter(recipe=recipe)
+        comments = recipe.comments.filter(approved=True).order_by('created_date')
+
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.recipe = recipe
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+        context = {
+            'recipe': recipe,
+            'ingredients_list': ingredients_list,
+            'instructions_list': instructions_list,
+            'comment_form': CommentForm(),
+            'comments': comments,
+            'commented': False,
         }
         return render(request, 'recipe_detail.html', context)
 
