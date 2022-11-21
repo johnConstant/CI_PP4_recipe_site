@@ -8,13 +8,14 @@ urlpatterns = [
         'add/', views.AddRecipe.as_view(), name='add_recipe'
         ),
     path(
-        'edit/<slug>', views.EditRecipe.as_view(), name='edit_recipe'
+        'edit/<slug:slug>', views.EditRecipe.as_view(), name='edit_recipe'
         ),
     path(
         'delete/<id>',
         views.RecipeDelete.as_view(),
         name='delete_recipe'
         ),
+    path('like/<slug:slug>', views.RecipeLike.as_view(), name='recipe_like'),
     path(
         '<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'
         ),

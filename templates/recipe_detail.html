@@ -29,8 +29,29 @@
                 <div class="col-sm-10 offset-1 mt-5 py-5 recipe-title">
                     <h4 class="heading">{{ recipe.title }}</h4>
                     <p class="sub-heading">{{ recipe.author }}</p>
-                    <i class="fa-regular fa-heart heart mt-4"></i> {{ recipe.number_of_likes }}
-                    likes
+                    <strong>
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                            <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                            {% else %}
+                            <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                            {% endif %}
+                            {% if recipe.number_of_likes == 0%}
+                                Be the first to like this recipe
+                            {% elif recipe.number_of_likes == 1 %}
+                                {{ recipe.number_of_likes }} like
+                            {% else %}
+                                {{ recipe.number_of_likes }} likes
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <span class="text-secondary"><i class="far fa-heart"></i></span>
+                        {% endif %}
+                    <!-- The number of likes goes before the closing strong tag -->
+                    <span class="text-secondary">{{ post.number_of_likes }} </span>
+                    </strong>
                     <hr class="divider" />
                 </div>
             </div>
