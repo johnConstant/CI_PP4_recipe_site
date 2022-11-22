@@ -41,15 +41,23 @@
                     <span class="text-secondary">{{ post.number_of_likes }} </span>
                     </strong>
                     <div class="row mt-5">
-                        <div class="col-sm-4 info">
-                            <i class="fa-regular fa-clock icons"></i> {{ recipe.cook_time }}
-                            minutes
-                        </div>
-                        <div class="col-sm-4 info">
+                        <div class="col-sm-6 info">
                             <i class="fa fa-utensils icons"></i> serves {{ recipe.servings }}
                         </div>
-                        <div class="col-sm-4 info">
+                        <div class="col-sm-6 info">
                             <i class="fa-solid fa-gauge icons"></i> {{ recipe.difficulty }}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12 info">
+                            <i class="fa-regular fa-clock icons"></i> Prep time: {{ recipe.prep_time }}
+                            minutes
+                        </div>
+                    </div>
+                    <div class="row mt-5">    
+                        <div class="col-12 info">
+                            <i class="fa-regular fa-clock icons"></i> Cooking time: {{ recipe.cook_time }}
+                            minutes
                         </div>
                     </div>
                     <hr class="divider" />
@@ -111,7 +119,7 @@
 <section class="instructions container">
     <div class="row">
         <div class="col-md-4">
-            <div class="ingredients m-auto">
+            <div class="ingredients m-auto pb-5">
                 <ul>
                     {% for ingredient in ingredients_list %}
                     <li>{{ ingredient.amount }} {{ ingredient.name }}, {{ ingredient.notes }}</li>
