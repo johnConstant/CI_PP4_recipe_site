@@ -22,9 +22,9 @@
                         <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
                             {% csrf_token %}
                             {% if liked %}
-                            <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="fa-solid fa-heart liked"></i></button>
+                                <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="fa-solid fa-heart liked"></i></button>
                             {% else %}
-                            <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
                             {% endif %}
                             {% if recipe.number_of_likes == 0%}
                                 Be the first to like this recipe
@@ -37,7 +37,6 @@
                         {% else %}
                         <span class="text-secondary"><i class="far fa-heart"></i></span>
                         {% endif %}
-                    <!-- The number of likes goes before the closing strong tag -->
                     <span class="text-secondary">{{ post.number_of_likes }} </span>
                     </strong>
                     <div class="row mt-5">
@@ -63,11 +62,8 @@
                     <hr class="divider" />
                 </div>
             </div>
-            
             <div class="row">
-                <div
-                    class="col-sm-10 offset-1 mt-1 mb-5 py-5 recipe-description"
-                >
+                <div class="col-sm-10 offset-1 mt-1 mb-5 py-5 recipe-description">
                     {{ recipe.description }}
                     <div class="social-sharing mt-5 pt-5">
                         <i class="fa-solid fa-share-nodes"></i>
@@ -89,7 +85,7 @@
                         </a>
                     </div>
                 </div>
-                <!-- Modal for deleting existing plan -->
+                <!-- Modal for deleting recipe -->
                 <div class="modal fade py-5" id="deleteModal" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -140,51 +136,47 @@
 </section>
 <section class="comments container">
     <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- We want a for loop inside the tags to iterate through each comment in comments -->
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
-                            {{ comment.created_date }}
-                        </span> wrote:
-                    </p>
-                    <!-- The body of the comment goes before the | -->
-                    {{ comment.body | linebreaks }}
-                </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
-            </div>
-        </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                <!-- For later -->
-                {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval
-                </div>
-                {% else %}
+        <div class="col-md-8 offset-md-2">
+            <div class="row">
                 {% if user.is_authenticated %}
-
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
+                <div class="col-md-7 mb-4  mt-3 ">
+                {% else %}
+                <div class="col-md-12 mb-4  mt-3 ">
                 {% endif %}
-                {% endif %}
+                    <h3>Comments:</h3>
+                    <div class="card-body">
+                        {% for comment in comments %}
+                        <div class="comments" style="padding: 10px;">
+                            <p class="font-weight-bold">{{ comment.name }}
+                                <span class=" text-muted font-weight-normal">
+                                    {{ comment.created_date }}
+                                </span> wrote:
+                            </p>
+                            {{ comment.body | linebreaks }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-5 card mb-4  mt-3 ">
+                    <div class="card-body">
+                        {% if commented %}
+                        <div class="alert alert-success" role="alert">
+                            Your comment is awaiting approval
+                        </div>
+                        {% else %}
+                        {% if user.is_authenticated %}
+        
+                        <h3>Leave a comment:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form method="post" class="comments" style="margin-top: 1.3em;">
+                            {{ comment_form }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        </form>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -300,6 +300,10 @@ footer a:hover {
     font-size: 2rem;
     font-weight: 700;
 }
+
+.comments textarea {
+    width: 100%;
+}
   
 /* Card Gallery */
 
@@ -500,4 +504,216 @@ input::file-selector-button {
 
 .admin-block a {
     font-size: 1.6rem;
+}
+
+/* Home Page */
+/* Carousel styles */
+
+.carousel {
+	max-height: 75vh;
+}
+
+.carousel-item {
+	height: 75vh;
+}
+
+.carousel h2 {
+	font-family: 'Vast Shadow', serif;
+	font-size: 7rem;
+	text-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+    color: white;
+}
+
+.carousel-caption {
+	bottom: 38%;
+}
+
+/* Intro section */
+
+.intro {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	justify-content: space-between;
+	align-items: center;
+}
+
+.intro img {
+	width: 100%;
+	padding: 1rem;
+}
+
+.main-panel {
+	grid-row: span 2;
+}
+
+.side-panels {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Categories Section */
+
+.card-container {
+	width: 80%;
+	margin: 2rem auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-gap: 2rem;
+	/* color: white; */
+}
+
+.card-container img {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+
+.card-container i {
+	font-size: 10rem;
+	text-align: center;
+	padding: 2rem;
+}
+
+.card-container .card {
+	border: 0;
+}
+
+/* Heroes */
+
+.wrapper {
+	display: grid;
+	grid-gap: 2rem;
+}
+
+.hero img,
+.cta img {
+	max-width: 100%;
+	height: 100%;
+}
+
+.top {
+	display: grid;
+	grid-gap: 2rem;
+	grid-template-areas:
+		'hero hero cta1'
+		'hero hero cta2';
+}
+
+.hero {
+	grid-area: hero;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+    padding: 1.6rem;
+}
+
+.cta {
+	font-size: 2.4rem;
+	text-align: center;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.cta1 {
+	grid-template-areas: cta1;
+}
+
+.cta2 {
+	grid-template-areas: cta2;
+}
+
+/* Sign up */
+
+/* Udemy Advanced CSS by Jonas Schmedtmann */
+#sign-up {
+	width: 80%;
+	min-height: 50rem;
+	margin: 5rem auto;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: right bottom;
+	border-radius: 0.5rem;
+	box-shadow: 0 3rem 6rem rgb(0 0 0 / 30%);
+
+	display: grid;
+	align-items: center;
+}
+
+#sign-up {
+	background-image: linear-gradient(
+			105deg,
+			rgba(255, 255, 255, 0.9) 0%,
+			rgba(255, 255, 255, 0.8) 50%,
+			transparent 50%
+		),
+		url('../images/empanadas.jpg');
+}
+
+#sign-up form {
+	width: 50%;
+	margin: 5rem;
+}
+
+#sign-up form p {
+	width: 80%;
+}
+
+#sign-up form > * {
+	margin-bottom: 2.5rem;
+}
+
+#sign-up input,
+#sign-up textarea {
+	font-size: 1.5rem;
+	font-family: inherit;
+	color: inherit;
+	padding: 1.5rem 2rem;
+	margin-bottom: 2.4rem;
+	border-radius: 0.3rem;
+	border: none;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-bottom: 3px solid transparent;
+	width: 80%;
+	display: block;
+	transition: all 0.3s;
+}
+
+#sign-up input:focus,
+#sign-up textarea:focus {
+	outline: none;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+	border-bottom: 3px solid var(--orange);
+}
+
+/* https://css-tricks.com/html-inputs-and-labels-a-love-story/ */
+#sign-up .hidden-label {
+	border-width: 0 !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	white-space: nowrap !important;
+	width: 1px !important;
+}
+
+/* Media Queries */
+
+@media (max-width: 960px) {
+	.top {
+		grid-template-areas:
+			'hero hero'
+			'cta1 cta2';
+	}
+}
+
+@media (max-width: 640px) {
+	.top {
+		grid-template-areas:
+			'hero'
+			'cta1'
+			'cta2';
+	}
 }
