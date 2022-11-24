@@ -8,6 +8,23 @@
     <h1>Search Results</h1>
 </header>
 <section id="gallery">
+    {% if object_list.count == 0 %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="my-5 heading">Sorry but we couldn't find any results. Please try another search term.</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <form action="{% url 'search_results' %}" method="get" class="d-flex search" role="search">
+                    <input name="q" type="text"  class="form-control me-2 search-input" type="search" placeholder="Type your search term and hit enter" aria-label="Search">
+                    <!-- <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass p-3 search-btn"></i></button> -->
+                  </form>
+            </div>
+        </div>
+        </div>
+    {% endif %}
  <div class="gallery-container">
     {% for recipe in object_list %}
      <div class="card">
@@ -43,6 +60,8 @@
         </a>
      </div>
      {% endfor %}
+     <div></div>
+     <div></div>
  </div>
 </section>
 
