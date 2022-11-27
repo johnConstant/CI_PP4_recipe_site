@@ -8,25 +8,22 @@
 {% block content %}
 <section class="signup">
   <div class="row">
-      <div
-          class="col-sm-8 col-md-6 offset-sm-2 offset-md-3 offset-lg-4"
-      >
-        <h1>{% trans "Sign Up" %}</h1>
-
-        <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-          {% csrf_token %}
-          {{ form.as_p }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <button class="submit-btn" type="submit">{% trans "Sign Up" %} &raquo;</button>
-        </form>
-        <a href="{% provider_login_url 'facebook' method='oauth2' %}">Sign up with facebook</a>
-        <a href="{% provider_login_url 'github' %}">Sign Up <i class="fa fa-solid-github"></i> </a>
-        </div>
+    <div class="col-sm-8 col-md-6 offset-sm-2 offset-md-3">
+      <h1>{% trans "Sign Up" %}</h1>
+      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="submit-btn" type="submit">{% trans "Sign Up" %} &raquo;</button>
+      </form>
+      <a class="btn btn-primary p-3 m-3 d-block btn-lg" href="{% provider_login_url 'facebook' method='oauth2' %}">Sign up with facebook <i class="fa-brands fa-facebook"></i></a>
+      <a class="btn btn-light p-3 m-3 d-block btn-lg" href="{% provider_login_url 'github' %}">Sign Up with GitHub <i class="fa-brands fa-github"></i> </a>
+      <a class="btn btn-warning p-3 m-3 d-block btn-lg" href="{% provider_login_url 'instagram' %}">Sign Up with Instagram <i class="fa-brands fa-instagram"></i> </a>
     </div>
+  </div>
 </section>
 
 {% endblock %}

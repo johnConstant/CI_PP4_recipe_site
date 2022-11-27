@@ -8,7 +8,10 @@ from recipe_maker.models import Recipe
 class HomePage(View):
 
     def get(self, request, *args, **kwargs):
-        featured_recipes = Recipe.objects.filter(featured_recipe=True).order_by('last_modified')[:5]
+        featured_recipes = (
+            Recipe.objects.filter(featured_recipe=True)
+            .order_by('last_modified')[:5]
+        )
         most_popular = Recipe.objects.all().order_by('likes')[:3]
 
         context = {

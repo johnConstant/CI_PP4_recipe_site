@@ -494,6 +494,9 @@ input::file-selector-button {
     min-height: 75vh;
 }
 
+.signup input {
+    width: 100%;
+}
 /* Admin block */
 
 .admin-block {
@@ -743,7 +746,6 @@ input::file-selector-button {
     border-bottom-right-radius: 2rem;
     transition: all 0.3s;
 }
-  
 
 /* Media Queries */
 
