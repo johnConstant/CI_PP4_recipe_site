@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
@@ -60,6 +61,7 @@ class CategoryUpdate(View):
         category = get_object_or_404(Category, slug=slug)
         form = CategoryForm(request.POST, request.FILES, instance=category)
         form.instance.slug = slugify(request.POST['title'])
+        form.instance.last_modifed = datetime.date.today()
         if form.is_valid():
             form.save()
             return redirect('categories')
