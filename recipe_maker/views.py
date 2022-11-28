@@ -3,6 +3,8 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.template.defaultfilters import slugify
+from django.forms import formset_factory
+
 from .forms import RecipeForm, IngredientForm, InstructionForm, CommentForm
 from .models import Recipe, Ingredient, Instruction
 
@@ -84,6 +86,13 @@ class RecipeLike(View):
 class AddRecipe(View):
 
     def get(self, request, *args, **kwargs):
+        # Ingredient_formset = formset_factory(
+        #     IngredientForm, extra=10, validate_min=True
+        #     )
+        # Instruction_formset = formset_factory(
+        #     InstructionForm, extra=10, validate_min=True
+        #     )
+
         context = {
             'recipe_form': RecipeForm(),
             'instruction_form': InstructionForm(),
@@ -93,25 +102,48 @@ class AddRecipe(View):
 
     def post(self, request, *args, **kwargs):
         recipe_form = RecipeForm(request.POST, request.FILES)
-        ingredient_form = RecipeForm(request.POST)
-        instruction_form = RecipeForm(request.POST)
+        # Ingredient_formset = formset_factory(
+        #     IngredientForm, extra=10, validate_min=True
+        # )
+        # Instruction_formset = formset_factory(
+        #     InstructionForm, extra=10, validate_min=True
+        #     )
+
+        # ingredient_formset = Ingredient_formset(
+        #     request.POST, request.FILES, prefix='ingredients'
+        #     )
+        # instruction_formset = Instruction_formset(
+        #     request.POST, request.FILES, prefix='instructions'
+        #     )
+        ingredient_form = IngredientForm(request.POST)
+        instruction_form = InstructionForm(request.POST)
 
         recipe_form.instance.slug = slugify(request.POST['title'])
+
         if (
             recipe_form.is_valid() and
             ingredient_form.is_valid() and
             instruction_form.is_valid()
         ):
-            recipe_form.instance.author = request.user
-            recipe = recipe_form.save()
-            instructions = instruction_form.save(False)
-            instructions.recipe = recipe
-            # instructions.save()
-            ingredients = ingredient_form.save(False)
-            ingredients.recipe = recipe
-            # ingredients.save()
-            print(recipe)
-            return HttpResponseRedirect('/recipes/')
+            try:
+                recipe_form.instance.author = request.user
+                recipe = recipe_form.save()
+
+                instructions = instruction_form.save(False)
+                instructions.recipe = recipe
+                instructions.save()
+
+                ingredients = ingredient_form.save(False)
+                ingredients.recipe = recipe
+                ingredients.save()
+
+                print(ingredients.name, ingredients.amount, ingredients.notes)
+                return HttpResponseRedirect('/recipes/')
+
+            except recipe.DoesNotExist:
+                messages.error(request, 'An error occurred adding your recipe')
+                return HttpResponseRedirect('/recipes/')
+        # return HttpResponseRedirect('/')
 
 
 class EditRecipe(View):

@@ -27,7 +27,7 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     color: var(--grey);
-    background-color: var(--light-bg);
+    background-color: #f8f9fa;
     min-height: 100%;
 }
 
@@ -61,6 +61,14 @@ label {
     padding: 0.5rem 0;
 }
 
+input[type='checkbox'] {
+    width:auto !important;
+}
+
+input[type='checkbox']:focus {
+    box-shadow: none;
+}
+
 button {
     border: 0;
     padding: 1.6rem 3.2rem 1.6rem 3.2rem;
@@ -75,6 +83,10 @@ button {
     border: 2px solid var(--primary-colour);
     transform: translateX(0);
     transition: all 0.3s ease-in;
+}
+
+.btn {
+    font-size: 1.6rem;
 }
 
 button:hover {
@@ -456,7 +468,7 @@ select {
     padding: 1.5rem 2rem;
     margin-bottom: 2.4rem;
     border-radius: 0.3rem;
-    border: none;
+    border: 1px solid #ddd;
     background-color: rgba(255, 255, 255, 1);
     border-bottom: 3px solid transparent;
     width: 80%;
@@ -521,6 +533,41 @@ input::file-selector-button {
         #d6249f 60%,
         #285aeb 90%
     );
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.instagram-btn:hover {
+    box-shadow: none;
+}
+
+.add-recipe input,
+.add-recipe textarea {
+    width: 100%;
+}
+
+.add-ingredient p {
+    display: inline;
+}
+
+.add-ingredient label {
+    display: inline-block;
+}
+
+.add-ingredient input {
+    display: inline-block;
+    width: 15%;
+    border: 1px solid #ddd;
+}
+
+.add-ingredient textarea {
+    display: inline-block;
+    width: 40%;
+    height: 6rem;
+    border: 1px solid #ddd;
+    position: relative;
+    top: 2.4rem;
+    margin-bottom: 0;
 }
 
 /* Admin block */
