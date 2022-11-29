@@ -6,7 +6,9 @@ from recipe_maker.models import Recipe
 
 # Create your views here.
 class HomePage(View):
-
+    """
+    A class for the Home page view
+    """
     def get(self, request, *args, **kwargs):
         featured_recipes = (
             Recipe.objects.filter(featured_recipe=True)
@@ -22,6 +24,9 @@ class HomePage(View):
 
 
 class SearchResults(generic.ListView):
+    """
+    A class for the Search results page view
+    """
     model = Recipe
     template_name = "search_results.html"
 
