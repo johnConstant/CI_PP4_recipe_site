@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
 
@@ -98,6 +99,14 @@ TEMPLATES = [
         },
     },
 ]
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.WARNING: 'alert-warning',
+    messages.SUCCESS: 'alert-success',
+    messages.ERROR: 'alert-danger'
+}
 
 WSGI_APPLICATION = 'recipes.wsgi.application'
 
