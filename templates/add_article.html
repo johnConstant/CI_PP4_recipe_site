@@ -6,13 +6,13 @@
         <div
             class="col-sm-8 col-md-6 offset-sm-2 offset-md-3"
         >
-        <h2 class="mt-5">Edit Article</h2>
+        <h2 class="mt-5">Add Article</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }} 
             <div>
                 <p>
-                    <button class="submit-btn mt-4" type="submit">Update Article <i class="fa fa-pencil"></i></button>
+                    <button class="submit-btn mt-4" type="submit">Add Article <i class="fa fa-plus"></i></button>
                 </p>
             </div>
         </form>    

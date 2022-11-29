@@ -18,7 +18,7 @@
                     <h4 class="heading">{{ article.title }}</h4>
                     <p class="sub-heading">{{ article.author }}</p>
                     <strong>
-                        <!-- {% if user.is_authenticated %}
+                        {% if user.is_authenticated %}
                         <form class="d-inline" action="{% url 'article_like' article.slug %}" method="POST">
                             {% csrf_token %}
                             {% if liked %}
@@ -36,27 +36,20 @@
                         </form>
                         {% else %}
                         <span class="text-secondary"><i class="far fa-heart"></i></span>
-                        {% endif %} -->
-                    <span class="text-secondary">{{ post.number_of_likes }} </span>
+                        {% endif %}
                     </strong>
                     <hr class="divider" />
                 </div>
             </div>
+            {% if article.author.id == user.id %}
             <div class="row">
-                <div class="col-sm-10 offset-1 mt-1 mb-5 py-5 article-description">
-                    {{ article.content }}
-                    <hr class="divider" />
-                </div>
-            </div>
-        {% if article.author.id == user.id %}
-            <div class="row">
-            <div class="btn-container">
+                <div class="btn-container">
                 <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ article.slug }}"
                 >Edit <i class="fa fa-pencil"></i></a>
                         <!-- Delete confirmation modal -->
                         <a href="#deleteModal" data-bs-toggle="modal" data-bs-target="#deleteModal" class="nav-link delete-btn btn btn-outline-danger p-4">
                             Delete <i class="fa-regular fa-trash-can" aria-hidden="true"></i>
-                            <span class="sr-only">Delete plan</span>
+                            <span class="sr-only">Delete article</span>
                         </a>
                     </div>
                 </div>
@@ -82,8 +75,13 @@
                     </div>
                 </div>
             </div>
-        </div>
         {% endif %}
+            <div class="row">
+                <div class="col-sm-10 offset-1 mt-1 mb-5 py-5 article-description">
+                    {{ article.content }}
+                    <hr class="divider" />
+                </div>
+            </div>
         </div>
     </div>
 </section>
