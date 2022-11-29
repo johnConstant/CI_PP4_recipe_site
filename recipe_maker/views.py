@@ -130,7 +130,7 @@ class AddRecipe(View):
                 ingredients = ingredient_form.save(False)
                 ingredients.recipe = recipe
                 ingredients.save()
-                
+
                 messages.success(request, 'Your plan has been created.')
 
                 print(ingredients.name, ingredients.amount, ingredients.notes)

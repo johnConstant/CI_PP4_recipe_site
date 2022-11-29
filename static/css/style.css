@@ -108,6 +108,10 @@ button:active {
     margin: 0 1.5rem;
 }
 
+.nav-link:hover {
+    font-weight: 700;
+}
+
 #active {
     font-weight: 400;
 }
@@ -238,6 +242,19 @@ footer a:hover {
 
 .footer-links a {
     font-size: 1.4rem;
+}
+
+.google {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(210deg, transparent 66.4%, #4DB849 33%, #328440),
+    linear-gradient(90deg, transparent 72%, #D01D21 33%, #F06B59),
+    linear-gradient(150deg, transparent 60%, #D01D21 33%, #D01D21),
+    linear-gradient(330deg, transparent 66.45%, #FCD209 33%, #D49B28),
+    linear-gradient(37deg, transparent 58%, #FCD209 33%, #FCD209),
+    linear-gradient(280deg, transparent 58%, #4DB849 33%, #4DB849),
+    linear-gradient(150deg, transparent 54%, #D01D21 33%, #D01D21);
 }
 
 /* Category Tile */
