@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'django_summernote',
     'recipe_maker',
     'category',
+    'home',
+    'articles'
 ]
 
 AUTHENTICATION_BACKENDS = [
