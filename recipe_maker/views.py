@@ -10,6 +10,9 @@ from .models import Recipe, Ingredient, Instruction
 
 
 class RecipeList(generic.ListView):
+    """
+    A class view for getting all recipes
+    """
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created_date')
     template_name = 'recipes.html'
@@ -17,7 +20,9 @@ class RecipeList(generic.ListView):
 
 
 class RecipeDetail(View):
-
+    """
+    A class view for getting a specific recipe
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
@@ -84,7 +89,9 @@ class RecipeLike(View):
 
 
 class AddRecipe(View):
-
+    """
+    A class view for adding a recipe
+    """
     def get(self, request, *args, **kwargs):
         # Ingredient_formset = formset_factory(
         #     IngredientForm, extra=10, validate_min=True
@@ -102,19 +109,6 @@ class AddRecipe(View):
 
     def post(self, request, *args, **kwargs):
         recipe_form = RecipeForm(request.POST, request.FILES)
-        # Ingredient_formset = formset_factory(
-        #     IngredientForm, extra=10, validate_min=True
-        # )
-        # Instruction_formset = formset_factory(
-        #     InstructionForm, extra=10, validate_min=True
-        #     )
-
-        # ingredient_formset = Ingredient_formset(
-        #     request.POST, request.FILES, prefix='ingredients'
-        #     )
-        # instruction_formset = Instruction_formset(
-        #     request.POST, request.FILES, prefix='instructions'
-        #     )
         ingredient_form = IngredientForm(request.POST)
         instruction_form = InstructionForm(request.POST)
 
@@ -149,7 +143,9 @@ class AddRecipe(View):
 
 
 class EditRecipe(View):
-
+    """
+    A class view for updating an existing recipe
+    """
     def get(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
         form = RecipeForm(instance=recipe)
@@ -163,8 +159,8 @@ class EditRecipe(View):
     def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
         recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
-        ingredient_form = RecipeForm(request.POST, instance=recipe)
-        instruction_form = RecipeForm(request.POST, instance=recipe)
+        ingredient_form = IngredientForm(request.POST, instance=recipe)
+        instruction_form = InstructionForm(request.POST, instance=recipe)
 
         recipe_form.instance.slug = slugify(request.POST['title'])
         if (
@@ -174,13 +170,16 @@ class EditRecipe(View):
         ):
             recipe_form.instance.author = request.user
             recipe = recipe_form.save()
+
             instructions = instruction_form.save(False)
             instructions.recipe = recipe
-            # instructions.save()
+            instructions.save()
+
             ingredients = ingredient_form.save(False)
             ingredients.recipe = recipe
-            # ingredients.save()
-            print(recipe)
+            ingredients.save()
+
+            messages.success(request, "Your recipe has been updated.")
             return HttpResponseRedirect('/recipes/')
 
 

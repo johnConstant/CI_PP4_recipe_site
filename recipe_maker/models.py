@@ -16,6 +16,9 @@ DIFFICULTY_LEVEL = [
 
 
 class Recipe(models.Model):
+    """
+    A class view creating the Recipe model
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField(blank=True)
@@ -56,6 +59,9 @@ class Recipe(models.Model):
 
 
 class Comment(models.Model):
+    """
+    A class view creating the Comment model
+    """
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='comments'
         )
@@ -73,6 +79,9 @@ class Comment(models.Model):
 
 
 class Instruction(models.Model):
+    """
+    A class view creating the Instruction model
+    """
     body = models.TextField(blank=False)
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_instruction'
@@ -83,6 +92,9 @@ class Instruction(models.Model):
 
 
 class Ingredient(models.Model):
+    """
+    A class view creating the Ingredient model
+    """
     amount = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=200, unique=True)
     notes = models.TextField(blank=True)
