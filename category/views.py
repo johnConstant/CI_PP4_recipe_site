@@ -10,6 +10,9 @@ from recipe_maker.models import Recipe
 
 
 class CategoryList(generic.ListView):
+    """
+    A class view for getting all categories
+    """
     model = Category
     queryset = Category.objects.filter(status=1).order_by('-created_date')
     template_name = 'categories.html'
@@ -17,7 +20,9 @@ class CategoryList(generic.ListView):
 
 
 class CategoryDetail(View):
-
+    """
+    A class view for getting a specific category
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Category.objects.filter(status=1)
         category = get_object_or_404(queryset, slug=slug)
@@ -31,7 +36,9 @@ class CategoryDetail(View):
 
 
 class CategoryAdd(View):
-
+    """
+    A class view for adding a category
+    """
     def get(self, request, *args, **kwargs):
         form = CategoryForm()
         context = {
@@ -40,15 +47,23 @@ class CategoryAdd(View):
         return render(request, 'add_category.html', context)
 
     def post(self, request, *args, **kwargs):
-        form = CategoryForm(request.POST, request.FILES)
-        form.instance.slug = slugify(request.POST['title'])
-        if form.is_valid():
-            form.save()
+        try:
+            form = CategoryForm(request.POST, request.FILES)
+            form.instance.slug = slugify(request.POST['title'])
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Your category has been added.")
+                return redirect('categories')
+        except Category.DoesNotExist:
+            messages.error(request,
+                           'An error occurred when adding your category.')
             return redirect('categories')
 
 
 class CategoryUpdate(View):
-
+    """
+    A class view for updating an existing category
+    """
     def get(self, request, slug, *args, **kwargs):
         category = get_object_or_404(Category, slug=slug)
         form = CategoryForm(instance=category)
@@ -58,18 +73,24 @@ class CategoryUpdate(View):
         return render(request, 'edit_category.html', context)
 
     def post(self, request, slug, *args, **kwargs):
-        category = get_object_or_404(Category, slug=slug)
-        form = CategoryForm(request.POST, request.FILES, instance=category)
-        form.instance.slug = slugify(request.POST['title'])
-        form.instance.last_modifed = datetime.date.today()
-        if form.is_valid():
-            form.save()
+        try:
+            category = get_object_or_404(Category, slug=slug)
+            form = CategoryForm(request.POST, request.FILES, instance=category)
+            form.instance.slug = slugify(request.POST['title'])
+            form.instance.last_modifed = datetime.date.today()
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Your category has been updated.")
+                return redirect('categories')
+        except Category.DoesNotExist:
+            messages.error(request,
+                           'An error occurred when updating your category.')
             return redirect('categories')
 
 
 class CategoryDelete(View):
     """
-    A class view for deleting existing category
+    A class view for deleting an existing category
     """
     def post(self, request, id, **kwargs):
         """
