@@ -7,6 +7,9 @@ STATUS = ((0, 'Draft'), (1, 'Published'))
 
 
 class Category(models.Model):
+    """
+    A class for the Category model
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField(blank=True)
