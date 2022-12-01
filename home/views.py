@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from django.db.models import Q
 from recipe_maker.models import Recipe
+from category.models import Category
+from articles.models import Article
 
 
 # Create your views here.
@@ -15,10 +17,14 @@ class HomePage(View):
             .order_by('last_modified')[:5]
         )
         most_popular = Recipe.objects.all().order_by('likes')[:3]
+        most_recent = Category.objects.all().order_by('-created_date')[:6]
+        articles = Article.objects.all().order_by('-created_date')[:2]
 
         context = {
             'featured_recipes': featured_recipes,
-            'most_popular': most_popular
+            'most_popular': most_popular,
+            'most_recent': most_recent,
+            'articles': articles
         }
         return render(request, 'home.html', context)
 

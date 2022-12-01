@@ -96,65 +96,95 @@
     <h3 class="heading">Most Popular recipes</h3>
     <div class="top">
         <div class="hero">
-          <a href="/recipes/{{ most_popular.0.slug }}">
-          <img src="{{ most_popular.0.featured_image.url }}" alt="{{ most_popular.0.title }}" />
-          </a>
+            <a href="/recipes/{{ most_popular.0.slug }}">
+                <div class="ribbon">
+                    <span class="ribbon__content text-center"
+                        >Most Popular</span
+                    >
+                </div>
+                <img
+                    src="{{ most_popular.0.featured_image.url }}"
+                    alt="{{ most_popular.0.title }}"
+                />
+                <div class="hero-info">
+                    <h3>{{ most_popular.0.title }}</h3>
+                </div>
+            </a>
         </div>
         <div class="cta cta1">
-          <a href="/recipes/{{ most_popular.1.slug }}">
-          <img src="{{ most_popular.1.featured_image.url }}" alt="{{ most_popular.1.title }}" />
-          </a>
+            <a href="/recipes/{{ most_popular.1.slug }}">
+                <div class="ribbon">
+                    <span class="ribbon__content text-center"
+                        >Most Popular</span
+                    >
+                </div>
+                <img
+                    src="{{ most_popular.1.featured_image.url }}"
+                    alt="{{ most_popular.1.title }}"
+                />
+                <div class="hero-info">
+                    <h3>{{ most_popular.1.title }}</h3>
+                </div>
+            </a>
         </div>
-      </a>
         <div class="cta cta2">
-          <a href="/recipes/{{ most_popular.2.slug }}">
-          <img src="{{ most_popular.2.featured_image.url }}" alt="{{ most_popular.2.title }}" />
-          </a>
+            <a href="/recipes/{{ most_popular.2.slug }}">
+                <div class="ribbon">
+                    <span class="ribbon__content text-center"
+                        >Most Popular</span
+                    >
+                </div>
+                <img
+                    src="{{ most_popular.2.featured_image.url }}"
+                    alt="{{ most_popular.2.title }}"
+                />
+                <div class="hero-info">
+                    <h3>{{ most_popular.2.title }}</h3>
+                </div>
+            </a>
         </div>
-      </a>
     </div>
-  </section>
-  <section class="container my-5">
-    <h3 class="heading">Find recipes your way</h3>
-    <div class="card-container">
-      <div class="card">
-        <i class="fa-solid fa-utensils"></i>
-        <div class="card-body">
-          <h5 class="card-title">Recipes</h5>
-          <p class="card-text">
-            Some quick example text to build on the card
-            title and make up the bulk of the card's
-            content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-utensils"></i>
-        <div class="card-body">
-          <h5 class="card-title">Categories</h5>
-          <p class="card-text">
-            Some quick example text to build on the card
-            title and make up the bulk of the card's
-            content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-newspaper"></i>
-        <div class="card-body">
-          <h5 class="card-title">Articles</h5>
-          <p class="card-text">
-            Some quick example text to build on the card
-            title and make up the bulk of the card's
-            content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+</section>
+<div class="heading-container container">
+<div class="row">
+  <div class="col-2 col-md-3">
+    <div class="divider"></div>
+  </div>
+  <div class="col-8 col-md-6 text-center">
+    <h3 class="heading">Categories</h3>
+  </div>
+  <div class="col-2 col-md-3">
+    <div class="divider"></div>
+  </div>
+</div>
+</div>
+<section class="most-recent container">
+  {% for category in most_recent %}
+    <div class="recent-recipe">
+        <a href="/categories/{{ category.slug }}">
+            <img src="{{ category.featured_image.url }}" alt="{{ category.title }}" />
+            <h3 class="sub-heading">{{ category.title }}</h3>
+        </a>
     </div>
-  </section>
+    {% endfor %}
+</section>
+<section class="articles">
+  {% for article in articles %}
+    <div class="article-panel">
+        <a href="/articles/{{ article.slug }}">
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" />
+            <div class="article-info">
+                <div class="article-info-inner">
+                    <h4 class="heading">{{ article.title }}</h4>
+                    <p>
+                        {{ article.excerpt }}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</section>
   <section id="sign-up">
     <form>
       <h2 class="heading">Sign up</h2>
