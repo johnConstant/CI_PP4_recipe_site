@@ -96,13 +96,13 @@ class AddRecipe(View):
         # Ingredient_formset = formset_factory(
         #     IngredientForm, extra=10, validate_min=True
         #     )
-        # Instruction_formset = formset_factory(
-        #     InstructionForm, extra=10, validate_min=True
-        #     )
+        Instruction_formset = formset_factory(
+            InstructionForm, extra=5, validate_min=True
+            )
 
         context = {
             'recipe_form': RecipeForm(),
-            'instruction_form': InstructionForm(),
+            'instruction_form': Instruction_formset,
             'ingredient_form': IngredientForm()
         }
         return render(request, 'add_recipe.html', context)
@@ -110,30 +110,30 @@ class AddRecipe(View):
     def post(self, request, *args, **kwargs):
         recipe_form = RecipeForm(request.POST, request.FILES)
         ingredient_form = IngredientForm(request.POST)
-        instruction_form = InstructionForm(request.POST)
+        Instruction_formset = formset_factory(
+            InstructionForm, extra=5, validate_min=True
+            )
+        formset = Instruction_formset(request.POST)
 
         recipe_form.instance.slug = slugify(request.POST['title'])
 
-        if (
-            recipe_form.is_valid() and
-            ingredient_form.is_valid() and
-            instruction_form.is_valid()
-        ):
+        if recipe_form.is_valid():
             try:
                 recipe_form.instance.author = request.user
                 recipe = recipe_form.save()
+                if formset.is_valid():
+                    for instruction_form in formset:
+                        instructions = instruction_form.save(False)
+                        instructions.recipe = recipe
+                        if instructions.body != '':
+                            instructions.save()
 
-                instructions = instruction_form.save(False)
-                instructions.recipe = recipe
-                instructions.save()
+                if ingredient_form.is_valid():
+                    ingredients = ingredient_form.save(False)
+                    ingredients.recipe = recipe
+                    ingredients.save()
 
-                ingredients = ingredient_form.save(False)
-                ingredients.recipe = recipe
-                ingredients.save()
-
-                messages.success(request, 'Your plan has been created.')
-
-                print(ingredients.name, ingredients.amount, ingredients.notes)
+                messages.success(request, 'Your recipe has been created.')
                 return HttpResponseRedirect('/recipes/')
 
             except recipe.DoesNotExist:
