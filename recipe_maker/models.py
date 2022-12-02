@@ -95,8 +95,8 @@ class Ingredient(models.Model):
     """
     A class view creating the Ingredient model
     """
-    amount = models.CharField(max_length=100, unique=True)
-    name = models.CharField(max_length=200, unique=True)
+    amount = models.CharField(max_length=100, unique=False)
+    name = models.CharField(max_length=200, unique=False)
     notes = models.TextField(blank=True)
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_ingredient'
