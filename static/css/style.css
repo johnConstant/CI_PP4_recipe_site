@@ -73,7 +73,7 @@ button {
     border: 0;
     padding: 1.6rem 3.2rem 1.6rem 3.2rem;
     background-color: var(--primary-colour);
-    color: var(--grey);
+    color: white;
     font-size: 1.6rem;
     line-height: 1.5;
     font-weight: 500;
@@ -919,6 +919,17 @@ input::file-selector-button {
     padding: 5rem 2rem;
 }
 
+.article-topic {
+    color: white;
+    background-color: var(--primary-colour);
+    padding: 1.6rem 3.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    top: -7%;
+    left: 35%;
+}
+
 .most-recent {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1063,6 +1074,20 @@ input::file-selector-button {
 			'hero hero'
 			'cta1 cta2';
 	}
+
+    #sign-up {
+        background-image: linear-gradient(
+                105deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.8) 80%,
+                transparent 50%
+            ),
+            url('../images/empanadas.jpg');
+        }
+
+    #sign-up form {
+        width: 75%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -1072,4 +1097,27 @@ input::file-selector-button {
 			'cta1'
 			'cta2';
 	}
+
+    .articles {
+        margin: 0;
+    }
+
+    .article-info {
+        left: 10%;
+        width: 80%;
+    }
+
+    #sign-up {
+        background-image: linear-gradient(
+                105deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.8) 100%,
+                transparent 50%
+            ),
+            url('../images/empanadas.jpg');
+        }
+
+    #sign-up form {
+        width: 100%;
+    }
 }

@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 from django.contrib.messages import constants as messages
+import mimetypes
 if os.path.isfile('env.py'):
     import env
 
@@ -32,6 +33,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['ci-pp4-recipe-site.herokuapp.com', 'localhost']
 
+
+mimetypes.add_type("text/css", ".css", True)
 
 # Application definition
 
