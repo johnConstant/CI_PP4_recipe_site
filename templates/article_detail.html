@@ -23,9 +23,9 @@
 </header>
 <section class="intro">
     <div class="row">
-        <div class="col-sm-8 offset-2 text-center pb-5">
+        <div class="col-sm-8 offset-sm-2 text-center pb-5">
             <div class="row">
-                <div class="col-sm-10 offset-1 pb-5 recipe-title">
+                <div class="col-sm-10 offset-sm-1 pb-5 px-2 recipe-title">
                     <h4 class="heading">{{ article.title }}</h4>
                     <p class="sub-heading">by {{ article.author }}</p>
                     <strong>
@@ -88,33 +88,11 @@
             </div>
         {% endif %}
             <div class="row">
-                <div class="col-sm-10 offset-1 mt-1 mb-5 py-5 article-description">
+                <div class="col-10 offset-1 mt-1 mb-5 p-5 article-description">
                     {{ article.content }}
                     <hr class="divider" />
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<section class="instructions container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="ingredients m-auto pb-5">
-                <ul>
-                    {% for ingredient in ingredients_list %}
-                    <li>{{ ingredient.amount }} {{ ingredient.name }}, {{ ingredient.notes }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-8">
-            {% for instruction in instructions_list %}
-            <div class="step-number"><p>{{ forloop.counter }}.</p></div>
-            <div class="step-info">
-                {{ instruction.body }}
-            </div>
-            <hr class="divider" />
-            {% endfor %}
         </div>
     </div>
 </section>
@@ -165,7 +143,5 @@
         </div>
     </div>
 </section>
-<script>
-    $('.carousel').carousel()
-</script>
+
 {%endblock%}
