@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <header>
@@ -68,7 +69,7 @@
         obcaecati explicabo!
       </p>
     </div>
-    <img src="{{ static 'images/homepage.png'}}" alt="fresh food" />
+    <img src="{% static 'images/homepage.png' %}" alt="fresh food" />
   </section>
   <section class="wrapper container">
     <h3 class="heading">Most Popular recipes</h3>
@@ -140,8 +141,10 @@
   {% for category in most_recent %}
     <div class="recent-recipe">
         <a href="/categories/{{ category.slug }}">
+          <div class="recent-img-container">
             <img src="{{ category.featured_image.url }}" alt="{{ category.title }} category image" />
-            <h3 class="sub-heading">{{ category.title }}</h3>
+          </div>
+          <h3 class="sub-heading">{{ category.title }}</h3>
         </a>
     </div>
     {% endfor %}

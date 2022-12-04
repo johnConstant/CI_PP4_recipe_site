@@ -7,7 +7,7 @@
     <img src="https://www.ucsfhealth.org/-/media/project/ucsf/ucsf-health/education/hero/top-ten-foods-for-health-2x.jpg?h=1112&w=2880&hash=185E4819695062279DF393FBFCB6BEC7" width="100%">
     <h1>Search Results</h1>
 </header>
-<section id="gallery">
+<section class="gallery container">
     {% if recipe_list.count == 0 and article_list.count == 0 and category_list.count == 0 %}
     <div class="container">
         <div class="row">
@@ -67,7 +67,7 @@
         <div></div>
     </div>
 </section>
-<section class="gallery">
+<section class="gallery container">
     {% if article_list.count > 0 %}
     <h3 class="heading">Articles</h3>
     {% endif %}
@@ -99,7 +99,7 @@
     <div></div>
 </div>
 </section>
-<section class="gallery">
+<section class="gallery container">
     {% if category_list.count > 0 %}
     <h3 class="heading">Categories</h3>
     {% endif %}

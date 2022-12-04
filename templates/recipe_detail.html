@@ -6,7 +6,7 @@
     {% if "placeholder" in recipe.featured_image.url %}
     <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
     {% else %}
-    <img src="{{ recipe.featured_image.url }}" width="100%">
+    <img src="{{ recipe.featured_image.url }}" alt="recipe page featured image" width="100%">
     {% endif %}
     <h1>{{ recipe.title }}</h1>
 </header>
@@ -125,7 +125,7 @@
         </div>
         <div class="col-md-8">
             {% for instruction in instructions_list %}
-            <div class="step-number"><p>{{ forloop.counter }}.</p></div>
+            <div class="step-number"><h2>{{ forloop.counter }}.</h2></div>
             <div class="step-info">
                 {{ instruction.body }}
             </div>

@@ -6,18 +6,18 @@
     {% if "placeholder" in category.featured_image.url %}
     <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
     {% else %}
-    <img src="{{ category.featured_image.url }}" width="100%">
+    <img src="{{ category.featured_image.url }}" alt="Category page header image" width="100%">
     {% endif %}
     <h1>{{ category.title }}</h1>
 </header>
 <section class="cta container">
  <div class="row">
      <div class="col-sm-8 offset-sm-2">
-         <h5 class="heading sub-heading text-center">
+         <p class="sub-heading text-center my-5">
              We've got something for everyone from 15 minute meals to
              Sunday roasts, we've got recipes for everyone who wants
              to cook.
-         </h5>
+         </p>
          <p class="text-center">{{ category.description }}</p>
          {% if user.is_superuser %}
             <div class="btn-container">

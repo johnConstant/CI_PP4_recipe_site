@@ -161,6 +161,7 @@ button:active {
     width: 100%;
     height: 95vh;
     position: relative;
+    background-color: black;
     clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0% 75%);
 }
 
@@ -348,6 +349,7 @@ footer a:hover {
     max-height: 15rem;
     width: 100%;
     min-height: 20vh;
+    background-color: black;
     overflow: hidden;
     padding: 0;
     position: relative;
@@ -693,7 +695,7 @@ input::file-selector-button {
     position: relative;
 }
 
-.carousel h2 {
+.carousel h1 {
 	font-family: 'Vast Shadow', serif;
 	font-size: 7rem;
 	text-shadow: 0 0 1rem rgba(0, 0, 0, 1);
@@ -730,7 +732,7 @@ input::file-selector-button {
 /* Categories Section */
 
 .card-container {
-	width: 80%;
+	width: 100%;
 	margin: 2rem auto;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -947,11 +949,16 @@ input::file-selector-button {
     transition: all 1s;
 }
 
-.recent-recipe img {
+.recent-img-container {
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
     margin: 1rem;
+    overflow: hidden;
+}
+
+.recent-img-container img {
+    height: 100%;
 }
 
 .recent-recipe a:hover img {
