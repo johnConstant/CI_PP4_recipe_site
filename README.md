@@ -363,7 +363,6 @@ The following models were created to represent the database model structure for 
 ![Delete profile](docs/features/feature-delete-profile.jpg)
 </details>
 
-
 ### Categories page
 - There are two views depending whether a user is logged in or not
   - Users who are logged in as admins can see the option to add a category. 
@@ -398,8 +397,8 @@ The following models were created to represent the database model structure for 
   
 <details><summary>See feature images</summary>
 
-![Choose date](docs/features/categories-add-category.png)
-![Choose date](docs/features/categories-add-category-mobile.png)
+![Add category](docs/features/categories-add-category.png)
+![Add category mobile](docs/features/categories-add-category-mobile.png)
 </details>
 
 ### Edit Category page
@@ -429,32 +428,103 @@ The following models were created to represent the database model structure for 
 </details>
 
 
-### Edit plan
-- User can edit a selected plan
-- This can be done by clicking the first icon from the navigation icons
-- Date of plan currently being edited is displayed above the plan
-- User can edit any field and save once happy with edition
-- For easier navigation on small screen devices the first column is frozen so that user can see it at all times when scrolling right & left between days of the week
-- User is provided with a feedback message that their plan has been edited
-- User stories covered: 5
+### Recipes page
+- This page lists all of the recipes in the database ordered by created date.
+- There are two views depending whether a user is logged in or not.
+  - Users who are logged in as admins can see the option to add a recipe. 
+  - Logged-in users and unauthenticated users will not have the ability to add catgories and therefore won't see this section of the page.
+- User stories covered: 3, 10, 12
+<details><summary>See feature images</summary>
+
+![Recipes](docs/features/recipes-list.png)
+![Recipe cards](docs/features/recipes-cards.png)
+![Recipes page mobile](docs/features/recipes-list-mobile.png)
+</details>
+
+### Recipe detail page
+- There are two views depending whether a user is logged in or not
+  - If logged in as the author of the recipe, the user will have the ability to edit or delete that recipe.
+  - Logged-in users and unauthenticated users will not have the ability to edit or delte recipes and therefore won't see this section of the page.
+- Visitors to this page will see the featured image, recipe title, general recipe information, recipe description steps and ingredients.
+- Logged in users will have the ability to like a recipe.
+- Logged in users will also be able to comment on a recipe.
+- User stories covered: 3, 10, 12
+<details><summary>See feature images</summary>
+
+![Recipe featured image](docs/features/recipes-featured-image.png)
+![Recipe general info section](docs/features/recipes-info.png)
+![Recipe steps](docs/features/recipes-steps.png)
+![Recipe comments](docs/features/recipes-comments.png)
+</details>
+
+### Like a recipe
+- Logged in users can like a recipe if they choose.
+- Recipes will display the number of likes on their recipe cards and on the recipe detail page.
+- The number of likes messaging is dynamic and the messaging changes based on the number of likes
+- User stories covered: 
+<details><summary>See feature images</summary>
+
+![Recipe likes](docs/features/recipes-no-likes.png)
+![Recipe likes](docs/features/recipes-1-like.png)
+![Recipe likes](docs/features/recipes-multiple-likes.png)
+![Recipe likes](docs/features/recipes-not-liked.png)
+</details>
+
+### Comment on a recipe
+- Logged in users can comment on a recipe and join a conversation.
+- Comments will be displayed on the recipe page beneath the instructions.
+- User is provided with a feedback message that their comment has been updated.
+- User stories covered: 
+<details><summary>See feature images</summary>
+
+![Recipe comments](docs/features/recipes-comments.png)
+</details>
+
+### Add recipe page
+- Logged in admin users have the ability to add recipes.
+- Admin users will add a name, general information, fetured image and choose whether to publish the category immediately or not.
+- It is possible to leave some fields blank.
+- For easier use on small screen devices the form increases to full screen width.
+- User is provided with a feedback message that their category has been added.
+- User stories covered: 4, 13
+  
+<details><summary>See feature images</summary>
+
+![Add recipe](docs/features/recipes-add-recipe.png)
+![Add recipe](docs/features/recipes-add-recipe-accordion.png)
+![Add recipe ingredients](docs/features/recipes-add-ingredients.png)
+![Add recipe instructions](docs/features/recipes-add-instructions.png)
+![Add recipe mobile](docs/features/recipes-add-recipe-mobile.png)
+</details>
+
+### Edit recipe page
+- Admin users can edit the information of any recipe.
+- The Edit recipe page is based off of the Add recipe page.
+- Fields are prepopulated with the information from the selected recipe.
+- User is provided with a feedback message that their recipe has been updated.
+- User stories covered: 4, 8
 
 <details><summary>See feature images</summary>
 
-![Edit plan](docs/features/feature-edit-plan.jpg)
+![Edit recipe](docs/features/recipes-edit-recipe.png)
+![Edit recipe ingredients](docs/features/recipes-edit-recipe-ingredients.png)
+![Edit recipe instructions](docs/features/recipes-edit-recipe-instructions.png)
+![Edit recipe mobile](docs/features/recipes-edit-recipe-mobile.png)
 </details>
 
 
-### Delete plan
-- User can delete a selected plan
-- This can be done by clicking the third icon from the navigation icons
-- The modal pops up for user to confirm the deletion of the plan
-- User is provided with a feedback message that their plan has been deleted
-- User stories covered: 6
+### Deleting a Recipe
+- Located on the recipe detail page, admin users can delete existing recipes.
+- Defensive programming principles applied by presenting user with a modal to confirm deletion.
+- User is provided with a feedback message that their recipe has been deleted.
+- User stories covered: 5, 6
 
 <details><summary>See feature images</summary>
 
-![Delete plan](docs/features/feature-delete-plan.jpg)
+![Delete recipe](docs/features/recipes-delete-recipe.png)
+![Delete recipe](docs/features/recipes-delete-recipe-modal.png)
 </details>
+
 
 
 ### Feedback messages
@@ -463,12 +533,8 @@ The following models were created to represent the database model structure for 
 
 <details><summary>See feature images</summary>
 
-![Feedback messages](docs/features/feature-feedback-message-1.jpg)
-![Feedback messages](docs/features/feature-feedback-message-2.jpg)
-![Feedback messages](docs/features/feature-feedback-message-3.jpg)
-![Feedback messages](docs/features/feature-feedback-message-4.jpg)
-![Feedback messages](docs/features/feature-feedback-message-5.jpg)
-![Feedback messages](docs/features/feature-feedback-message-6.jpg)
+![Feedback messages](docs/features/feedback-message.jpg)
+
 </details>
 
 
