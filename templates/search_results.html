@@ -8,7 +8,7 @@
     <h1>Search Results</h1>
 </header>
 <section id="gallery">
-    {% if object_list.count == 0 %}
+    {% if recipe_list.count == 0 and article_list.count == 0 and category_list.count == 0 %}
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -25,44 +25,111 @@
         </div>
         </div>
     {% endif %}
- <div class="gallery-container">
-    {% for recipe in object_list %}
-     <div class="card">
-        <a href="/recipes/{{ recipe.slug }}">
-         <div class="row">
-             <div class="col-12">
-                 <img
-                     src="{{ recipe.featured_image.url }}"
-                     alt="{{ recipe.title }}"
-                     class="card-image"
-                 />
-             </div>
-         </div>
-         <div class="card-info mt-3">
-             <div class="row">
-                 <div class="recipe-title">
-                     <h4>{{ recipe.title }}</h4>
-                     <p>{{ recipe.description }}</p>
-                     <i class="fa-regular fa-heart heart mt-4"></i>
-                     {{ recipe.number_of_likes }} likes
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col-sm-6 p-3 info">
-                     <i class="fa-regular fa-clock icons"></i> {{ recipe.cook_time }}
-                     minutes
-                 </div>
-                 <div class="col-sm-6 p-3 info">
-                     <i class="fa fa-utensils icons"></i> serves {{ recipe.servings }}
-                 </div>
-             </div>
-         </div>
-        </a>
-     </div>
-     {% endfor %}
-     <div></div>
-     <div></div>
- </div>
+    {% if recipe_list.count > 0 %}
+    <h3 class="heading">Recipes</h3>
+    {% endif %}
+    <div class="card-container">
+        {% for recipe in recipe_list %}
+        <div class="card">
+            <a href="/recipes/{{ recipe.slug }}">
+            <div class="row">
+                <div class="col-12">
+                    <img
+                        src="{{ recipe.featured_image.url }}"
+                        alt="{{ recipe.title }}"
+                        class="card-image"
+                    />
+                </div>
+            </div>
+            <div class="card-info mt-3">
+                <div class="row">
+                    <div class="recipe-title">
+                        <h4>{{ recipe.title }}</h4>
+                        <p>{{ recipe.description }}</p>
+                        <i class="fa-regular fa-heart heart mt-4"></i>
+                        {{ recipe.number_of_likes }} likes
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 p-3 info">
+                        <i class="fa-regular fa-clock icons"></i> {{ recipe.cook_time }}
+                        minutes
+                    </div>
+                    <div class="col-sm-6 p-3 info">
+                        <i class="fa fa-utensils icons"></i> serves {{ recipe.servings }}
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+        <div></div>
+        <div></div>
+    </div>
 </section>
+<section class="gallery">
+    {% if article_list.count > 0 %}
+    <h3 class="heading">Articles</h3>
+    {% endif %}
+<div class="card-container">
+    {% for article in article_list %}
+    <div class="card">
+        <a href="/articles/{{ article.slug }}">
+        <div class="row">
+            <div class="col-12">
+                <img
+                    src="{{ article.featured_image.url }}"
+                    alt="{{ article.title }}"
+                    class="card-image"
+                />
+            </div>
+        </div>
+        <div class="card-info mt-3">
+            <div class="row">
+                <div class="article-title">
+                    <h4>{{ article.title }}</h4>
+                    <p>{{ article.description }}</p>
+                </div>
+            </div>
+        </div>
+        </a>
+    </div>
+    {% endfor %}
+    <div></div>
+    <div></div>
+</div>
+</section>
+<section class="gallery">
+    {% if category_list.count > 0 %}
+    <h3 class="heading">Categories</h3>
+    {% endif %}
+    <div class="card-container">
+        {% for category in category_list %}
+        <div class="card">
+            <a href="/categorys/{{ category.slug }}">
+            <div class="row">
+                <div class="col-12">
+                    <img
+                        src="{{ category.featured_image.url }}"
+                        alt="{{ category.title }}"
+                        class="card-image"
+                    />
+                </div>
+            </div>
+            <div class="card-info mt-3">
+                <div class="row">
+                    <div class="category-title">
+                        <h4>{{ category.title }}</h4>
+                        <p>{{ category.description }}</p>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+        <div></div>
+        <div></div>
+    </div>
+    </section>
 
 {% endblock %}

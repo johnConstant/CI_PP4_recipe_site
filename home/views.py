@@ -29,16 +29,23 @@ class HomePage(View):
         return render(request, 'home.html', context)
 
 
-class SearchResults(generic.ListView):
+class SearchResults(View):
     """
     A class for the Search results page view
     """
-    model = Recipe
-    template_name = "search_results.html"
+    # model = Recipe
+    # template_name = "search_results.html"
 
-    def get_queryset(self):  # new
+    def get(self, request, *args, **kwargs): 
         query = self.request.GET.get("q")
-        object_list = Recipe.objects.filter(title__contains=query)
-        #     Q(title__contains=query) | Q(categories__contains=query)
-        # )
-        return object_list
+        recipe_list = Recipe.objects.filter(title__contains=query)
+        category_list = Category.objects.filter(title__contains=query)
+        article_list = Article.objects.filter(title__contains=query)
+
+        context = {
+            'recipe_list': recipe_list,
+            'category_list': category_list,
+            'article_list': article_list
+        }
+        print(context)
+        return render(request, 'search_results.html', context)
