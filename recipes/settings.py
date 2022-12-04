@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     'recipe_maker',
     'category',
     'home',
-    'articles'
+    'articles',
+    'contact'
 ]
 
 AUTHENTICATION_BACKENDS = [
