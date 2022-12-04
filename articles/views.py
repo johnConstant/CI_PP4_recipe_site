@@ -11,7 +11,7 @@ from .forms import CommentForm, ArticleForm
 # Create your views here.
 class ArticleList(generic.ListView):
     model = Article
-    queryset = Article.objects.filter(status=1).order_by('-created_date')
+    queryset = Article.objects.filter(status=1).order_by('created_date')
     template_name = 'articles.html'
     paginate_by = 6
 

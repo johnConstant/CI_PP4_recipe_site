@@ -7,15 +7,22 @@
     <a href="/articles/add" class="btn btn-outline-success p-5">Add article <i class="fa fa-plus"></i></a>
 </section> 
 {% endif %}
-<section id="categories" class="container">
+<section class="articles container">
     {% for article in article_list %}
-        <div class="category">
-            <a href="{% url 'article_detail' article.slug %}">
-            <div class="content-overlay"></div>
-            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" class="article-image" />
-            <h4>{{ article.title }}</h4>
-            </a>
-        </div>
+    <div class="article-panel">
+        <a href="/articles/{{ article.slug }}">
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" />
+            <div class="article-info">
+              <div class="article-topic">{{ article.topic }}</div>
+                <div class="article-info-inner">
+                    <h4 class="heading">{{ article.title }}</h4>
+                    <p>
+                        {{ article.excerpt }}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
     {% endfor %}
 </section>
 {% if is_paginated %}

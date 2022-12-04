@@ -340,7 +340,7 @@ footer a:hover {
     width: 100%;
     margin: 5rem auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 2.5rem;
 }
 
@@ -743,7 +743,7 @@ input::file-selector-button {
 }
 
 .card-container i {
-	font-size: 10rem;
+	font-size: 2rem;
 	text-align: center;
 	padding: 2rem;
 }
@@ -882,7 +882,7 @@ input::file-selector-button {
 
 .articles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 2rem;
 }
 
@@ -910,8 +910,9 @@ input::file-selector-button {
     width: 60%;
     background-color: #fff;
     position: absolute;
-    top: 40%;
-    left: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 2rem;
 }
 
@@ -958,45 +959,63 @@ input::file-selector-button {
 /* Sign up */
 
 /* Udemy Advanced CSS by Jonas Schmedtmann */
-#sign-up {
-	width: 80%;
-	min-height: 50rem;
-	margin: 5rem auto;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: right bottom;
-	border-radius: 0.5rem;
-	box-shadow: 0 3rem 6rem rgb(0 0 0 / 30%);
+/* Udemy Advanced CSS by Jonas Schmedtmann */
+#sign-up,
+#contact-us {
+    width: 80%;
+    min-height: 50rem;
+    margin: 5rem auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right bottom;
+    border-radius: 0.5rem;
+    box-shadow: 0 3rem 6rem rgb(0 0 0 / 30%);
 
-	display: grid;
-	align-items: center;
+    display: grid;
+    align-items: center;
 }
 
 #sign-up {
-	background-image: linear-gradient(
-			105deg,
-			rgba(255, 255, 255, 0.9) 0%,
-			rgba(255, 255, 255, 0.8) 50%,
-			transparent 50%
-		),
-		url('../images/empanadas.jpg');
+    background-image: linear-gradient(
+            105deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.8) 50%,
+            transparent 50%
+        ),
+        url(../images/empanadas.jpg);
 }
 
-#sign-up form {
+
+#contact-us {
+    background-image: linear-gradient(
+            105deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.8) 50%,
+            transparent 50%
+        ),
+        url(../images/empanadas.jpg);
+}
+
+#sign-up form,
+#contact-us form {
 	width: 50%;
 	margin: 5rem;
 }
 
-#sign-up form p {
+#sign-up form p,
+#contact-us form p{
 	width: 80%;
 }
 
-#sign-up form > * {
+#sign-up form > *,
+#contact-us > * {
 	margin-bottom: 2.5rem;
 }
-
+/* 
 #sign-up input,
-#sign-up textarea {
+#sign-up textarea,
+#contact-us input,
+#contact-us textarea {
 	font-size: 1.5rem;
 	font-family: inherit;
 	color: inherit;
@@ -1015,8 +1034,8 @@ input::file-selector-button {
 #sign-up textarea:focus {
 	outline: none;
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-	border-bottom: 3px solid var(--orange);
-}
+	border-bottom: 3px solid var(--primary-colour);
+} */
 
 /* https://css-tricks.com/html-inputs-and-labels-a-love-story/ */
 #sign-up .hidden-label {
@@ -1091,7 +1110,8 @@ input::file-selector-button {
             url('../images/empanadas.jpg');
         }
 
-    #sign-up form {
+    #sign-up form,
+    #contact-us form {
         width: 75%;
     }
 }
@@ -1124,7 +1144,9 @@ input::file-selector-button {
     .article.header-image img {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 85%);
     }
-    #sign-up {
+
+    #sign-up,
+    #contact-us {
         background-image: linear-gradient(
                 105deg,
                 rgba(255, 255, 255, 0.9) 0%,
@@ -1134,7 +1156,20 @@ input::file-selector-button {
             url('../images/empanadas.jpg');
         }
 
-    #sign-up form {
+    #sign-up form,
+    #contact-us form {
         width: 100%;
     }
+
+    #contact-us input,
+    #contact-us textarea {
+        width: 100%;
+    }
+
+    .articles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 2rem;
+    }
+    
 }
