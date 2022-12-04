@@ -689,6 +689,7 @@ input::file-selector-button {
 
 .carousel-item {
 	height: 75vh;
+    position: relative;
 }
 
 .carousel h2 {
