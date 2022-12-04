@@ -29,7 +29,8 @@ class RecipeDetail(View):
         recipe = get_object_or_404(queryset, slug=slug)
         ingredients_list = Ingredient.objects.filter(recipe=recipe)
         instructions_list = Instruction.objects.filter(recipe=recipe)
-        comments = recipe.comments.filter(approved=True).order_by('created_date')
+        comments = recipe.comments.filter(approved=True).order_by(
+            'created_date')
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -53,7 +54,8 @@ class RecipeDetail(View):
         recipe = get_object_or_404(queryset, slug=slug)
         ingredients_list = Ingredient.objects.filter(recipe=recipe)
         instructions_list = Instruction.objects.filter(recipe=recipe)
-        comments = recipe.comments.filter(approved=True).order_by('created_date')
+        comments = recipe.comments.filter(approved=True).order_by(
+            'created_date')
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -195,7 +197,6 @@ class EditRecipe(View):
         return render(request, 'edit_recipe.html', context)
 
     def post(self, request, slug, *args, **kwargs):
-        recipe_form = RecipeForm(request.POST, request.FILES)
         Ingredient_formset = formset_factory(
             IngredientForm, extra=10, validate_min=True
             )
@@ -205,61 +206,45 @@ class EditRecipe(View):
         instruction_formset = Instruction_formset(request.POST)
         ingredient_formset = Ingredient_formset(request.POST)
 
-        print(recipe_form.is_valid())
+        recipe = get_object_or_404(Recipe, slug=slug)
+        recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        recipe_form.instance.slug = slugify(request.POST['title'])
+        recipe_form.instance.last_modifed = datetime.date.today()
+
         if recipe_form.is_valid():
             try:
+                print(self.kwargs)
                 recipe_form.instance.author = request.user
-                recipe_form.instance.last_modifed = datetime.date.today()
-                recipe_form.instance.slug = slugify(request.POST['title'])
                 recipe = recipe_form.save()
-                print('check')
                 if instruction_formset.is_valid():
                     for instruction_form in instruction_formset:
-                        instructions = instruction_form.save(False)
-                        instructions.recipe = recipe
-                        if instructions.body != '':
-                            instructions.save()
-                            print('check')
-                if ingredient_formset.is_valid():
-                    for ingredient_form in ingredient_formset:
-                        ingredient = ingredient_form.save(False)
-                        ingredient.recipe = recipe
-                        ingredient.save()
-                        print('check')
+                        instructions = Instruction.objects.filter(
+                            recipe=recipe)
+                        # print(instruction)
+                        for instruction in instructions:
+                            form = InstructionForm(
+                                request.POST, instance=instruction)
+                            if form.is_valid():
+                                instruction = form.save(False)
+                                instruction.recipe = recipe
+                                if instruction.body != '':
+                                    instruction.save()
+            # if ingredient_formset.is_valid():
+                #     for ingredient_form in ingredient_formset:
+                #         ingredient = ingredient_form.save(False)
+                #         ingredient.recipe = recipe
+                #         ingredient.save()
 
-                messages.success(request, 'Your recipe has been created.')
+                messages.success(request, 'Your recipe has been updated.')
                 return HttpResponseRedirect('/recipes/')
 
             except recipe.DoesNotExist:
-                messages.error(request, 'An error occurred adding your recipe')
+                messages.error(
+                    request, 'An error occurred updating your recipe'
+                    )
                 return HttpResponseRedirect('/recipes/')
-        
+
         return HttpResponseRedirect('/')
-
-        # recipe = get_object_or_404(Recipe, slug=slug)
-        # recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
-        # ingredient_form = IngredientForm(request.POST, instance=recipe)
-        # instruction_form = InstructionForm(request.POST, instance=recipe)
-
-        # recipe_form.instance.slug = slugify(request.POST['title'])
-        # if (
-        #     recipe_form.is_valid() and
-        #     ingredient_form.is_valid() and
-        #     instruction_form.is_valid()
-        # ):
-        #     recipe_form.instance.author = request.user
-        #     recipe = recipe_form.save()
-
-        #     instructions = instruction_form.save(False)
-        #     instructions.recipe = recipe
-        #     instructions.save()
-
-        #     ingredients = ingredient_form.save(False)
-        #     ingredients.recipe = recipe
-        #     ingredients.save()
-
-        #     messages.success(request, "Your recipe has been updated.")
-        #     return HttpResponseRedirect('/recipes/')
 
 
 class RecipeDelete(View):

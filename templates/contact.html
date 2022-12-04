@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Contact</h1>
+ <!-- Contact us form -->
+ <section id="contact-us">          
+        <form method="post" enctype="multipart/form-data">
+            <h2>Contact Us</h2>
+            <p>If you have ideas for a recipe, category or article, reach out and let us know by filling out the form below.
+            </p>      
+            {% csrf_token %}  
+            {{ contact_form.as_p }}      
+            <button type="submit">Get in touch</button>
+        </form>
+</section>
 {% endblock %}
