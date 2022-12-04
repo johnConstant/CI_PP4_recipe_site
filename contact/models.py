@@ -1,9 +1,9 @@
 from django.db import models
 
 SUGGESTION_AREA = [
-    ('Article', 'article'),
-    ('Category', 'category'),
-    ('Recipe', 'recipe')
+    ('article', 'Article'),
+    ('category', 'Category'),
+    ('recipe', 'Recipe')
 ]
 
 
@@ -12,7 +12,7 @@ class Contact(models.Model):
     A class for the Contact model
     """
     name = models.CharField(max_length=200)
-    email = models.TextField(blank=False)
+    email = models.EmailField(max_length=254, blank=False)
     email_subscription = models.BooleanField(default=False)
     category = models.CharField(
         choices=SUGGESTION_AREA,
