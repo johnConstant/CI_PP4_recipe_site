@@ -685,6 +685,7 @@ input::file-selector-button {
 
 .carousel {
 	max-height: 75vh;
+    background-color: black;
 }
 
 .carousel-item {

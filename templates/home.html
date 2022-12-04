@@ -21,7 +21,7 @@
             alt="{{ recipe.title }}"
           />
           <div class="carousel-caption d-none d-md-block">
-            <h2>{{ recipe.title }}</h2>
+            <h1>{{ recipe.title }}</h1>
           </div>
          </a> 
       </div>
@@ -68,7 +68,7 @@
         obcaecati explicabo!
       </p>
     </div>
-    <img src="../static/images/homepage.png" alt="" />
+    <img src="{{ static 'images/homepage.png'}}" alt="fresh food" />
   </section>
   <section class="wrapper container">
     <h3 class="heading">Most Popular recipes</h3>
@@ -140,7 +140,7 @@
   {% for category in most_recent %}
     <div class="recent-recipe">
         <a href="/categories/{{ category.slug }}">
-            <img src="{{ category.featured_image.url }}" alt="{{ category.title }}" />
+            <img src="{{ category.featured_image.url }}" alt="{{ category.title }} category image" />
             <h3 class="sub-heading">{{ category.title }}</h3>
         </a>
     </div>
