@@ -13,47 +13,47 @@
       {% if forloop.first %}
       <div class="carousel-item active">
       {% else %}
-      <div class="carousel-item">
+        <div class="carousel-item">
       {% endif %}
-        <a href="/recipes/{{ recipe.slug }}">
-          <img
-            src="{{ recipe.featured_image.url }}"
-            class="d-block w-100"
-            alt="{{ recipe.title }}"
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <h1>{{ recipe.title }}</h1>
-          </div>
-         </a> 
-      </div>
+          <a href="/recipes/{{ recipe.slug }}">
+            <img
+              src="{{ recipe.featured_image.url }}"
+              class="d-block w-100"
+              alt="{{ recipe.title }}"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h1>{{ recipe.title }}</h1>
+            </div>
+          </a> 
+        </div>
       {% endfor %}
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="prev"
-    >
-      <span
-        class="carousel-control-prev-icon"
-        aria-hidden="true"
-      ></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide="next"
-    >
-      <span
-        class="carousel-control-next-icon"
-        aria-hidden="true"
-      ></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span
+          class="carousel-control-prev-icon"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span
+          class="carousel-control-next-icon"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div>
 </header>
-<main>
   <section class="intro container">
     <div>
       <h2 class="heading">Our ethos</h2>
@@ -84,7 +84,7 @@
                 <img
                     src="{{ most_popular.0.featured_image.url }}"
                     alt="{{ most_popular.0.title }}"
-                />
+                >
                 <div class="hero-info">
                     <h3>{{ most_popular.0.title }}</h3>
                 </div>
@@ -100,7 +100,7 @@
                 <img
                     src="{{ most_popular.1.featured_image.url }}"
                     alt="{{ most_popular.1.title }}"
-                />
+                >
                 <div class="hero-info">
                     <h3>{{ most_popular.1.title }}</h3>
                 </div>
@@ -116,7 +116,7 @@
                 <img
                     src="{{ most_popular.2.featured_image.url }}"
                     alt="{{ most_popular.2.title }}"
-                />
+                >
                 <div class="hero-info">
                     <h3>{{ most_popular.2.title }}</h3>
                 </div>
@@ -142,7 +142,7 @@
     <div class="recent-recipe">
         <a href="/categories/{{ category.slug }}">
           <div class="recent-img-container">
-            <img src="{{ category.featured_image.url }}" alt="Check ut the delicious recipes in our {{ category.title }} category" />
+            <img src="{{ category.featured_image.url }}" alt="Check out the delicious recipes in our {{ category.title }} category">
           </div>
           <h3 class="sub-heading">{{ category.title }}</h3>
         </a>
@@ -153,7 +153,7 @@
   {% for article in articles %}
     <div class="article-panel">
         <a href="/articles/{{ article.slug }}">
-            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" />
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}">
             <div class="article-info">
               <div class="article-topic">{{ article.topic }}</div>
                 <div class="article-info-inner">
@@ -193,5 +193,4 @@
       <button type="submit">Sign up</button>
     </form>
   </section>
-</main>
 {%endblock%}
