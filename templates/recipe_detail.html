@@ -4,9 +4,9 @@
 <!-- Header Image-->
 <header class="header-image" >
     {% if "placeholder" in recipe.featured_image.url %}
-    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
     {% else %}
-    <img src="{{ recipe.featured_image.url }}" alt="A delicious recipe for the perfect {{ recipe.title }}" width="100%">
+    <img src="{{ recipe.featured_image.url }}" alt="A delicious recipe for the perfect {{ recipe.title }}">
     {% endif %}
     <h1>{{ recipe.title }}</h1>
 </header>
@@ -112,7 +112,7 @@
         </div>
     </div>
 </section>
-<section class="instructions container p-5">
+<div class="instructions container p-5">
     <div class="row">
         <div class="col-md-4">
             <div class="ingredients m-auto pb-5">
@@ -133,7 +133,7 @@
             {% endfor %}
         </div>
     </div>
-</section>
+</div>
 <section class="comments container">
     <div class="row">
         <div class="col-md-8 offset-md-2">

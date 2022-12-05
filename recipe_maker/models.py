@@ -82,7 +82,7 @@ class Instruction(models.Model):
     """
     A class view creating the Instruction model
     """
-    body = models.TextField(blank=False)
+    body = models.TextField(blank=True)
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_instruction'
         )
@@ -95,8 +95,8 @@ class Ingredient(models.Model):
     """
     A class view creating the Ingredient model
     """
-    amount = models.CharField(max_length=100, unique=False)
-    name = models.CharField(max_length=200, unique=False)
+    amount = models.CharField(max_length=100, unique=False, blank=True)
+    name = models.CharField(max_length=200, unique=False, blank=True)
     notes = models.TextField(blank=True)
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name='recipe_ingredient'

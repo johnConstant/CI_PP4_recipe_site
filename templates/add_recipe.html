@@ -18,7 +18,7 @@
                   </h2>
                   <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body p-5">
-                        {{ recipe_form.as_p }} 
+                        {{ form.as_p }} 
                     </div>
                   </div>
                 </div>
@@ -30,7 +30,84 @@
                   </h2>
                   <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body add-ingredient p-5">
-                        {{ ingredient_form.as_p }} 
+                      {% with named_formsets.ingredients as formset %}
+        {{ formset.management_form }}
+        <script type="text/html" id="ingredients-template">  // id="inlineformsetname-template"
+            // id='inlineformsetname-__prefix__' 
+            <tr id="ingredients-__prefix__" class= hide_all>
+                {% for fields in formset.empty_form.hidden_fields %}
+                    {{ fields }}
+                {% endfor %}
+            
+                {% for fields in formset.empty_form.visible_fields %}
+                    <td>{{fields}}</td>
+                {% endfor %}
+            </tr>
+        </script>
+        <div class="table-responsive card mt-4">
+            <div class="card-header card-header-secondary">
+                <h4 class="card-title">Add ingredients</h4>
+            </div>
+            <table class="table card-header">
+                <thead class="text-secondary">
+                    <th>Size <span style="color: red;" class="required">*</span></th>
+                    <th>Quantity <span style="color: red;" class="required">*</span></th>
+                    <th>Price <span style="color: red;" class="required">*</span></th>
+                    <th>Delete?</th>
+                </thead>
+                <tbody id="item-ingredients">  <!-- id="item-inlineformsetname" -->
+                    <!-- formset non forms errors -->
+                    {% for error in formset.non_form_errors %}
+                        <span style="color: red">{{ error }}</span>
+                    {% endfor %}
+                    {% for formss in formset %}
+                        {{ formss.management_form }}
+                        <tr id="ingredients-{{ forloop.counter0 }}" class= hide_all>  <!-- id="inlineformsetname-counter" -->
+                            {{ formss.id }}
+                            {% for field in formss.visible_fields %}
+                                <td>
+                                    {{field}}
+                                    {% for error in field.errors %}
+                                        <span style="color: red">{{ error }}</span>
+                                    {% endfor %}
+                                    
+                                    {% comment %} {{ field.DELETE }} {% endcomment %}
+                                </td>
+                            {% endfor %}
+                            {% comment %} for delete {% endcomment %}
+                            {% if formss.instance.pk %}
+                                <td>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{formss.instance.pk}}">
+                                        Delete
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal{{formss.instance.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{formss.instance.pk}}" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel{{formss.instance.pk}}">Are Your Sure You Want To Delete This?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{% url 'recipe:delete_ingredient' forms.instance.pk %}" type="button" class="btn btn-primary">Yes, Delete</a>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </td>            
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="#" id="add-ingredient-button" class="btn btn-secondary add-ingredients">Add More</a> <!-- id="add-inlineformsetname-button" -->
+        </div>
+        
+        {% endwith %}
+        <!-- inline form for Images end -->
                     </div>
                   </div>
                 </div>
@@ -42,7 +119,78 @@
                   </h2>
                   <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body p-5">            
-                        {{ instruction_form.as_p }} 
+                      {% with named_formsets.instructions as formset %}  
+                      {{ formset.management_form }}
+                      <script type="text/html" id="instructions-template">   // id="inlineformsetname-template"
+                          <tr id="instructions-__prefix__" class= hide_all>  // id="inlineformsetname-__prefix__"
+                              {% for fields in formset.empty_form.hidden_fields %}
+                                  {{ fields }}
+                              {% endfor %}
+                          
+                              {% for fields in formset.empty_form.visible_fields %}
+                                  <td>{{fields}}</td>
+                              {% endfor %}
+                          </tr>
+                      </script>
+              
+                      <div class="table-responsive card mt-4">
+                          <div class="card-header card-header-secondary">
+                              <h4 class="card-title">Add instructions</h4>
+                          </div>
+                          <table class="table card-body">
+                              <thead class="text-secondary">
+                                  <th>instruction <span style="color: red;" class="required">*</span></th>
+                                  <th>Delete?</th>
+                              </thead>
+                              <tbody id="item-instructions">  <!-- id="item-inlineformsetname" -->
+                                  <!-- formset non forms errors -->
+                                  {% for error in formset.non_form_errors %}
+                                      <span style="color: red">{{ error }}</span>
+                                  {% endfor %}
+                                  {% for formss in formset %}
+                                      {{ formss.management_form }}
+                                      <tr id="instructions-{{ forloop.counter0 }}" class= hide_all>  <!-- id="inlineformsetname-counter" -->
+                                          {{ formss.id }}
+                                          {% for field in formss.visible_fields %}
+                                              <td>
+                                                  {{field}}
+                                                  {% for error in field.errors %}
+                                                      <span style="color: red">{{ error }}</span>
+                                                  {% endfor %}
+                                              </td>
+                                          {% endfor %}
+                                          <!-- delete code -->
+                                          {% if formss.instance.pk %}
+                                              <td>
+                                                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{formss.instance.pk}}">
+                                                      Delete
+                                                  </button>
+                                                  <!-- Modal -->
+                                                  <div class="modal fade" id="exampleModal{{formss.instance.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{formss.instance.pk}}" aria-hidden="true">
+                                                      <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                          <div class="modal-header">
+                                                          <h5 class="modal-title" id="exampleModalLabel{{formss.instance.pk}}">Are Your Sure You Want To Delete This?</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                              <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                          </div>
+                                                          <div class="modal-footer">
+                                                              <a href="{% url 'recipe:delete_instruction' formss.instance.pk %}" type="button" class="btn btn-primary">Yes, Delete</a>
+                                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                          </div>
+                                                      </div>
+                                                      </div>
+                                                  </div>
+                                              </td>            
+                                          {% endif %}
+                                      </tr>
+                                  {% endfor %}
+                              </tbody>
+                          </table>
+                          <a href="#" id="add-instruction-button" class="btn btn-secondary add-instructions">Add More</a> <!-- id="add-inlineformsetname-button" -->
+                      </div>
+                  {% endwith %}
                     </div>
                   </div>
                 </div>
@@ -55,4 +203,35 @@
         </div>
     </div>
 </section>
-{%endblock%}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        // when user clicks add more btn of instructions
+      $('.add-instructions').click(function(ev) {
+          ev.preventDefault();
+          var count = $('#item-instructions').children().length;
+          var tmplMarkup = $('#instructions-template').html();
+          var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+          $('#item-instructions').append(compiledTmpl);
+  
+          // update form count
+          $('#id_instructions-TOTAL_FORMS').attr('value', count+1);
+      });
+  });
+
+  $(document).ready(function() {
+    // when user clicks add more btn of ingredients
+      $('.add-ingredients').click(function(ev) {
+          ev.preventDefault();
+          var count = $('#item-ingredients').children().length;
+          var tmplMarkup = $('#ingredients-template').html();
+          var compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
+          $('#item-ingredients').append(compiledTmpl);
+  
+          // update form count
+          $('#id_ingredients-TOTAL_FORMS').attr('value', count+1);
+      });
+  });
+</script>
+{% endblock %}

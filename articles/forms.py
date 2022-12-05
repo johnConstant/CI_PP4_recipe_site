@@ -8,7 +8,9 @@ class ArticleForm(forms.ModelForm):
     """
     class Meta:
         model = Article
-        fields = ['title', 'topic', 'excerpt', 'content', 'featured_image', 'status']
+        fields = [
+            'title', 'topic', 'excerpt', 'content', 'featured_image', 'status'
+            ]
 
 
 class CommentForm(forms.ModelForm):

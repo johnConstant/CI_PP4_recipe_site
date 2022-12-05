@@ -115,15 +115,6 @@ The Recipe Site application is designed for creating recipes and grouping them i
 
 ## Design
 
-### Colours
-
-The colour scheme was chosen to provide simple, neutral and fresh look. These colours were used throughout all the pages in such a way as to ensure adequate contrast and good user experience.
-
-The pallet created using [Coolors.co](https://coolors.co/)
-<details><summary>See colour pallet</summary>
-<img src="docs/readme/color-pallet-PP4.png">
-</details>
-
 ### Fonts
 
 Google Fonts were implemented on the website. Outfit with sans-serif as fallback was used thoughout the site to present the content in a clear and legible way for the body content. Vast Shadow with a sans-serif fallback was used for the main page headings.
@@ -217,7 +208,7 @@ The following models were created to represent the database model structure for 
 <details><summary>Recipes page</summary>
 <img src="docs/wireframes/Assignment 4Recipes page.png">
 </details>
-<details><summary>Recpie detail page</summary>
+<details><summary>Recipe detail page</summary>
 <img src="docs/wireframes/Assignment 4Recipe detail page.png">
 </details>
 <details><summary>Articles page</summary>
@@ -321,30 +312,30 @@ The following models were created to represent the database model structure for 
 ### Sign up / Register
 - New users can create an account
 - The user must provide a valid username, password and password confirmation. Email address is optional
+- Users can register for an account with Google and Facebook social sign on
 - User cannot register the same details twice for an account
-- Once register the users are immediately logged in and taken to the planner page
+- Once register the users are immediately logged in and taken to the home page
 - User stories covered: 3, 14
 
 <details><summary>See feature images</summary>
 
-![Register](docs/features/feature-register.jpg)
-![Register](docs/features/feature-register-2.jpg)
-![Register](docs/features/feature-register-3.jpg)
-![Register](docs/features/feature-register-4.jpg)
+![Log in](docs/features/login-email.png)
+![Social sign on](docs/features/login-google.png)
 </details>
 
 
 ### Login
 - Returning users can login to their account
 - The user must have an account in the system and they must enter the correct username and password
+- Users can sign in to there account with Google and Facebook social sign on
 - Both fields are mandatory
 - Once logged in the user will be navigated to the planner page
 - User stories covered: 10, 12, 14
 
 <details><summary>See feature images</summary>
 
-![Login](docs/features/feature-login.jpg)
-![Login](docs/features/feature-login-2.jpg)
+![Log in](docs/features/login-email.png)
+![Social sign on](docs/features/login-google.png)
 </details>
 
 
@@ -354,29 +345,9 @@ The following models were created to represent the database model structure for 
 
 <details><summary>See feature images</summary>
 
-![Logout](docs/features/feature-logout.jpg)
+![Logout](docs/features/sign-out.png)
 </details>
 
-
-### Profile
-- Logged in user can see details about their account and workouts created
-- User stories covered: 22
-
-<details><summary>See feature images</summary>
-
-![Profile](docs/features/feature-profile.jpg)
-</details>
-
-
-### Delete account
-- User have an option to delete their account from the system.
-- The modal pops up for user to confirm their choice and are warned that this action is irreversible
-- User stories covered: 23
-
-<details><summary>See feature images</summary>
-
-![Delete profile](docs/features/feature-delete-profile.jpg)
-</details>
 
 ### Categories page
 - There are two views depending whether a user is logged in or not
@@ -388,6 +359,7 @@ The following models were created to represent the database model structure for 
 ![Categories](docs/features/categories-logged-in.png)
 ![Categories](docs/features/categories-logged-out.png)
 </details>
+
 
 ### Category detail page
 - There are two views depending whether a user is logged in or not
@@ -550,8 +522,7 @@ The following models were created to represent the database model structure for 
 <details><summary>See feature images</summary>
 
 ![Articles](docs/features/articles-list.png)
-![Article cards](docs/features/articles-cards.png)
-![Articles page mobile](docs/features/articles-list-mobile.png)
+![Article cards](docs/features/articles-card.png)
 </details>
 
 ### Article detail page
@@ -566,21 +537,20 @@ The following models were created to represent the database model structure for 
 
 ![Article featured image](docs/features/articles-featured-image.png)
 ![Article general info section](docs/features/articles-info.png)
-![Article steps](docs/features/articles-steps.png)
 ![Article comments](docs/features/articles-comments.png)
 </details>
 
 ### Like an article
 - Logged in users can like a article if they choose.
-- Articles will display the number of likes on their article cards and on the article detail page.
+- Articles will display the number of likes on the article detail page.
 - The number of likes messaging is dynamic and the messaging changes based on the number of likes
 - User stories covered: 
 <details><summary>See feature images</summary>
 
-![Article likes](docs/features/articles-no-likes.png)
-![Article likes](docs/features/articles-1-like.png)
-![Article likes](docs/features/articles-multiple-likes.png)
-![Article likes](docs/features/articles-not-liked.png)
+![Article likes](docs/features/recipes-no-likes.png)
+![Article likes](docs/features/recipes-1-like.png)
+![Article likes](docs/features/recipes-multiple-likes.png)
+![Article likes](docs/features/recipes-not-liked.png)
 </details>
 
 ### Comment on an article
@@ -604,10 +574,7 @@ The following models were created to represent the database model structure for 
 <details><summary>See feature images</summary>
 
 ![Add article](docs/features/articles-add-article.png)
-![Add article](docs/features/articles-add-article-accordion.png)
-![Add article ingredients](docs/features/articles-add-ingredients.png)
-![Add article instructions](docs/features/articles-add-instructions.png)
-![Add article mobile](docs/features/articles-add-article-mobile.png)
+
 </details>
 
 ### Edit article page
@@ -620,9 +587,7 @@ The following models were created to represent the database model structure for 
 <details><summary>See feature images</summary>
 
 ![Edit article](docs/features/articles-edit-article.png)
-![Edit article ingredients](docs/features/articles-edit-article-ingredients.png)
-![Edit article instructions](docs/features/articles-edit-article-instructions.png)
-![Edit article mobile](docs/features/articles-edit-article-mobile.png)
+
 </details>
 
 
@@ -650,75 +615,16 @@ The following models were created to represent the database model structure for 
 </details>
 
 
-### Exercises list page
-- A page with a catalogue of training exercises targeting different body parts, with various level of difficulty and type of training
-- User is able to search through all the exercises choosing a specific body part, level of difficulty or type of training. They can also find a specific exercise by typing a part of its name
-- User stories covered: 9, 11
-
-<details><summary>See feature images</summary>
-
-![Exercises list](docs/features/feature-exercises-list.jpg)
-
-</details>
-
-
-### Exercise filter
-- Filter through all the exercises which allows user to find a specific exercise depending on the targetedd body part, level of difficulty or type of training. There is also an option to find an exercise by typing a part of its name
-- Filter collapses on smaller screens and expands by clicking on the 'Find an exercise' button
-- User stories covered: 9
-
-<details><summary>See feature images</summary>
-
-![Exercise filter](docs/features/feature-exercise-filter-1.jpg)
-![Exercise filter](docs/features/feature-exercise-filter-2.jpg)
-
-</details>
-
-
-### Exercise pagination
-- Allows for display of twelve exercises per page, if there are more, the page is paginated
-- User to go the the previous/next page or the first/last page of exercises
-- User stories covered: 20
-
-<details><summary>See feature images</summary>
-
-![Exercise pagination](docs/features/feature-exercise-pagination.jpg)
-</details>
-
-
-### Exercise detail page
-- Provides overview of the exercise
-- Users can view a detailed description on how to perform the exercise
-- User stories covered: 19
-  
-<details><summary>See feature images</summary>
-
-![Exercise detail page](docs/features/feature-exercise-detail-page.jpg)
-</details>
-
-
 ### Contact form
 - Contact form allows user to contact the developer and send their message or provide feedback
-- All three fields (username, email and message) on the form are mandatory
-- Not logged-in users need to provide their name, email address and message content
-- Username on the form is automatically provided for the logged-in user as well as their email address, if one was given during account registration. If not, the user needs to provide their email address manually.
+- USers are asked for name, email, message topic and message as well as optional email subscription
+- Username on the form is automatically provided for the logged-in user.
 - User stories covered: 16
 
 <details><summary>See feature images</summary>
 
-![Contact form](docs/features/feature-contact-form-1.jpg)
-![Contact form](docs/features/feature-contact-form-2.jpg)
-![Contact form](docs/features/feature-contact-form-3.jpg)
-</details>
-
-
-### Contact form confirmation
-- Confirmation message is provided for user that they contact message has been successfully sent
-- User stories covered: 17
-
-<details><summary>See feature images</summary>
-
-![Contact form confirmation](docs/features/feature-message-sent-confirmation.jpg)
+![Contact form](docs/features/contact-desktop.png)
+![Contact form](docs/features/contact-mobile.png)
 </details>
 
 
@@ -738,60 +644,45 @@ The following models were created to represent the database model structure for 
 
 The W3C Markup Validation Service was used to validate the HTML of the website.
 <details><summary>Home</summary>
-<img src="docs/validation/validation-html-index.html.JPG">
+<img src="docs/validation/validation-html-home.png">
 </details>
 
-<details><summary>Planner</summary>
-<img src="docs/validation/validation-html-planner.html.JPG">
+<details><summary>Categories</summary>
+<img src="docs/validation/validation-html-categories.png">
 </details>
 
-<details><summary>Choose date</summary>
-<img src="docs/validation/validation-html-choose-date.html.JPG">
+<details><summary>Category detail</summary>
+<img src="docs/validation/validation-html-category-detail.png">
 </details>
 
-<details><summary>Add Plan</summary>
-<img src="docs/validation/validation-html-add-plan.html.JPG">
+<details><summary>Recipes</summary>
+<img src="docs/validation/validation-html-recipes.png">
 </details>
 
-<details><summary>Edit Plan</summary>
-<img src="docs/validation/validation-html-edit-plan.html.JPG">
-</details>
-
-<details><summary>View Plans</summary>
-<img src="docs/validation/validation-html-view-plans.html.JPG">
-</details>
-
-<details><summary>Exercises list page</summary>
-<img src="docs/validation/validation-html-exercises-list.html.JPG">
-</details>
-
-<details><summary>Exercise detail page</summary>
-<img src="docs/validation/validation-html-exercise.html.JPG">
+<details><summary>Recipes detail page</summary>
+<img src="docs/validation/validation-html-recipe-detail.png"> 
 </details>
 
 <details><summary>Login</summary>
-<img src="docs/validation/validation-html-login.html.JPG">
+<img src="docs/validation/validation-html-login.png">
 </details>
 
 <details><summary>Signup</summary>
-<img src="docs/validation/validation-html-signup.html.JPG">
-</details>
-
-<details><summary>Profile</summary>
-<img src="docs/validation/validation-html-profile.html.JPG">
+<img src="docs/validation/validation-html-signup.png">
 </details>
 
 <details><summary>Logout</summary>
-<img src="docs/validation/validation-html-logout.html.JPG">
+<img src="docs/validation/validation-html-signout.png">
 </details>
 
 <details><summary>Contact form page</summary>
-<img src="docs/validation/validation-html-contact.html.JPG">
+<img src="docs/validation/validation-html-contact.png">
 </details>
 
 <details><summary>Error Pages (400, 403, 404, 500)</summary>
-<img src="docs/validation/validation-html-error-pages.html.JPG">
+<img src="docs/validation/validation-html-error-pages.html.JPG"> 
 </details>
+
 
 ### CSS Validation
 The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating all website, it passes with no errors.
@@ -804,91 +695,18 @@ The W3C Jigsaw CSS Validation Service was used to validate the CSS of the websit
 JSHint JS Validation Service was used to validate the Javascript files. No errors were found.
 
 <details><summary>Script.js</summary>
-<img src="docs/validation/validation-script.js.JPG">
+<img src="docs/validation/validation-javascript.png">
 </details>
 
 ### PEP8 Validation
 PEP8 Validation Service was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
 
-<details><summary>Exercises</summary>
+All python files are pep8 compliant except for settings.py which has 5 issues. Files were checked using the pycodestyle python package.
 
-<details><summary>Admin.py</summary>
-<img src="docs/validation/pep8-validation-exercises-admin.JPG">
+<details><summary>Validation</summary>
+<img src="docs/validation/validation-python.png">
 </details>
 
-<details><summary>Filters.py</summary>
-<img src="docs/validation/pep8-validation-exercises-filters.JPG">
-</details>
-
-<details><summary>Models.py</summary>
-<img src="docs/validation/pep8-validation-exercises-models.JPG">
-</details>
-
-<details><summary>Test_views.py</summary>
-<img src="docs/validation/pep8-validation-exercises-test-views.jpg">
-</details>
-
-<details><summary>Urls.py</summary>
-<img src="docs/validation/pep8-validation-exercises-urls.JPG">
-</details>
-
-<details><summary>Views.py</summary>
-<img src="docs/validation/pep8-validation-exercises-views.JPG">
-</details>
-
-<details><summary>Exercises_tags.py</summary>
-<img src="docs/validation/pep8-validation-exercises-tags.JPG">
-</details>
-
-</details>
-
-<details><summary>Home</summary>
-
-<details><summary>Models.py</summary>
-<img src="docs/validation/pep8-validation-exercises-models.JPG">
-</details>
-
-<details><summary>Test_views.py</summary>
-<img src="docs/validation/pep8-validation-home-test-views.JPG">
-</details>
-
-<details><summary>Urls.py</summary>
-<img src="docs/validation/pep8-validation-home-urls.JPG">
-</details>
-
-<details><summary>Views.py</summary>
-<img src="docs/validation/pep8-validation-home-views.JPG">
-</details>
-
-</details>
-
-<details><summary>Plannerapp</summary>
-
-<details><summary>Admin.py</summary>
-<img src="docs/validation/pep8-validation-plannerapp-admin.JPG">
-</details>
-
-<details><summary>Forms.py</summary>
-<img src="docs/validation/pep8-validation-plannerapp-forms.JPG">
-</details>
-
-<details><summary>Models.py</summary>
-<img src="docs/validation/pep8-validation-plannerapp-models.JPG">
-</details>
-
-<details><summary>Test_views.py</summary>
-<img src="docs/validation/pep8-validation-plannerapp-test-views.jpg">
-</details>
-
-<details><summary>Urls.py</summary>
-<img src="docs/validation/pep8-validation-plannerapp-urls.JPG">
-</details>
-
-<details><summary>Views.py</summary>
-<img src="docs/validation/pep8-validation-plannerapp-views.JPG">
-</details>
-
-</details>
 
 
 ### Chrome Dev Tools Lighthouse
@@ -896,47 +714,71 @@ PEP8 Validation Service was used to check the code for PEP8 requirements. All th
 Lighthouse was used to test the performance, accessibility, best practice and SEO of the site.
 Overall the results are very good for the 4 values.
 
-#### Desktop
-<details><summary>View results</summary>
 
-Page  | Performance (%) | Accessibility (%) | Best Practices (%) | SEO (%)
-------------  | ------------ | ------------- | ------------- | -------------
-home/templates/home/index.html | 99 | 100 | 92 | 100 |
-home/templates/home/contact.html | 100 | 100 | 92 | 100 |
-home/templates/home/profile.html | 100 | 100 | 92 | 100 |
-exercises/templates/exercises/exercises_list.html | 99 | 96 | 92 | 100 |
-exercises/templates/exercises/exercise.html | 100 | 100 | 92 | 100 |
-plannerapp/templates/plannerapp/add_plan.html | 100 | 93 | 92 | 100 |
-plannerapp/templates/plannerapp/choose_date.html | 100 | 93 | 92 | 100 |
-plannerapp/templates/plannerapp/edit_plan.html | 100 | 93 | 92 | 100 |
-plannerapp/templates/plannerapp/planner.html | 100 | 98 | 92 | 100 |
-plannerapp/templates/plannerapp/view_plans.html | 100 | 98 | 92 | 100 |
-templates/account/login.html | 100 | 100 | 92 | 90 |
-templates/account/signup.html | 100 | 100 | 92 | 100 |
-templates/account/logout.html | 100 | 100 | 92 | 100 |
-
+<details><summary>Home page</summary>
+<img src="docs/validation/validation-accessibility-home.png">
 </details>
 
-#### Mobile
-<details><summary>View results</summary>
-
-Page  | Performance (%) | Accessibility (%) | Best Practices (%) | SEO (%)
-------------  | ------------ | ------------- | ------------- | -------------
-home/templates/home/index.html | 99 | 100 | 92 | 100 |
-home/templates/home/contact.html | 99 | 100 | 92 | 100 |
-home/templates/home/profile.html | 99 | 100 | 92 | 100 |
-exercises/templates/exercises/exercises_list.html | 75 | 98 | 92 | 100 |
-exercises/templates/exercises/exercise.html | 99 | 100 | 92 | 100 |
-plannerapp/templates/plannerapp/add_plan.html | 99 | 93 | 92 | 100 |
-plannerapp/templates/plannerapp/choose_date.html | 99 | 92 | 92 | 100 |
-plannerapp/templates/plannerapp/edit_plan.html | 98 | 93 | 92 | 100 |
-plannerapp/templates/plannerapp/planner.html | 99 | 98 | 92 | 100 |
-plannerapp/templates/plannerapp/view_plans.html | 97 | 98 | 92 | 100 |
-templates/account/login.html | 98 | 100 | 92 | 92 |
-templates/account/signup.html | 99 | 100 | 92 | 100 |
-templates/account/logout.html | 99 | 100 | 92 | 100 |
-
+<details><summary>Contact page</summary>
+<img src="docs/validation/validation-accessibility-contact.png">
 </details>
+
+<details><summary>Register page</summary>
+<img src="docs/validation/validation-accessibility-signup.png">
+</details>
+
+<details><summary>Login page</summary>
+<img src="docs/validation/validation-accessibility-login.png">
+</details>
+
+<details><summary>Categories list page</summary>
+<img src="docs/validation/validation-accessibility-categories.png">
+</details>
+
+<details><summary>Category detail page</summary>
+<img src="docs/validation/validation-accessibility-categori.png">
+</details>
+
+<details><summary>Add category page</summary>  
+<img src="docs/validation/validation-accessibility-add-category.png">
+</details>
+
+<details><summary>Edit category page</summary>
+<img src="docs/validation/validation-accessibility-edit-category.png">
+</details>
+
+<details><summary>Recipes list page</summary>
+<img src="docs/validation/validation-accessibility-recipes.png">
+</details>
+
+<details><summary>Recipe detail page</summary>
+<img src="docs/validation/validation-accessibility-categori.png">
+</details>
+
+<details><summary>Add recipe page</summary>  
+<img src="docs/validation/validation-accessibility-add-recipe.png">
+</details>
+
+<details><summary>Edit recipe page</summary>
+<img src="docs/validation/validation-accessibility-edit-recipe.png">
+</details>
+
+<details><summary>Articles list page</summary>
+<img src="docs/validation/validation-accessibility-articles.png">
+</details>
+
+<details><summary>Article detail page</summary>
+<img src="docs/validation/validation-accessibility-categori.png">
+</details>
+
+<details><summary>Add article page</summary>  
+<img src="docs/validation/validation-accessibility-add-article.png">
+</details>
+
+<details><summary>Edit article page</summary>
+<img src="docs/validation/validation-accessibility-edit-article.png">
+</details>
+
 
 ### Wave
 The WAVE WebAIM web accessibility evaluation tool was used to test the websites accessibility.

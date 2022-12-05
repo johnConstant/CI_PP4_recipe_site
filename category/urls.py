@@ -18,5 +18,4 @@ urlpatterns = [
     path(
         '<slug:slug>/', views.CategoryDetail.as_view(), name='category_detail'
         ),
-
 ]
