@@ -205,14 +205,29 @@ The following models were created to represent the database model structure for 
 
 ### Wireframes
 
-<details><summary>Big screens - laptop & desktop</summary>
-<img src="docs/wireframes/wireframes-desktop.png">
+<details><summary>Home page</summary>
+<img src="docs/wireframes/Assignment 4Home page.png">
 </details>
-<details><summary>Medium screens - tablet</summary>
-<img src="docs/wireframes/wireframes-tablet.png">
+<details><summary>Categories page</summary>
+<img src="docs/wireframes/Assignment 4Categories page.png">
 </details>
-<details><summary>Small screens - mobile</summary>
-<img src="docs/wireframes/wireframes-mobile.png">
+<details><summary>Category detail page</summary>
+<img src="docs/wireframes/Assignment 4Category Detail page.png">
+</details>
+<details><summary>Recipes page</summary>
+<img src="docs/wireframes/Assignment 4Recipes page.png">
+</details>
+<details><summary>Recpie detail page</summary>
+<img src="docs/wireframes/Assignment 4Recipe detail page.png">
+</details>
+<details><summary>Articles page</summary>
+<img src="docs/wireframes/Assignment 4Articles Page.png">
+</details>
+<details><summary>Article detail page</summary>
+<img src="docs/wireframes/Assignment 4Article detail page.png">
+</details>
+<details><summary>Contact page</summary>
+<img src="docs/wireframes/Assignment 4Contact.png">
 </details>
 
 ## Technologies Used
@@ -927,70 +942,67 @@ templates/account/logout.html | 99 | 100 | 92 | 100 |
 The WAVE WebAIM web accessibility evaluation tool was used to test the websites accessibility.
 
 <details><summary>Home page</summary>
-<img src="docs/validation/wave-index.jpg">
+<img src="docs/validation/validation-accessibility-home.png">
 </details>
 
 <details><summary>Contact page</summary>
-- Initially there were 3 errors shown for no labels to input fields. This was fixed by adding labels and setting bootstrap class to sr-only.
-
-<img src="docs/validation/wave-contact.jpg">
+<img src="docs/validation/validation-accessibility-contact.png">
 </details>
 
-<details><summary>Profile page</summary>
-<img src="docs/validation/wave-profile.jpg">
+<details><summary>Register page</summary>
+<img src="docs/validation/validation-accessibility-signup.png">
 </details>
 
-<details><summary>Exercises list</summary>
-<img src="docs/validation/wave-exercises-list.jpg">
+<details><summary>Login page</summary>
+<img src="docs/validation/validation-accessibility-login.png">
 </details>
 
-<details><summary>Exercise detail page</summary>
-<img src="docs/validation/wave-exercise.jpg">
+<details><summary>Categories list page</summary>
+<img src="docs/validation/validation-accessibility-categories.png">
 </details>
 
-<details><summary>Choose date page</summary>
-<img src="docs/validation/wave-choose-date.jpg">
+<details><summary>Category detail page</summary>
+<img src="docs/validation/validation-accessibility-categori.png">
 </details>
 
-<details><summary>Add plan</summary>
-
-- There were 28 errors identified related to missing form labels which were fixed and as a result there are no more errors identified. Same issues for edit plan page.
-  
-<img src="docs/validation/wave-add-plan.jpg">
+<details><summary>Add category page</summary>  
+<img src="docs/validation/validation-accessibility-add-category.png">
 </details>
 
-<details><summary>Edit plan</summary>
-<img src="docs/validation/wave-edit-plan.jpg">
+<details><summary>Edit category page</summary>
+<img src="docs/validation/validation-accessibility-edit-category.png">
 </details>
 
-<details><summary>Planner page</summary>
-
-- Initially there was one error related to the empty table header (1st th element), which was fixed by addiding value to the th element and setting 'visibility: none';
-
-<img src="docs/validation/wave-planner.jpg">
+<details><summary>Recipes list page</summary>
+<img src="docs/validation/validation-accessibility-recipes.png">
 </details>
 
-<details><summary>View plans</summary>
-
-- A few errors related to empty links of navigation icons were corrected by adding aria-hidden='true' and setting bootstrap class to sr-only.
-  
-<img src="docs/validation/wave-view-plans.jpg">
+<details><summary>Recipe detail page</summary>
+<img src="docs/validation/validation-accessibility-categori.png">
 </details>
 
-<details><summary>Login</summary>
-<img src="docs/validation/wave-login.jpg">
+<details><summary>Add recipe page</summary>  
+<img src="docs/validation/validation-accessibility-add-recipe.png">
 </details>
 
-<details><summary>Register</summary>
-<img src="docs/validation/wave-signup.jpg">
+<details><summary>Edit recipe page</summary>
+<img src="docs/validation/validation-accessibility-edit-recipe.png">
 </details>
 
-<details><summary>Logout</summary>
-<img src="docs/validation/wave-logout.jpg">
+<details><summary>Articles list page</summary>
+<img src="docs/validation/validation-accessibility-articles.png">
 </details>
 
-<details><summary>Error page</summary>
-<img src="docs/validation/wave-error-page.jpg">
+<details><summary>Article detail page</summary>
+<img src="docs/validation/validation-accessibility-categori.png">
+</details>
+
+<details><summary>Add article page</summary>  
+<img src="docs/validation/validation-accessibility-add-article.png">
+</details>
+
+<details><summary>Edit article page</summary>
+<img src="docs/validation/validation-accessibility-edit-article.png">
 </details>
 
 ##### Back to [top](#table-of-contents)
@@ -1054,6 +1066,14 @@ Once logged in go to article page, scroll to comments section and leave a commen
 
 
 6. As a site user, I can log in to like/unlike recipes
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and fill submit form | account is created for the user with the submitted details | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Google button | account is created for the user with details from Google account | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Github button | account is created for the user with details from Github account | Works as expected |
+Once logged in go to recipe page, scroll to info section and click heart icon | Icon changes to solid heart and number of likes count increases by one | Works as expected
+Once logged in go to article page, scroll to info section and click heart icon | Icon changes to solid heart and number of likes count increases by one | Works as expected
+
 8. As a site user, I can log in using social media accounts/gmail to make registration easier
 9. As a site user, I can view recipes organised by category to make finding particular recipes
 10. As a site user, I can view and leave comments on an individual recipe or article
