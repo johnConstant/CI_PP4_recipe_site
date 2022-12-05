@@ -12,7 +12,7 @@
         <div class="category">
             <a href="{% url 'category_detail' category.slug %}">
             <div class="content-overlay"></div>
-            <img src="{{ category.featured_image.url }}" alt="{{ category.title }}" class="category-image" />
+            <img src="{{ category.featured_image.url }}" alt="Check out the delicious recipes in our {{ category.title }} category" class="category-image" />
             <h4>{{ category.title }}</h4>
             </a>
         </div>

@@ -6,19 +6,22 @@
     {% if "placeholder" in category.featured_image.url %}
     <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
     {% else %}
-    <img src="{{ category.featured_image.url }}" alt="Category page header image" width="100%">
+    <img src="{{ category.featured_image.url }}" alt="A collection of {{ category.title }} all neatly organised in one place" width="100%">
     {% endif %}
     <h1>{{ category.title }}</h1>
 </header>
-<section class="cta container">
+<section class="cta container p-5">
  <div class="row">
      <div class="col-sm-8 offset-sm-2">
+        {% if category.description %}
+        <p class="text-center">{{ category.description }}</p>
+        {% else %}
          <p class="sub-heading text-center my-5">
              We've got something for everyone from 15 minute meals to
              Sunday roasts, we've got recipes for everyone who wants
              to cook.
          </p>
-         <p class="text-center">{{ category.description }}</p>
+         {% endif %}
          {% if user.is_superuser %}
             <div class="btn-container">
                 <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ category.slug }}"
@@ -56,7 +59,7 @@
      </div>
  </div>
 </section>
-<section id="gallery">
+<section id="gallery" class="container">
  <div class="card-container">
     {% for recipe in recipes %}
      <div class="card">

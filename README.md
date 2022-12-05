@@ -1004,6 +1004,78 @@ The testing approach is as follows:
 
 ### Manual testing of user stories
 
+### Users
+1. As a site user, I can create an account to interact with recipes
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and fill submit form | account is created for the user with the submitted details | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click sign up with Google button | account is created for the user with details from Google account | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click sign up with Github button | account is created for the user with details from Github account | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+2. As a site user, I can view all recipes in one place
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://8000-johnconstan-cipp4recipe-296vsru9cuk.ws-eu77.gitpod.io/recipes/ | Recipes page main body loads with all recipes displayed | Works as expected |
+
+3. As a site user, I can view the most popular recipes on the home page
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://8000-johnconstan-cipp4recipe-296vsru9cuk.ws-eu77.gitpod.io/ and scroll to most popular recipes section | Recipes with likes appear in three panels on homepage | Works as expected |
+Click on most popular panel | Brought to recipe detail page for more information on recipe | Works as expected |
+
+4. As a site user, I can view the featured recipes on the home page
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://8000-johnconstan-cipp4recipe-296vsru9cuk.ws-eu77.gitpod.io/ | 5 featured recipes appearing on homepage carousel | Works as expected |
+Click on most carousel slide | Brought to recipe detail page for more information on recipe | Works as expected |
+
+5. As a site user, I can log in to comment on recipes and articles
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and fill submit form | account is created for the user with the submitted details | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Google button | account is created for the user with details from Google account | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Github button | account is created for the user with details from Github account | Works as expected |
+Once logged in go to recipe page, scroll to comments section and leave a comment | Comment is submitted for approval | Works as expected
+Once logged in go to article page, scroll to comments section and leave a comment | Comment is submitted for approval | Works as expected
+
+
+
+6. As a site user, I can log in to like/unlike recipes
+8. As a site user, I can log in using social media accounts/gmail to make registration easier
+9. As a site user, I can view recipes organised by category to make finding particular recipes
+10. As a site user, I can view and leave comments on an individual recipe or article
+11. As a site user, I want to be aware of logged in status
+12. As a site user, I want contact form/email subscription prefilled with account info
+13. As a site user, I want to be able to search through the recipes
+
+### Site admin
+13. As a site admin, I can create, read, update and delete my recipes and articles to manage site content
+14. As a site admin, I can approve or disapprove comments so that I can filter out objectionable comments
+15. As a site admin, I can create, read, update and delete categories to organise site content
+16. As a site admin, I can choose which recipes are featured on the home page
+17. As a site admin, I want to be able to log into admin dashboard to edit recipes/categories/comments
+18. As a site admin, I want edit forms prefilled with relevant info
+
+### Site Owner
+19. As a site owner, I want to increase my social media presence
+20. As a site owner, I want visitors to share recipes on social media to increase visitors
+21. As a site owner, I want data entry to be validated on sign-up page
+22. As a site owner, I want the user to come to a 404 error page instead of having to use the browser back button if they enter a URL that does not exist
+23. As a site owner, I want user to be able to contact me and provide their feedback
+
 1. I want to see the home page with explanation of the app
 
 **Step** | **Expected Result** | **Actual Result**
@@ -1438,26 +1510,6 @@ The website was tested on the following devices:
 
 ## Configuration
 
-### Google emails
-
-To set up the project to send emails and to use a Google account as an SMTP server, the following steps are required:
-
-1. Create an email account at google.com, login, click you user icon and then on 'Manage Your Google Account'
-2. Click on the Security tab
-3. Turn on 2-step verification and follow the steps to enable
-4. Click on App passwords, click on Select app and choose Other
-5. Give your app a name and click on 'Generate'
-<br>![App password](docs/readme/gmail-configuration.jpg)
-6. A 16 digit password will be generated, note the password down
-7. Set the below variables within the settings.py file to successfully send emails
-<br><code>EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'</code>
-<br><code>EMAIL_HOST = 'smtp.gmail.com'</code>
-<br><code>EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')</code>
-<br><code>EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')</code>
-<br><code>EMAIL_PORT = '587'</code>
-<br><code>EMAIL_USE_TLS = True</code>
-8. Set up the variables EMAIL_HOST_USER and EMAIL_HOST_PASSWORD in your Render application Config vars
-
 ### Forking the GitHub Repository
 1. Go to the GitHub repository
 2. Click on Fork button in top right corner
@@ -1488,7 +1540,7 @@ To set up the project to send emails and to use a Google account as an SMTP serv
 ### Code
 - Django all-auth social sign on [tutorial](https://learndjango.com/tutorials/django-allauth-tutorial)
 - Django all-auth [documentation](https://django-allauth.readthedocs.io/en/latest/index.html)
-
+- swapps Nested forms [tutorial](https://swapps.com/blog/working-with-nested-forms-with-django)
 
 ##### Back to [top](#table-of-contents)
 

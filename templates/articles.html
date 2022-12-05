@@ -11,7 +11,7 @@
     {% for article in article_list %}
     <div class="article-panel">
         <a href="/articles/{{ article.slug }}">
-            <img src="{{ article.featured_image.url }}" alt="article image" />
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }} article image" />
             <div class="article-info">
               <div class="article-topic">{{ article.topic }}</div>
                 <div class="article-info-inner">
