@@ -36,8 +36,10 @@ class SearchResults(View):
     # model = Recipe
     # template_name = "search_results.html"
 
-    def get(self, request, *args, **kwargs): 
+    def get(self, request, *args, **kwargs):
         query = self.request.GET.get("q")
+        if query is None:
+            query = ''
         recipe_list = Recipe.objects.filter(title__contains=query)
         category_list = Category.objects.filter(title__contains=query)
         article_list = Article.objects.filter(title__contains=query)

@@ -708,78 +708,6 @@ All python files are pep8 compliant except for settings.py which has 5 issues. F
 </details>
 
 
-
-### Chrome Dev Tools Lighthouse
-
-Lighthouse was used to test the performance, accessibility, best practice and SEO of the site.
-Overall the results are very good for the 4 values.
-
-
-<details><summary>Home page</summary>
-<img src="docs/validation/validation-accessibility-home.png">
-</details>
-
-<details><summary>Contact page</summary>
-<img src="docs/validation/validation-accessibility-contact.png">
-</details>
-
-<details><summary>Register page</summary>
-<img src="docs/validation/validation-accessibility-signup.png">
-</details>
-
-<details><summary>Login page</summary>
-<img src="docs/validation/validation-accessibility-login.png">
-</details>
-
-<details><summary>Categories list page</summary>
-<img src="docs/validation/validation-accessibility-categories.png">
-</details>
-
-<details><summary>Category detail page</summary>
-<img src="docs/validation/validation-accessibility-categori.png">
-</details>
-
-<details><summary>Add category page</summary>  
-<img src="docs/validation/validation-accessibility-add-category.png">
-</details>
-
-<details><summary>Edit category page</summary>
-<img src="docs/validation/validation-accessibility-edit-category.png">
-</details>
-
-<details><summary>Recipes list page</summary>
-<img src="docs/validation/validation-accessibility-recipes.png">
-</details>
-
-<details><summary>Recipe detail page</summary>
-<img src="docs/validation/validation-accessibility-categori.png">
-</details>
-
-<details><summary>Add recipe page</summary>  
-<img src="docs/validation/validation-accessibility-add-recipe.png">
-</details>
-
-<details><summary>Edit recipe page</summary>
-<img src="docs/validation/validation-accessibility-edit-recipe.png">
-</details>
-
-<details><summary>Articles list page</summary>
-<img src="docs/validation/validation-accessibility-articles.png">
-</details>
-
-<details><summary>Article detail page</summary>
-<img src="docs/validation/validation-accessibility-categori.png">
-</details>
-
-<details><summary>Add article page</summary>  
-<img src="docs/validation/validation-accessibility-add-article.png">
-</details>
-
-<details><summary>Edit article page</summary>
-<img src="docs/validation/validation-accessibility-edit-article.png">
-</details>
-
-
 ### Wave
 The WAVE WebAIM web accessibility evaluation tool was used to test the websites accessibility.
 
@@ -859,85 +787,6 @@ The testing approach is as follows:
 ### Manual testing of user stories
 
 ### Users
-1. As a site user, I can create an account to interact with recipes
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and fill submit form | account is created for the user with the submitted details | Works as expected |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click sign up with Google button | account is created for the user with details from Google account | Works as expected |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click sign up with Github button | account is created for the user with details from Github account | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
-</details>
-
-2. As a site user, I can view all recipes in one place
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Navigate to https://8000-johnconstan-cipp4recipe-296vsru9cuk.ws-eu77.gitpod.io/recipes/ | Recipes page main body loads with all recipes displayed | Works as expected |
-
-3. As a site user, I can view the most popular recipes on the home page
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Navigate to https://8000-johnconstan-cipp4recipe-296vsru9cuk.ws-eu77.gitpod.io/ and scroll to most popular recipes section | Recipes with likes appear in three panels on homepage | Works as expected |
-Click on most popular panel | Brought to recipe detail page for more information on recipe | Works as expected |
-
-4. As a site user, I can view the featured recipes on the home page
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Navigate to https://8000-johnconstan-cipp4recipe-296vsru9cuk.ws-eu77.gitpod.io/ | 5 featured recipes appearing on homepage carousel | Works as expected |
-Click on most carousel slide | Brought to recipe detail page for more information on recipe | Works as expected |
-
-5. As a site user, I can log in to comment on recipes and articles
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and fill submit form | account is created for the user with the submitted details | Works as expected |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Google button | account is created for the user with details from Google account | Works as expected |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Github button | account is created for the user with details from Github account | Works as expected |
-Once logged in go to recipe page, scroll to comments section and leave a comment | Comment is submitted for approval | Works as expected
-Once logged in go to article page, scroll to comments section and leave a comment | Comment is submitted for approval | Works as expected
-
-
-
-6. As a site user, I can log in to like/unlike recipes
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and fill submit form | account is created for the user with the submitted details | Works as expected |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Google button | account is created for the user with details from Google account | Works as expected |
-Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Github button | account is created for the user with details from Github account | Works as expected |
-Once logged in go to recipe page, scroll to info section and click heart icon | Icon changes to solid heart and number of likes count increases by one | Works as expected
-Once logged in go to article page, scroll to info section and click heart icon | Icon changes to solid heart and number of likes count increases by one | Works as expected
-
-8. As a site user, I can log in using social media accounts/gmail to make registration easier
-9. As a site user, I can view recipes organised by category to make finding particular recipes
-10. As a site user, I can view and leave comments on an individual recipe or article
-11. As a site user, I want to be aware of logged in status
-12. As a site user, I want contact form/email subscription prefilled with account info
-13. As a site user, I want to be able to search through the recipes
-
-### Site admin
-13. As a site admin, I can create, read, update and delete my recipes and articles to manage site content
-14. As a site admin, I can approve or disapprove comments so that I can filter out objectionable comments
-15. As a site admin, I can create, read, update and delete categories to organise site content
-16. As a site admin, I can choose which recipes are featured on the home page
-17. As a site admin, I want to be able to log into admin dashboard to edit recipes/categories/comments
-18. As a site admin, I want edit forms prefilled with relevant info
-
-### Site Owner
-19. As a site owner, I want to increase my social media presence
-20. As a site owner, I want visitors to share recipes on social media to increase visitors
-21. As a site owner, I want data entry to be validated on sign-up page
-22. As a site owner, I want the user to come to a 404 error page instead of having to use the browser back button if they enter a URL that does not exist
-23. As a site owner, I want user to be able to contact me and provide their feedback
-
 1. I want to see the home page with explanation of the app
 
 **Step** | **Expected Result** | **Actual Result**
@@ -949,15 +798,27 @@ Navigate to https://ci-pp4-workout-planner.onrender.com/ | Home page main body l
 </details>
 
 
-2. I want to be able to easily navigate around the application to different pages
+2. As a site user, I can create an account to interact with recipes
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-Click on 'Home' link on the navigation bar | Loads home page | Works as expected |
-Click on 'Planner' link on the navigation bar | Loads planner page | Works as expected |
-Click on 'Exercise' link on the navigation bar | Loads exercises page | Works as expected |
-Click on User name on the navigation bar and then 'Profile' from the drop-down menu| Loads user profile page | Works as expected |
-Click on User name on the navigation bar and then 'Log out' from the drop-down menu| Loads log out page | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and fill submit form | account is created for the user with the submitted details | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click sign up with Google button | account is created for the user with details from Google account | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click sign up with Facebook button | account is created for the user with details from Facebook account | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+3. As a site user, I can view all recipes in one place
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com//recipes/ | Recipes page main body loads with all recipes displayed | Works as expected |
 
 <details><summary>Screenshot</summary>
 <img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
@@ -968,386 +829,348 @@ Click on User name on the navigation bar and then 'Log out' from the drop-down m
 </details>
 
 
-3. I want to create my account to be able to plan my workouts
+4. As a site user, I can view the most popular recipes on the home page
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-Select 'Log in' on the navigation bar and 'Register' from the drop-down menu | Loads Registration page | Works as expected |
-Provide username | Shows error if username is shorter than 4 characters | Works as expected |
-Provide password  | Shows error if password don't meet password criteria | Works as expected |
-Click 'Register' button at the bottom of the form | User is logged-in, taken to the planner page and presented with a confirmation message | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com// and scroll to most popular recipes section | Recipes with likes appear in three panels on homepage | Works as expected |
+Click on most popular panel | Brought to recipe detail page for more information on recipe | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-03-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-03-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-03-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-03-d.jpg">
-<img src="docs/testing/user-stories-testing/user-story-03-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
 </details>
 
 
-4. I want to prepare a plan for multiple weeks in advance
+5. As a site user, I can view the featured recipes on the home page
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-Register or log in to the account to be able to create a plan | Loads planner page | Works as expected |
-Click on the 'Add a new plan' button | Display a choose date page with a date picker | Works as expected |
-Select first day for the plan and click 'Choose' | Loads add plan page with selected first day of the week  | Works as expected |
-Fill in the plan and click 'Add plan' button | Loads view plans page with completed plan | Works as expected |
-Click on the 2nd icon (Plus sign) from the navigation icons below the current plan and repeat two above steps | Create a new plan with a different start day | Works as expected |
-Select first day from the date picker which has already been selected | Show error message and clear date picker for another selection | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com// | 5 featured recipes appearing on homepage carousel | Works as expected |
+Click on most carousel slide | Brought to recipe detail page for more information on recipe | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-04-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-04-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-04-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-04-d.jpg">
-<img src="docs/testing/user-stories-testing/user-story-04-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-04-f.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
 </details>
 
 
-5. I want to be able to edit my current plans at any point
+6. As a site user, I can log in to comment on recipes and articles
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-In the view plans page click on the 1st icon from the navigation icons below the current plan | Loads edit page for selected workout plan | Works as expected |
-Edit the plan and click on 'Save' button | Loads view plans page, displays confirmation message and shows amended plan | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and fill submit form | account is created for the user with the submitted details | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Google button | account is created for the user with details from Google account | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Github button | account is created for the user with details from Github account | Works as expected |
+Once logged in go to recipe page, scroll to comments section and leave a comment | Comment is submitted for approval | Works as expected
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-05-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-05-b.jpg">
-</details>
-
-
-6. I want to delete my plan if no longer needed
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-In the view plans page click on the 3rd icon from the navigation icons below the current plan | Displays confirmation modal | Works as expected |
-Click on 'Delete' on the pop up modal | Deletes selected plan and displays confirmation message. Show current plans and if no plans are saved a relevant message for user | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-06-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-06-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-06-c.jpg">
-</details>
-
-7.  I want to see feedback messages so that I know that my plan was created, edited or deleted
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Click on the 'Add a new plan' button on planner page, fill in the plan and click 'Add plan' button | Loads view plans page with completed plan | Works as expected |
- | Loads edit page for selected workout plan | Works as expected |
-In the view plans page click on the 1st icon from the navigation icons below the current plan, edit the plan and click on 'Save' button | Loads view plans page, displays confirmation message and shows amended plan | Works as expected |
-In the view plans page click on the 3rd icon from the navigation icons below the current plan, click on 'Delete' on the pop up modal | Deletes selected plan and displays confirmation message. Show current plans and if no plans are saved a relevant message for user | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-07-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-07-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-07-c.jpg">
-</details>
-
-
-8.  I want to be able to view previous plans to help me prepare the following week’s workout
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Register or log in to the account to be able to view all plans | Loads planner page | Works as expected |
-Click on 'View my current workout plans' button | Loads view plans page | Works as expected |
-Use right & left arrows to navigate between created plans | Display previous & next plan | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-08-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-08-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-08-c.jpg">
-</details>
-
-
-9.  I want to find inspiration for my workouts and be able to use search option to find a particular exercise
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Click on the 'Exercises' menu on the navigation bar | Loads exercises list page paginated by 12 | Works as expected |
-Use filter to search a specific exercise depending on the body part, level or type | Displays exercises matching users criteria | Works as expected |
-Type a name or part of the exercise name and click on the 'Search' button | Loads exercises containing searched phrase in their title | Works as expected |
-Click on 'Clear' button to remove filter and display list of all exercises | Loads exercises list paginated by 12 | Works as expected |
-Click on '>>' button in the pagination feature to go to the next page displaying next 12 exercises | Loads next 12 exercises from all exercises in the database | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-09-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-09-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-09-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-09-d.jpg">
-<img src="docs/testing/user-stories-testing/user-story-09-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-09-f.jpg">
-</details>
-
-
-10. As a returning user, I want to log in to the app to see my current plans
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Click on 'Log in' on the navigation bar and 'Log in' from the drop-down menu | Loads Log in page | Works as expected |
-Provide incorrect username & password | Shows error if username and/or password are not correct | Works as expected |
-Provide correct username & password | Logs user in and loads a planner page. Displays confirmation message and username on the page screen and nav bar | Works as expected |
-Click 'View my current workout plans' on the planner page | Loads view plans page | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-10-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-10-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-10-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-10-d.jpg">
-</details>
-
-
-11. I want every site visitor to be able to view the catalogue of exercises
-    
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Click on 'Exercises' on the navigation bar | Loads exercises list page | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-11-a.jpg">
-</details>
-
-
-##### Back to [top](#table-of-contents)
-
-
-12. I want only the logged-in users to be able to create their plans
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Click on 'Planner' on the navigation bar | For not logged-in users displays an example of the plan and option to log in or register | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-12-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
 </details>
 
 
 
-13. I want users to be able to create the plan on any day that suits their needs
+7. As a site user, I can log in to like/unlike recipes
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-On planner page click 'Add a new plan' | Displays choose date page with a day picker | Works as expected |
-Select any date on the calendar other than Monday, eg. Wednesday | Displays add plan page with Wednesday as the first day of the plan | Works as expected |
-Choose other date of the week as a first day, eg. Saturday | Displays add plan page with Saturday as the first day of the plan | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and fill submit form | account is created for the user with the submitted details | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Google button | account is created for the user with details from Google account | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Facebook button | account is created for the user with details from Facebook account | Works as expected |
+Once logged in go to recipe page, scroll to info section and click heart icon | Icon changes to solid heart and number of likes count increases by one | Works as expected
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-13-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-13-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-13-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-13-d.jpg">
-<img src="docs/testing/user-stories-testing/user-story-13-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
 </details>
 
 
-14. I want data entry to be validated on sign-up page
+8. As a site user, I can log in using social media accounts/gmail to make registration easier
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-Click on the 'Log in' on the nav bar and 'Register' from the drop-down menu | Displays Registration page | Works as expected |
-Input username shorter than 4 characters (eg. xyz) | Prevents registration. Shows warning message to lenghten username text  | Works as expected |
-Input username which has already been taken (eg. Admin) | Prevents registration. Displays 'A user with that username already exists.' message | Works as expected |
-Input incorrect format of email | Shows warning message to include '@' in the email. Prevents registration | Works as expected |
-Input 'newuser12' password |  Prevents registration. Displays 'The password is too similar to the username' message | Works as expected |
-Input '12345678' as a password | Prevents registration. Displays 'This password is entirely numeric' message | Works as expected |
-Input 'testing' as a password | Prevents registration. Displays 'This password is too short. It must contain at least 8 characters' message | Works as expected |
-Input two different values in 'Password' and 'Password (again)' fields | Prevents registration. Displays 'You must type the same password each time.' message | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Google button | account is created for the user with details from Google account | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Facebook button | account is created for the user with details from Facebook account | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-14-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-14-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-14-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-14-d.jpg">
-<img src="docs/testing/user-stories-testing/user-story-14-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-14-f.jpg">
-<img src="docs/testing/user-stories-testing/user-story-14-g.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
 </details>
 
+9. As a site user, I can view recipes organised by category to make finding particular recipes
 
-15. I want the user to come to a 404 error page instead of having to use the browser back button if they enter a URL that does not exist
-    
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com//categories/ | Category page loads | Works as expected |
+Click on category panel tile for category detail page | Category detail page loads with related recipes displayed at the bottom of the page | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+10. As a site user, I can view and leave comments on an individual recipe or article
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com//recipes/ | Recipe page loads | Works as expected |
+Click on recipe card for more information | Recipe detail page loads with comments section at the bottom of the page | Works as expected |
+Logged in users can fill out the comment form and click submit button | Comment is submitted for approval | Works as expected |
+Admin user approves comment in admin dashboard | Approved comments are displayed on the recipes page | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+11. As a site user, I want to be aware of logged in status
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to any page and check nav bar | Logged in users see welcome message with personalised username and sign out link | Works as expected |
+Navigate to any page and check nav bar | Unauthenticated users see welcome message with register and sign in links | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+12. As a site user, I want contact form/email subscription prefilled with account info
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/contact | Logged in users see username field of form prepopulated | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+13. As a site user, I want to be able to search through the recipes, categories and articles
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Click on search bar in navbar and enter search term | Search results are displayed on resulting page | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+### Site admin
+14. As a site admin, I can create, read, update and delete my recipes and articles to manage site content
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
+Click on Recipe add + button | Recipe add form is presented to user in backend | Works as expected |
+Fill out form with relevant details and click save | New recipe is added to database | Works as expected |
+
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/recipes logged in as superuser | Add recipe button is displayed above recipe list | Works as expected |
+Click on Recipe add + button | Recipe add form is presented to user in frontend | Works as expected |
+Fill out form with relevant details and click save | New recipe is added to database | Works as expected |
+
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
+Click on Article add + button | Article add form is presented to user in backend | Works as expected |
+Fill out form with relevant details and click save | New article is added to database | Works as expected |
+
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/articles logged in as superuser | Add article button is displayed above article list | Works as expected |
+Click on Article add + button | Article add form is presented to user in frontend | Works as expected |
+Fill out form with relevant details and click save | New article is added to database | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+15. As a site admin, I can approve or disapprove comments so that I can filter out objectionable comments
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
+Click on Comments table | A list of all comments is displayed | Works as expected |
+Select the commetns for approval from list and approve | Approved comments are displayed on the front end of the website | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+15. As a site admin, I can create, read, update and delete categories to organise site content
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
+Click on Category add + button | Category add form is presented to user in backend | Works as expected |
+Fill out form with relevant details and click save | New category is added to database | Works as expected |
+
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/categories logged in as superuser | Add category button is displayed above category list | Works as expected |
+Click on Category add + button | Category add form is presented to user in frontend | Works as expected |
+Fill out form with relevant details and click save | New category is added to database | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+16. As a site admin, I can choose which recipes are featured on the home page
+
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
+Choose your recipe from the Recipes table | Recipe edit form is presented to user in backend | Works as expected |
+Select the featured recipe checkbox and click save | New recipe is appearing on the home page carousel | Works as expected |
+
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/recipes logged in as superuser | Add recipe button is displayed above recipe list | Works as expected |
+Choose your recipe from the Recipes table | Recipe edit form is presented to user in frontend | Works as expected |
+Select the featured recipe checkbox and click save | New recipe is appearing on the home page carousel | Works as expected |
+
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+17. As a site admin, I want to be able to log into admin dashboard to edit recipes/categories/comments
+
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin | Admin sign in form is displayed | Works as expected |
+Once logged in Recipes, Categories and articles tables are available | App tables are displayed | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+18. As a site admin, I want edit forms prefilled with relevant info
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
+Choose a recipe from the Recipes table | Recipe edit form is presented with data prefilled | Works as expected |
+
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/recipes logged in as superuser | Choose recipe from list | Works as expected |
+If logged in user is recipe author edit and delete buttons are available | Edit and Delete buttons are available to recipe author on recipe detail page | Works as expected |
+Click on edit button | Recipe edit form is presented with data prefilled | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+### Site Owner
+19. As a site owner, I want to increase my social media presence
+
+**Step** | **Expected Result** | **Actual Result**
+------------ | ------------ | ------------ |
+Navigate to the any page, scroll to bottom of page | Links bring user to social media page where they can follow restaurant | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+</details>
+
+21. As a site owner, I want data entry to be validated on sign-up page
+
+22. As a site owner, I want the user to come to a 404 error page instead of having to use the browser back button if they enter a URL that does not exist
+
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
 Type the wrong page in the www address | Reroute to a customised 404 page | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-15-a.jpg">
-
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
 </details>
 
-
-16. I want user to be able to contact me and provide their feedback
+23. As a site owner, I want user to be able to contact me and provide their feedback
 
 **Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Click on the envelope icon in the footer | Displays contact page with contact form | Works as expected |
-For user who is not logged-in fill in username, email and message fields and click 'Send message' | Initially displays contact form with no data in and after completion sends the form | Works as expected |
-For user who is logged-in and did not provide email on registration, fill in email and message fields and click 'Send message' | Initially displays contact form with prepopulated username and after input of email and message sends the form | It did not work when tested. User email was not shown in the received email. The code in home views.py was corrected and the feature re-tested. As documented in the screenshot below, it now works as expected. |
-For user who is logged-in and provided email on registration, fill in the message fields and click 'Send message' | Initially displays contact form with prepopulated username and email address and sends the form with user message | Works as expected |
+Navigate to the contact page, scroll down to contact form | Form allows user to make contact and provide feedback | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-16-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-b-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-b-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-b-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-b-d.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-c-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-c-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-c-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-c-d.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-c-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-c-f.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-d-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-d-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-d-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-16-d-d.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
+<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
 </details>
-
-
-17. I want user to receive feedback if their message in contact form has been sent.
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Click on the envelope icon in the footer | Displays contact page with contact form | Works as expected |
-Fill in required contact form fields and click 'Send message' button | Display confirmation message to the user | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-17-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-17-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-17-c.jpg">
-</details>
-
-
-18. I want my site to be fully responsive
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Change device screen size using chrome dev tools | The web functionality remains the same on various screen sizes | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-18-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-18-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-18-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-18-d.jpg">
-</details>
-
-
-19. I want to see details of a specific exercise and get an idea how to perform it correctly
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Navigate to exercise page in the navigation bar | Displays the list of all exercises paginated by 12 | Works as expected |
-Click 'View' button under an exercise picture and overview | Displays the selected exercise detail page | Works as expected for both logged in and not logged in user |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-19-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-19-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-19-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-19-d.jpg">
-</details>
-
-
-20. I want a paginated list of exercises so that I can easily select an exercise to view
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-Navigate to exercise page in the navigation bar | Displays the list of all exercises paginated by 12 | Works as expected |
-Click on the '»' symbol to go to the next page | Displays next available page | Works as expected |
-Click on the '»»' to jump to the last page | Displays last page | Works as expected  |
-Click on the '«' symbol to go to the previous page | Displays previous available page | Works as expected |
-Click on the '««' to jump to the first page | Displays first page | Works as expected  |
-Put a filter on exercises and select only exercises for legs from the body part filter and click 'Search' | Displays only exercises matching the search criteria | Works as expected |
-Test '»»' & '««' symbols to jump to the last / first page | Displays last / first page available | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-20-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-20-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-20-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-20-d.jpg">
-<img src="docs/testing/user-stories-testing/user-story-20-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-20-f.jpg">
-</details>
-
-
-21. I want to be able to log out from my account
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-On navigation bar click on username and select 'Log out' from the drop-down menu | Displays the log out page | Works as expected |
-Click on the 'Log out' button | Logs user out and displays confirmation message | Works as expected |
-
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-21-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-21-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-21-c.jpg">
-</details>
-
-
-22. I want to be able to see details of my account on the profile page
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-On navigation bar click on username and select 'Profile' from the drop-down menu | Displays the profile page | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-22-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-22-b.jpg">
-</details>
-
-
-23.  I want to be able to delete my account if I decide to no longer use the app
-
-**Step** | **Expected Result** | **Actual Result**
------------- | ------------ | ------------ |
-On navigation bar click on username and select 'Profile' from the drop-down menu | Displays the profile page | Works as expected |
-Click on the 'Delete profile' button | Pops up modal to confirm user's decision and warns about the irreversibility of this action | Works as expected |
-Click on the 'Delete' button to confirm the choice | Deletes the user account and displays the message on the main screen | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-23-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-23-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-23-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-23-d.jpg">
-</details>
-
 
 ### Automated testing
 
-Automated testing was done using the Django's unit tests from a Python standard library module: unittest. The reports were produced using the coverage tool.
-
-- Exercises app:
-
-<img src="docs/testing/coverage-exercises-app.jpg">
-
-- Home app:
-
-<img src="docs/testing/coverage-home-app.jpg">
-
-- Plannerapp app:
-
-<img src="docs/testing/coverage-plannerapp.jpg">
-
+Automated testing was done using the Django's unit tests from a Python standard library module: unittest. 
 
 ### Performing tests on various devices
 
 The website was tested using Google Chrome Developer Tools Toggle Device Toolbar to simulate viewports of different devices.
 
 The website was tested on the following devices:
-- ASUS ZenBook (tablet screen)
-- Samsung Galaxy Tab A (tablet screen)
-- Samsung S7 (mobile screen)
+- MacBook Pro
+- Dell on latest Windows OS
+- Nord One Plus
 
 ### Browser compatibility
 
 - Testing has been carried out on the following browsers:
-  - Googe Chrome Version 101.0.4951.41 (Official Build) (64-bit)
-  - Firefox Browser 99.0.1 (64-bit)
-  - Microsoft Edge Version 101.0.1210.32 (Official build) (64-bit)
+  - Google Chrome
+  - Safari
+  - Firefox
+  - Microsoft Edge
+  - Android Native Browser
+  - Google Chrome on Android
+
 
 ##### Back to [top](#table-of-contents)
 
@@ -1356,16 +1179,8 @@ The website was tested on the following devices:
 
 | **Bug** | **Fix** |
 | ------- | ------- |
-| The post method on the date selector did not work properly | Renamed function to 'post', removed 'if request.method == "POST":'. Also standardised the nomenclature of files - changed ‘-‘ to ‘_’ |
-| The session ID for the planner could not be obtained | Changed `"request.session[workout_plan.pk] = workout_plan.id"` into `"request.session['workout_plan.id'] = workout_plan.pk"` |
-| Unable to save forms from formset due to row containing null values | Added properties to WorkoutPlan models (blank=True, null=False, default='',) |
-| Validation:  button being a descendant of an element and vice-versa `(e.g. <a href="/planner"><button type="button" class="button">start now</button></a>` | Made an a tag with a class of link-button (`<a href="/planner" class="link-button mt-2">start now</a>`)|
-| Duplicated code of exercise filters with its appearence on the page was set with CSS and media queries which was causing html errors due to duplicated ID tags | Removed duplicated code and wrote JavaScript function to adjust filter drop-down and functionality on the smaller screens |
-| Validation: wave tool identified 3 errors due to no labels to input fields | Fixed by adding labels and setting bootstrap class to sr-only |
-| Validation: wave tool identified 28 errors for missing form fields labels in add plan and edit plan page | Added labels with no visibility set |
-| Validation: error identified for missing 1st table header field | Added value to the th element and set 'visibility: none'; |
-| Validation: wave tool identified a few error for empty links of navigation icons | Added aria-hidden='true' and set bootstrap class to sr-only |
-| Testing: no email address shown on email from logged-in user who had to manually input their address to the field on the contact form | Amended view to display contact form in views.py by adding nested if function in `if request.user.is_authenticated` |
+| The post method on the RecipeUpdate class is not working correctly | Update RecipeUpdate to be function based view and use inline formset to update ingredients and instructions |
+
 
 ##### Back to [top](#table-of-contents)
 
@@ -1403,6 +1218,10 @@ The website was tested on the following devices:
 - Django all-auth social sign on [tutorial](https://learndjango.com/tutorials/django-allauth-tutorial)
 - Django all-auth [documentation](https://django-allauth.readthedocs.io/en/latest/index.html)
 - swapps Nested forms [tutorial](https://swapps.com/blog/working-with-nested-forms-with-django)
+- Django inline formsets [tutorial](https://www.letscodemore.com/blog/django-inline-formset-factory-with-examples/)
+- [inline_formsets](https://techincent.com/explained-django-inline-formset-factory-with-example/
+)
+- [WorkoutPlanner](https://github.com/aleksandracodes/CI_PP4_Workout_Planner/blob/main/README.md) by Aleksandracoodes
 
 ##### Back to [top](#table-of-contents)
 
@@ -1410,3 +1229,4 @@ The website was tested on the following devices:
 
 I would like to thank everyone who supported me in the development of this project:
 - My mentor Mo for professional guidance and helpful feedback
+- Aleksandra Haniok whose past project was amazing inspiration and guidance
