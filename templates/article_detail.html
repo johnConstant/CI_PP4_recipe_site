@@ -4,9 +4,9 @@
 <!-- Header Image-->
 <header class="header-image article">
     {% if "placeholder" in article.featured_image.url %}
-    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
+    <img src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
     {% else %}
-    <img src="{{ article.featured_image.url }}" alt="an incrdible article about {{ article.title }}" width="100%">
+    <img src="{{ article.featured_image.url }}" alt="an incrdible article about {{ article.title }}">
     {% endif %}
     <h1>{{ article.title }}</h1>
     <div class="ribbon">
