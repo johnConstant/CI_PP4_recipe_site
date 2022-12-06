@@ -156,7 +156,7 @@ At the top of the page there is a recognisable type of navigation bar with websi
 - Two database models contain all fields stored in the database and mimics the structure of what is actually stored in the Postgres database
 
 <details><summary>Show diagram</summary>
-<img src="docs/readme/database-diagram.png">
+<img src="docs/Database ER diagram (crow's foot).jpeg">
 </details>
 
 The following models were created to represent the database model structure for the website:
@@ -804,7 +804,7 @@ The WAVE WebAIM web accessibility evaluation tool was used to test the websites 
 </details>
 
 <details><summary>Category detail page</summary>
-<img src="docs/validation/validation-accessibility-categori.png">
+<img src="docs/validation/validation-accessibility-category-detail.png">
 </details>
 
 <details><summary>Add category page</summary>  

@@ -451,7 +451,7 @@ footer a:hover {
 
 .card-image {
     width:100%;
-    max-height: 20rem;
+    /* max-height: 20rem; */
     clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0% 75%);
     transform: scale(1);
     transition: all 0.3s;
