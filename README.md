@@ -1150,7 +1150,7 @@ The website was tested on the following devices:
 | **Bug** | **Fix** |
 | ------- | ------- |
 | The post method on the RecipeUpdate class is not working correctly | Update RecipeUpdate to be function based view and use inline formset to update ingredients and instructions |
-| Placeholder image not working on cards | Implement conditional statement on card |
+| Footer styling issues | Fix footer to bottom of pages |
 
 ## Future Considerations
 
