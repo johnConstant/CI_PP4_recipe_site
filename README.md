@@ -2,9 +2,6 @@
 
 💻 [Visit live website](https://ci-pp4-recipe-site.herokuapp.com/)
 
-![Mockup image](docs/readme/ami-responsivedesign-ci-pp4-workout-planner.jpg)
-
-
 ## Table of Contents
   - [About](#about)
   - [User Goals](#user-goals)
@@ -33,6 +30,12 @@
     - [Making a Local Clone](#making-a-local-clone)
   - [Credits](#credits)
   - [Acknowledgements](#acknowledgements)
+
+### Credentials
+Superuser login details:
+user1
+user1@recipesite.com
+EyHZiF6B8MWFFb4
 
 ### About
 
@@ -634,7 +637,7 @@ The following models were created to represent the database model structure for 
 
 <details><summary>See feature images</summary>
 
-![Error page](docs/features/feature-error-page.jpg)
+![Error page](docs/features/error-500-page.png)
 </details>
 
 ##### Back to [top](#table-of-contents)
@@ -732,7 +735,7 @@ The WAVE WebAIM web accessibility evaluation tool was used to test the websites 
 </details>
 
 <details><summary>Category detail page</summary>
-<img src="docs/validation/validation-accessibility-category-detail.png">
+<img src="docs/validation/validation-accesibility-category-detail.png">
 </details>
 
 <details><summary>Add category page</summary>  
@@ -748,7 +751,7 @@ The WAVE WebAIM web accessibility evaluation tool was used to test the websites 
 </details>
 
 <details><summary>Recipe detail page</summary>
-<img src="docs/validation/validation-accessibility-categori.png">
+<img src="docs/validation/validation-accessibility-recipe-detail.png">
 </details>
 
 <details><summary>Add recipe page</summary>  
@@ -764,7 +767,7 @@ The WAVE WebAIM web accessibility evaluation tool was used to test the websites 
 </details>
 
 <details><summary>Article detail page</summary>
-<img src="docs/validation/validation-accessibility-categori.png">
+<img src="docs/validation/validation-accessibility-article-detail.png">
 </details>
 
 <details><summary>Add article page</summary>  
@@ -791,10 +794,10 @@ The testing approach is as follows:
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
-Navigate to https://ci-pp4-workout-planner.onrender.com/ | Home page main body loads with application description | Works as expected |
+Navigate to https://ci-pp4-recipe-site.herokuapp.com/ | Home page main body loads with application description | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-01.jpg">
+<img src="docs/testing/test-user-story-1.png">
 </details>
 
 
@@ -807,11 +810,11 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click 
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click sign up with Facebook button | account is created for the user with details from Facebook account | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-2a.png">
+<img src="docs/testing/test-user-story-2b.png">
+<img src="docs/testing/test-user-story-2c.png">
+<img src="docs/testing/test-user-story-2d.png">
+<img src="docs/testing/test-user-story-2e.png">
 </details>
 
 3. As a site user, I can view all recipes in one place
@@ -821,11 +824,8 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/signup/ and click 
 Navigate to https://ci-pp4-recipe-site.herokuapp.com//recipes/ | Recipes page main body loads with all recipes displayed | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-3.png">
+
 </details>
 
 
@@ -837,11 +837,7 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com// and scroll to most popula
 Click on most popular panel | Brought to recipe detail page for more information on recipe | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-4.png">
 </details>
 
 
@@ -853,11 +849,8 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com// | 5 featured recipes appe
 Click on most carousel slide | Brought to recipe detail page for more information on recipe | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-5a.png">
+<img src="docs/testing/test-user-story-5b.png">
 </details>
 
 
@@ -871,11 +864,12 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click l
 Once logged in go to recipe page, scroll to comments section and leave a comment | Comment is submitted for approval | Works as expected
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-2a.png">
+<img src="docs/testing/test-user-story-2b.png">
+<img src="docs/testing/test-user-story-2c.png">
+<img src="docs/testing/test-user-story-2d.png">
+<img src="docs/testing/test-user-story-2e.png">
+<img src="docs/testing/test-user-story-6a.png">
 </details>
 
 
@@ -890,11 +884,13 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click l
 Once logged in go to recipe page, scroll to info section and click heart icon | Icon changes to solid heart and number of likes count increases by one | Works as expected
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-2a.png">
+<img src="docs/testing/test-user-story-2b.png">
+<img src="docs/testing/test-user-story-2c.png">
+<img src="docs/testing/test-user-story-2d.png">
+<img src="docs/testing/test-user-story-2e.png">
+<img src="docs/testing/test-user-story-7a.png">
+<img src="docs/testing/test-user-story-7b.png">
 </details>
 
 
@@ -906,11 +902,11 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click l
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/accounts/login/ and click log in with Facebook button | account is created for the user with details from Facebook account | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-2a.png">
+<img src="docs/testing/test-user-story-2b.png">
+<img src="docs/testing/test-user-story-2c.png">
+<img src="docs/testing/test-user-story-2d.png">
+<img src="docs/testing/test-user-story-2e.png">
 </details>
 
 9. As a site user, I can view recipes organised by category to make finding particular recipes
@@ -921,11 +917,8 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com//categories/ | Category pag
 Click on category panel tile for category detail page | Category detail page loads with related recipes displayed at the bottom of the page | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-8a.png">
+<img src="docs/testing/test-user-story-8b.png">
 </details>
 
 10. As a site user, I can view and leave comments on an individual recipe or article
@@ -938,11 +931,12 @@ Logged in users can fill out the comment form and click submit button | Comment 
 Admin user approves comment in admin dashboard | Approved comments are displayed on the recipes page | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-2a.png">
+<img src="docs/testing/test-user-story-2b.png">
+<img src="docs/testing/test-user-story-2c.png">
+<img src="docs/testing/test-user-story-2d.png">
+<img src="docs/testing/test-user-story-2e.png">
+<img src="docs/testing/test-user-story-6a.png">
 </details>
 
 11. As a site user, I want to be aware of logged in status
@@ -953,11 +947,9 @@ Navigate to any page and check nav bar | Logged in users see welcome message wit
 Navigate to any page and check nav bar | Unauthenticated users see welcome message with register and sign in links | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-10a.png">
+<img src="docs/testing/test-user-story-10b.png">
+<img src="docs/testing/test-user-story-10c.png">
 </details>
 
 12. As a site user, I want contact form/email subscription prefilled with account info
@@ -967,11 +959,8 @@ Navigate to any page and check nav bar | Unauthenticated users see welcome messa
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/contact | Logged in users see username field of form prepopulated | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-12.png">
+
 </details>
 
 13. As a site user, I want to be able to search through the recipes, categories and articles
@@ -981,11 +970,10 @@ Navigate to https://ci-pp4-recipe-site.herokuapp.com/contact | Logged in users s
 Click on search bar in navbar and enter search term | Search results are displayed on resulting page | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-13a.png">
+<img src="docs/testing/test-user-story-13b.png">
+<img src="docs/testing/test-user-story-13c.png">
+<img src="docs/testing/test-user-story-13d.png">
 </details>
 
 ### Site admin
@@ -996,25 +984,28 @@ Click on search bar in navbar and enter search term | Search results are display
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
 Click on Recipe add + button | Recipe add form is presented to user in backend | Works as expected |
 Fill out form with relevant details and click save | New recipe is added to database | Works as expected |
-
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/recipes logged in as superuser | Add recipe button is displayed above recipe list | Works as expected |
 Click on Recipe add + button | Recipe add form is presented to user in frontend | Works as expected |
 Fill out form with relevant details and click save | New recipe is added to database | Works as expected |
-
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
 Click on Article add + button | Article add form is presented to user in backend | Works as expected |
 Fill out form with relevant details and click save | New article is added to database | Works as expected |
-
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/articles logged in as superuser | Add article button is displayed above article list | Works as expected |
 Click on Article add + button | Article add form is presented to user in frontend | Works as expected |
 Fill out form with relevant details and click save | New article is added to database | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-14a.png">
+<img src="docs/testing/test-user-story-14b.png">
+<img src="docs/testing/test-user-story-14c.png">
+<img src="docs/testing/test-user-story-14d.png">
+<img src="docs/testing/test-user-story-14e.png">
+<img src="docs/testing/test-user-story-14f.png">
+<img src="docs/testing/test-user-story-14g.png">
+<img src="docs/testing/test-user-story-14h.png">
+<img src="docs/testing/test-user-story-14i.png">
+<img src="docs/testing/test-user-story-14j.png">
+<img src="docs/testing/test-user-story-14k.png">
 </details>
 
 15. As a site admin, I can approve or disapprove comments so that I can filter out objectionable comments
@@ -1026,66 +1017,58 @@ Click on Comments table | A list of all comments is displayed | Works as expecte
 Select the commetns for approval from list and approve | Approved comments are displayed on the front end of the website | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-15a.png">
+<img src="docs/testing/test-user-story-15b.png">
+
 </details>
 
-15. As a site admin, I can create, read, update and delete categories to organise site content
+16. As a site admin, I can create, read, update and delete categories to organise site content
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
 Click on Category add + button | Category add form is presented to user in backend | Works as expected |
 Fill out form with relevant details and click save | New category is added to database | Works as expected |
-
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/categories logged in as superuser | Add category button is displayed above category list | Works as expected |
 Click on Category add + button | Category add form is presented to user in frontend | Works as expected |
 Fill out form with relevant details and click save | New category is added to database | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-16a.png">
+<img src="docs/testing/test-user-story-16b.png">
+<img src="docs/testing/test-user-story-16c.png">
+<img src="docs/testing/test-user-story-16d.png">
 </details>
 
-16. As a site admin, I can choose which recipes are featured on the home page
+17. As a site admin, I can choose which recipes are featured on the home page
 
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin logged in as superuser | Admin dashboard is displayed | Works as expected |
 Choose your recipe from the Recipes table | Recipe edit form is presented to user in backend | Works as expected |
 Select the featured recipe checkbox and click save | New recipe is appearing on the home page carousel | Works as expected |
-
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/recipes logged in as superuser | Add recipe button is displayed above recipe list | Works as expected |
 Choose your recipe from the Recipes table | Recipe edit form is presented to user in frontend | Works as expected |
 Select the featured recipe checkbox and click save | New recipe is appearing on the home page carousel | Works as expected |
 
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-16e.png">
+<img src="docs/testing/test-user-story-16f.png">
+
 </details>
 
-17. As a site admin, I want to be able to log into admin dashboard to edit recipes/categories/comments
+18. As a site admin, I want to be able to log into admin dashboard to edit recipes/categories/comments
 
 Navigate to https://ci-pp4-recipe-site.herokuapp.com/admin | Admin sign in form is displayed | Works as expected |
 Once logged in Recipes, Categories and articles tables are available | App tables are displayed | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-17a.png">
+<img src="docs/testing/test-user-story-17b.png">
+<img src="docs/testing/test-user-story-17c.png">
+
 </details>
 
-18. As a site admin, I want edit forms prefilled with relevant info
+19. As a site admin, I want edit forms prefilled with relevant info
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
@@ -1097,26 +1080,20 @@ If logged in user is recipe author edit and delete buttons are available | Edit 
 Click on edit button | Recipe edit form is presented with data prefilled | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-18a.png">
+<img src="docs/testing/test-user-story-18b.png">
 </details>
 
 ### Site Owner
-19. As a site owner, I want to increase my social media presence
+20. As a site owner, I want to increase my social media presence
 
 **Step** | **Expected Result** | **Actual Result**
 ------------ | ------------ | ------------ |
 Navigate to the any page, scroll to bottom of page | Links bring user to social media page where they can follow restaurant | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-20.png">
+
 </details>
 
 21. As a site owner, I want data entry to be validated on sign-up page
@@ -1128,11 +1105,7 @@ Navigate to the any page, scroll to bottom of page | Links bring user to social 
 Type the wrong page in the www address | Reroute to a customised 404 page | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-21.png">
 </details>
 
 23. As a site owner, I want user to be able to contact me and provide their feedback
@@ -1141,11 +1114,8 @@ Type the wrong page in the www address | Reroute to a customised 404 page | Work
 Navigate to the contact page, scroll down to contact form | Form allows user to make contact and provide feedback | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-stories-testing/user-story-02-a.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-b.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-c.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-e.jpg">
-<img src="docs/testing/user-stories-testing/user-story-02-f.jpg">
+<img src="docs/testing/test-user-story-23.png">
+
 </details>
 
 ### Automated testing

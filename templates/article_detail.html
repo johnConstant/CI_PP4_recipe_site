@@ -6,7 +6,7 @@
     {% if "placeholder" in article.featured_image.url %}
     <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
     {% else %}
-    <img src="{{ article.featured_image.url }}" width="100%">
+    <img src="{{ article.featured_image.url }}" alt="an incrdible article about {{ article.title }}" width="100%">
     {% endif %}
     <h1>{{ article.title }}</h1>
     <div class="ribbon">
