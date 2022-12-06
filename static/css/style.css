@@ -1076,13 +1076,7 @@ input::file-selector-button {
 }
 
 #error h1 {
-    background-image: url('../images/error2.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-clip: text;
-    color: transparent;
-    -webkit-background-clip: text;
+    color: var(--primary-colour);
     margin-bottom: 5rem;
 }
 
