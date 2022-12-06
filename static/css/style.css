@@ -1067,6 +1067,30 @@ input::file-selector-button {
     transition: all 0.3s;
 }
 
+/* Error pages */
+
+#error {
+    height: 70vh;
+    text-align: center;
+    padding: 5rem;
+}
+
+#error h1 {
+    background-image: url('../images/error2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    margin-bottom: 5rem;
+}
+
+#error h1 span {
+    font-size: 25rem;
+    line-height: 85%;
+}
+
 /* Media Queries */
 
 @media (max-width: 960px) {
