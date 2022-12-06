@@ -22,9 +22,9 @@
                         <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
                             {% csrf_token %}
                             {% if liked %}
-                                <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="fa-solid fa-heart liked"></i></button>
+                                <button type="submit" name="recipe_id" value="{{ recipe.slug }}" class="btn-like"><i class="fa-solid fa-heart liked"></i></button>
                             {% else %}
-                                <button type="submit" name="recipe_id" value="{{recipe.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                <button type="submit" name="recipe_id" value="{{ recipe.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
                             {% endif %}
                             {% if recipe.number_of_likes == 0%}
                                 Be the first to like this recipe
@@ -62,7 +62,7 @@
                     <hr class="divider" />
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-sm-10 offset-sm-1 mt-1 mb-5 py-5 recipe-description">
                     {{ recipe.description }}
                     <div class="social-sharing mt-5 pt-5">
@@ -72,7 +72,7 @@
                     </div>
                     <hr class="divider" />
                 </div>
-            </div>
+            </div> -->
         {% if recipe.author.id == user.id %}
             <div class="row">
             <div class="btn-container">
@@ -148,7 +148,7 @@
                         {% for comment in comments %}
                         <div class="comments" style="padding: 10px;">
                             <p class="font-weight-bold">{{ comment.name }}
-                                <span class=" text-muted font-weight-normal">
+                                <span class="font-weight-normal">
                                     {{ comment.created_date }}
                                 </span> wrote:
                             </p>

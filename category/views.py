@@ -54,6 +54,12 @@ class CategoryAdd(View):
                 form.save()
                 messages.success(request, "Your category has been added.")
                 return redirect('categories')
+            else:
+                form = CategoryForm(request.POST, request.FILES)
+                context = {
+                    'form': form
+                }
+                return render(request, 'add_category.html', context)
         except Category.DoesNotExist:
             messages.error(request,
                            'An error occurred when adding your category.')

@@ -5,13 +5,13 @@ from django.urls import path
 urlpatterns = [
     path('', views.RecipeList.as_view(), name='recipes'),
     path(
-        'add/', views.RecipeCreate.as_view(), name='add_recipe'
+        'add/', views.AddRecipe.as_view(), name='add_recipe'
         ),
     path(
-        'edit/<slug:slug>', views.RecipeUpdate.as_view(), name='edit_recipe'
+        'edit/<slug:slug>', views.EditRecipe.as_view(), name='edit_recipe'
         ),
     path(
-        'delete/<int:id>',
+        'delete/<id>',
         views.RecipeDelete.as_view(),
         name='delete_recipe'
         ),
@@ -19,5 +19,4 @@ urlpatterns = [
     path(
         '<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'
         ),
-
 ]

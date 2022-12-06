@@ -1219,10 +1219,11 @@ The website was tested on the following devices:
 - Django all-auth [documentation](https://django-allauth.readthedocs.io/en/latest/index.html)
 - swapps Nested forms [tutorial](https://swapps.com/blog/working-with-nested-forms-with-django)
 - Django inline formsets [tutorial](https://www.letscodemore.com/blog/django-inline-formset-factory-with-examples/)
-- [inline_formsets](https://techincent.com/explained-django-inline-formset-factory-with-example/
-)
+- [inline_formsets](https://techincent.com/explained-django-inline-formset-factory-with-example/)
 - [WorkoutPlanner](https://github.com/aleksandracodes/CI_PP4_Workout_Planner/blob/main/README.md) by Aleksandracoodes
-
+- Instagram logo graident(https://stackoverflow.com/questions/37751375/instagram-new-logo-css-background)
+- Gradient text(https://css-tricks.com/snippets/css/gradient-text/)
+)
 ##### Back to [top](#table-of-contents)
 
 ## Acknowledgements
