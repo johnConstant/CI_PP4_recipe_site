@@ -136,7 +136,7 @@
         <a href="/categories/{{ category.slug }}">
           <div class="recent-img-container">
             {% if "placeholder" in article.featured_image.url %}
-            <img src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
+            <img alt="Check out the delicious recipes in our {{ category.title }} category" src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
             {% else %}
             <img src="{{ category.featured_image.url }}" alt="Check out the delicious recipes in our {{ category.title }} category">
             {% endif %}
@@ -151,7 +151,7 @@
     <div class="article-panel">
         <a href="/articles/{{ article.slug }}">
             {% if "placeholder" in article.featured_image.url %}
-            <img src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
+            <img  alt="{{ article.title }}" src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
             {% else %}
             <img src="{{ article.featured_image.url }}" alt="{{ article.title }}">
             {% endif %}
@@ -166,7 +166,8 @@
             </div>
         </a>
     </div>
-    {% endfor %}
+  {% endfor %}
+</section>
 <!-- </section>
   <section id="sign-up">
     <form>
@@ -194,4 +195,5 @@
       <button type="submit">Sign up</button>
     </form>
   </section> -->
+
 {%endblock%}
