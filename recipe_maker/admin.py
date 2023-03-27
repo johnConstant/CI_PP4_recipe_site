@@ -18,6 +18,7 @@ class RecipeAdmin(SummernoteModelAdmin):
 @admin.register(Ingredient)
 class IngredientAdmin(SummernoteModelAdmin):
     summernote_fields = ('notes')
+    list_display = ('amount', 'name', 'notes')
 
 
 @admin.register(Instruction)

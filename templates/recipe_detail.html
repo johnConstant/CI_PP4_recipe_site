@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Header Image-->
+<header class="header-image" >
+    {% if "placeholder" in recipe.featured_image.url %}
+    <img src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
+    {% else %}
+    <img src="{{ recipe.featured_image.url }}" alt="A delicious recipe for the perfect {{ recipe.title }}">
+    {% endif %}
+    <h1>{{ recipe.title }}</h1>
+</header>
+<section class="intro">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2 text-center p-5">
+            <div class="row">
+                <div class="col-sm-10 offset-sm-1 py-5 recipe-title">
+                    <h2 class="heading">{{ recipe.title }}</h2>
+                    <p class="sub-heading">{{ recipe.author }}</p>
+                    <strong>
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                                <button type="submit" name="recipe_id" value="{{ recipe.slug }}" class="btn-like"><i class="fa-solid fa-heart liked"></i></button>
+                            {% else %}
+                                <button type="submit" name="recipe_id" value="{{ recipe.slug }}" class="btn-like"><i class="far fa-heart"></i></button>
+                            {% endif %}
+                            {% if recipe.number_of_likes == 0%}
+                                Be the first to like this recipe
+                            {% elif recipe.number_of_likes == 1 %}
+                                {{ recipe.number_of_likes }} like
+                            {% else %}
+                                {{ recipe.number_of_likes }} likes
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <span class="text-secondary"><i class="far fa-heart"></i></span>
+                        {% endif %}
+                    <span class="text-secondary">{{ post.number_of_likes }} </span>
+                    </strong>
+                    <div class="row mt-5">
+                        <div class="col-sm-6 info">
+                            <i class="fa fa-utensils icons"></i> serves {{ recipe.servings }}
+                        </div>
+                        <div class="col-sm-6 info">
+                            <i class="fa-solid fa-gauge icons"></i> {{ recipe.difficulty }}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12 info">
+                            <i class="fa-regular fa-clock icons"></i> Prep time: {{ recipe.prep_time }}
+                            minutes
+                        </div>
+                    </div>
+                    <div class="row mt-5">    
+                        <div class="col-12 info">
+                            <i class="fa-regular fa-clock icons"></i> Cooking time: {{ recipe.cook_time }}
+                            minutes
+                        </div>
+                    </div>
+                    <hr class="divider" />
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-sm-10 offset-sm-1 mt-1 mb-5 py-5 recipe-description">
+                    {{ recipe.description }}
+                    <div class="social-sharing mt-5 pt-5">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        <i class="fa-brands fa-facebook facebook"></i>
+                        <i class="fa-brands fa-instagram instagram"></i>
+                    </div>
+                    <hr class="divider" />
+                </div>
+            </div> -->
+        {% if recipe.author.id == user.id %}
+            <div class="row">
+            <div class="btn-container">
+                <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ recipe.slug }}"
+                >Edit <i class="fa fa-pencil"></i></a>
+                        <!-- Delete confirmation modal -->
+                        <a href="#deleteModal" data-bs-toggle="modal" data-bs-target="#deleteModal" class="nav-link delete-btn btn btn-outline-danger p-4">
+                            Delete <i class="fa-regular fa-trash-can" aria-hidden="true"></i>
+                            <span class="sr-only">Delete plan</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Modal for deleting recipe -->
+                <div class="modal fade py-5" id="deleteModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form method="post" action="{% url 'delete_recipe' recipe.id %}">
+                                {% csrf_token %}
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Delete {{ recipe.title }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                <div class="modal-body py-4 d-flex justify-content-center">
+                                    Are you sure you want to delete this recipe?
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <button type="button" class="btn btn-secondary p-3" data-bs-dismiss="modal">Cancel <i class="fa-solid fa-xmark"></i></button>
+                                    <button type="submit" class="btn btn-danger p-3">Delete <i class="fa fa-trash"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        </div>
+    </div>
+</section>
+<div class="instructions container p-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="ingredients m-auto pb-5">
+                <ul>
+                    {% for ingredient in ingredients_list %}
+                    <li>{{ ingredient.amount }} {{ ingredient.name }}, {{ ingredient.notes }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            {% for instruction in instructions_list %}
+            <div class="step-number"><h2>{{ forloop.counter }}.</h2></div>
+            <div class="step-info">
+                {{ instruction.body }}
+            </div>
+            <hr class="divider" />
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<section class="comments container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="row">
+                {% if user.is_authenticated %}
+                <div class="col-md-7 mb-4  mt-3 ">
+                {% else %}
+                <div class="col-md-12 mb-4  mt-3 ">
+                {% endif %}
+                    <h3>Comments:</h3>
+                    <div class="card-body">
+                        {% for comment in comments %}
+                        <div class="comments" style="padding: 10px;">
+                            <p class="font-weight-bold">{{ comment.name }}
+                                <span class="font-weight-normal">
+                                    {{ comment.created_date }}
+                                </span> wrote:
+                            </p>
+                            {{ comment.body | linebreaks }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-5 card mb-4  mt-3 ">
+                    <div class="card-body">
+                        {% if commented %}
+                        <div class="alert alert-success" role="alert">
+                            Your comment is awaiting approval
+                        </div>
+                        {% else %}
+                        {% if user.is_authenticated %}
+        
+                        <h3>Leave a comment:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form method="post" class="comments" style="margin-top: 1.3em;">
+                            {{ comment_form }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                        </form>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

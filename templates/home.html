@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<header>
+  <div
+    id="carouselExampleCaptions"
+    class="carousel slide"
+    data-bs-ride="false"
+  >
+    <div class="carousel-inner">
+      {% for recipe in featured_recipes %}
+      {% if forloop.first %}
+      <div class="carousel-item active">
+      {% else %}
+        <div class="carousel-item">
+      {% endif %}
+          <a href="/recipes/{{ recipe.slug }}">
+            <img
+              src="{{ recipe.featured_image.url }}"
+              class="d-block w-100"
+              alt="{{ recipe.title }}"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h1>{{ recipe.title }}</h1>
+            </div>
+          </a> 
+        </div>
+      {% endfor %}
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
+      >
+        <span
+          class="carousel-control-prev-icon"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
+      >
+        <span
+          class="carousel-control-next-icon"
+          aria-hidden="true"
+        ></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</header>
+  <section class="intro container">
+    <div>
+      <h2 class="heading">Our ethos</h2>
+      <p>
+        We believe in putting out our very best recipes to help everyone enjoy the best food they can. Whether you are looking for a fast recipe perfect for those weeknights when you're in a hurry or something you can spend some time at on the weekend there's a recipe for you here.
+      </p>
+      <p>And to make things even easier for you we group our recipes into categories for inspration when you just don't know what you want!</p>
+    </div>
+    <img src="{% static 'images/homepage.png' %}" alt="fresh food" />
+  </section>
+  <section class="wrapper container">
+    <h3 class="heading">Most Popular recipes</h3>
+    <div class="top">
+        <div class="hero">
+            <a href="/recipes/{{ most_popular.0.slug }}">
+                <div class="ribbon">
+                    <span class="ribbon__content text-center"
+                        >Most Popular</span
+                    >
+                </div>
+                <img
+                    src="{{ most_popular.0.featured_image.url }}"
+                    alt="{{ most_popular.0.title }}"
+                >
+                <div class="hero-info">
+                    <h3>{{ most_popular.0.title }}</h3>
+                </div>
+            </a>
+        </div>
+        <div class="cta cta1">
+            <a href="/recipes/{{ most_popular.1.slug }}">
+                <div class="ribbon">
+                    <span class="ribbon__content text-center"
+                        >Most Popular</span
+                    >
+                </div>
+                <img
+                    src="{{ most_popular.1.featured_image.url }}"
+                    alt="{{ most_popular.1.title }}"
+                >
+                <div class="hero-info">
+                    <h3>{{ most_popular.1.title }}</h3>
+                </div>
+            </a>
+        </div>
+        <div class="cta cta2">
+            <a href="/recipes/{{ most_popular.2.slug }}">
+                <div class="ribbon">
+                    <span class="ribbon__content text-center"
+                        >Most Popular</span
+                    >
+                </div>
+                <img
+                    src="{{ most_popular.2.featured_image.url }}"
+                    alt="{{ most_popular.2.title }}"
+                >
+                <div class="hero-info">
+                    <h3>{{ most_popular.2.title }}</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<div class="heading-container container">
+<div class="row">
+  <div class="col-2 col-md-3">
+    <div class="divider"></div>
+  </div>
+  <div class="col-8 col-md-6 text-center">
+    <h3 class="heading">Categories</h3>
+  </div>
+  <div class="col-2 col-md-3">
+    <div class="divider"></div>
+  </div>
+</div>
+</div>
+<section class="most-recent container">
+  {% for category in most_recent %}
+    <div class="recent-recipe">
+        <a href="/categories/{{ category.slug }}">
+          <div class="recent-img-container">
+            {% if "placeholder" in article.featured_image.url %}
+            <img alt="Check out the delicious recipes in our {{ category.title }} category" src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
+            {% else %}
+            <img src="{{ category.featured_image.url }}" alt="Check out the delicious recipes in our {{ category.title }} category">
+            {% endif %}
+          </div>
+          <h3 class="sub-heading">{{ category.title }}</h3>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+<section class="articles">
+  {% for article in articles %}
+    <div class="article-panel">
+        <a href="/articles/{{ article.slug }}">
+            {% if "placeholder" in article.featured_image.url %}
+            <img  alt="{{ article.title }}" src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
+            {% else %}
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}">
+            {% endif %}
+            <div class="article-info">
+              <div class="article-topic">{{ article.topic }}</div>
+                <div class="article-info-inner">
+                    <h4 class="heading">{{ article.title }}</h4>
+                    <p>
+                        {{ article.excerpt }}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+  {% endfor %}
+</section>
+<!-- </section>
+  <section id="sign-up">
+    <form>
+      <h2 class="heading">Sign up</h2>
+      <p>
+        To stay up to date with all that's going on sign up to
+        our monthly newsletter
+      </p>
+      <label for="name" class="hidden-label">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Name"
+        required
+      />
+      <label for="email" class="hidden-label">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email Address"
+        required
+      />
+      <button type="submit">Sign up</button>
+    </form>
+  </section> -->
+
+{%endblock%}

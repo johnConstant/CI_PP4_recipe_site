@@ -2,29 +2,33 @@
 
 {% block content %}
 <!-- Header Image-->
-<header id="header-image" >
-    {% if "placeholder" in post.featured_image.url %}
-    <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg" width="100%">
-    {% else %}
-    <img src="{{ category.featured_image.url }}" width="100%">
-    {% endif %}
+<header class="header-image" >
+        {% if "placeholder" in category.featured_image.url %}
+        <img src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+        {% else %}
+        <img src="{{ category.featured_image.url }}" alt="A collection of {{ category.title }} all neatly organised in one place">
+        {% endif %}
     <h1>{{ category.title }}</h1>
 </header>
-<section class="cta container">
+<section class="cta container p-5">
  <div class="row">
-     <div class="col-12">
-         <h5 class="heading sub-heading">
+     <div class="col-sm-8 offset-sm-2">
+        <h2 class="text-center">{{ category.title }}</h2>
+        {% if category.description %}
+        <p class="text-center">{{ category.description }}</p>
+        {% else %}
+         <p class="sub-heading text-center my-5">
              We've got something for everyone from 15 minute meals to
              Sunday roasts, we've got recipes for everyone who wants
              to cook.
-         </h5>
-         <p class="text-center">{{ category.description }}</p>
+         </p>
+         {% endif %}
          {% if user.is_superuser %}
             <div class="btn-container">
                 <a class="nav-link btn btn-outline-warning p-4" href="../edit/{{ category.slug }}"
                 >Edit <i class="fa fa-pencil"></i></a>
                         <!-- Delete confirmation modal -->
-                        <a href="#deleteModal" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-outline-danger p-4">
+                        <a href="#deleteModal" data-bs-toggle="modal" data-bs-target="#deleteModal" class="delete-btn nav-link btn btn-outline-danger p-4">
                             Delete <i class="fa-regular fa-trash-can" aria-hidden="true"></i>
                             <span class="sr-only">Delete plan</span>
                         </a>
@@ -56,106 +60,52 @@
      </div>
  </div>
 </section>
-<section id="gallery">
- <div class="gallery-container">
+<section id="gallery" class="container">
+ <div class="card-container">
+    {% for recipe in recipes %}
      <div class="card">
+        <a href="/recipes/{{ recipe.slug }}">
          <div class="row">
              <div class="col-12">
-                 <!-- <img
-                     src="eggs.jpg"
-                     alt=""
+                 <img
+                     src="{{ recipe.featured_image.url }}"
+                     alt="{{ recipe.title }}"
                      class="card-image"
-                 /> -->
+                 />
              </div>
          </div>
          <div class="card-info mt-3">
              <div class="row">
                  <div class="recipe-title">
-                     <h4>Recipe Title</h4>
-                     <p>Author name</p>
+                     <h4>{{ recipe.title }}</h4>
+                     <p>{{ recipe.description }}</p>
                      <i class="fa-regular fa-heart heart mt-4"></i>
-                     123 likes
+                     {{ recipe.number_of_likes }} likes
                  </div>
              </div>
              <div class="row">
                  <div class="col-sm-6 p-3 info">
-                     <i class="fa-regular fa-clock icons"></i> 120
+                     <i class="fa-regular fa-clock icons"></i> {{ recipe.cook_time }}
                      minutes
                  </div>
                  <div class="col-sm-6 p-3 info">
-                     <i class="fa fa-utensils icons"></i> serves 4
+                     <i class="fa fa-utensils icons"></i> serves {{ recipe.servings }}
                  </div>
              </div>
          </div>
+        </a>
      </div>
-     <div class="card">
-        <div class="row">
-            <div class="col-12">
-                <!-- <img
-                    src="eggs.jpg"
-                    alt=""
-                    class="card-image"
-                /> -->
-            </div>
-        </div>
-        <div class="card-info mt-3">
-            <div class="row">
-                <div class="recipe-title">
-                    <h4>Recipe Title</h4>
-                    <p>Author name</p>
-                    <i class="fa-regular fa-heart heart mt-4"></i>
-                    123 likes
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 p-3 info">
-                    <i class="fa-regular fa-clock icons"></i> 120
-                    minutes
-                </div>
-                <div class="col-sm-6 p-3 info">
-                    <i class="fa fa-utensils icons"></i> serves 4
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="row">
-            <div class="col-12">
-                <!-- <img
-                    src="eggs.jpg"
-                    alt=""
-                    class="card-image"
-                /> -->
-            </div>
-        </div>
-        <div class="card-info mt-3">
-            <div class="row">
-                <div class="recipe-title">
-                    <h4>Recipe Title</h4>
-                    <p>Author name</p>
-                    <i class="fa-regular fa-heart heart mt-4"></i>
-                    123 likes
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 p-3 info">
-                    <i class="fa-regular fa-clock icons"></i> 120
-                    minutes
-                </div>
-                <div class="col-sm-6 p-3 info">
-                    <i class="fa fa-utensils icons"></i> serves 4
-                </div>
-            </div>
-        </div>
-    </div>
+     {% endfor %}
+     <div></div>
+     <div></div>
  </div>
 </section>
 <section class="cta container">
  <div class="row">
-     <div class="col-12">
-         <h5 class="sub-heading">
-             Can't find what you're looking for. Why not search by
-             <a href="#">category</a>
+     <div class="col-sm-8 offset-sm-2">
+         <h5 class="sub-heading text-center">
+             Not sure what you are looking for? Check out all of our
+             <a href="/recipes">recipes</a> for some inspiration
          </h5>
      </div>
  </div>

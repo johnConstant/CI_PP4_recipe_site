@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if user.is_superuser %}
+<section class="admin-block container my-5">
+    <p>As an admin, you have the ability to add new articles. Each article can have a title, description and featured image.</p>
+    <a href="/articles/add" class="btn btn-outline-success p-5">Add article <i class="fa fa-plus"></i></a>
+</section> 
+{% endif %}
+<section class="articles container">
+    {% for article in article_list %}
+    <div class="article-panel">
+        <a href="/articles/{{ article.slug }}">
+            {% if "placeholder" in article.featured_image.url %}
+            <img alt="{{ article.title }} article image" src="https://envato-shoebox-0.imgix.net/5877/b8eb-fffe-471b-9146-6f70fa2cf235/Pizza-3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=4df0f4a84d7eb8c41ae9dc69880e640cs">
+            {% else %}
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }} article image">
+            {% endif %}
+            <div class="article-info">
+              <div class="article-topic">{{ article.topic }}</div>
+                <div class="article-info-inner">
+                    <h4 class="heading">{{ article.title }}</h4>
+                    <p>
+                        {{ article.excerpt }}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{%endblock%}
