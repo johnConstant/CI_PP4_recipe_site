@@ -655,7 +655,7 @@ The W3C Markup Validation Service was used to validate the HTML of the website.
 </details>
 
 <details><summary>Category detail</summary>
-<img src="docs/validation/validation-html-category-detail.png">
+<img src="docs/validation/HTML_validation_category_detail.png">
 </details>
 
 <details><summary>Recipes</summary>
@@ -663,7 +663,7 @@ The W3C Markup Validation Service was used to validate the HTML of the website.
 </details>
 
 <details><summary>Recipes detail page</summary>
-<img src="docs/validation/validation-html-recipe-detail.png"> 
+<img src="docs/validation/HTML_validation_recipe_detail.png"> 
 </details>
 
 <details><summary>Login</summary>
@@ -691,7 +691,7 @@ The W3C Markup Validation Service was used to validate the HTML of the website.
 The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. When validating all website, it passes with no errors.
 
 <details><summary>Style.css</summary>
-<img src="docs/validation/validation-css.JPG">
+<img src="docs/validation/CSS_validation.png">
 </details>
 
 ### JavaScript Validation
