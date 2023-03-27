@@ -49,5 +49,4 @@ class SearchResults(View):
             'category_list': category_list,
             'article_list': article_list
         }
-        print(context)
         return render(request, 'search_results.html', context)
